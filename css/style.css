@@ -18,9 +18,7 @@ header {
   gap: 850px;
 }
 
-section{
-  text-align: center;
-}
+
 form input {  
   padding: 10px;
   border-radius: 25px;
@@ -33,20 +31,8 @@ form label{
   display: flex;
   
 }
-form{
-  margin: 0 auto;
-}
-button {
-  padding: 10px;
-  border-radius: 25px;
-  color: white;
-  height: 60px;
-  width: 100px;
-  border-radius: 10%;
-  background-color: orange;
-  font-size: 25px;
-  
-}
+
+
 h1 {
   text-align: center;
   color: orange;
@@ -56,12 +42,6 @@ h1 {
 
 
 
-input {
-  height: 40px;
-  width: 400px;
-  
-}
-
 
 button:hover{
 background-color: gold;
@@ -70,7 +50,6 @@ background-color: gold;
 footer {
   margin-bottom: 1vh;
   border-bottom: solid black 1px;
-  padding-top: 300px;
   text-align: center;
 }
 

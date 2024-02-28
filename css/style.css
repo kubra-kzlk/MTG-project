@@ -1,0 +1,82 @@
+* {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+body {
+
+}
+
+/*HEADER SECTION*/
+header {
+  border-bottom: solid black 1px;
+  margin-bottom: 1vh;
+  padding: 5px;
+  display: flex;
+  gap: 850px;
+}
+
+section{
+  text-align: center;
+}
+form input {  
+  padding: 10px;
+  border-radius: 25px;
+  display: flex;
+  background-color: lightgray;
+}
+form label{
+  color: darkgray;
+  padding-bottom: 10px;
+  display: flex;
+  
+}
+form{
+  margin: 0 auto;
+}
+button {
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  height: 60px;
+  width: 100px;
+  border-radius: 10%;
+  background-color: orange;
+  font-size: 25px;
+  
+}
+h1 {
+  text-align: center;
+  color: orange;
+  font-size: 50px;
+}
+
+
+
+
+input {
+  height: 40px;
+  width: 400px;
+  
+}
+
+
+button:hover{
+background-color: gold;
+}
+
+footer {
+  margin-bottom: 1vh;
+  border-bottom: solid black 1px;
+  padding-top: 300px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    gap: 150px;
+  }
+  
+}

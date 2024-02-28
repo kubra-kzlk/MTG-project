@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="nl-be">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/reset.css" />
+    <title>MTG</title>
     <link rel="stylesheet" href="css/style.css" />
-    <title>Login pagina</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/MTG_logo_2.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <a href="landingpage.html"
+        ><img src="assets/images/go-back-icon.png" width="50" height="50"
+      /></a>
+    </header>
+    <section >
+      <img
+        src="assets/images/MicrosoftTeams-image (1).png"
+        width="200"
+        height="200"
+      />
+      <h1>Login</h1>
+      <p>Sign in to continue</p>
+      <form action="#">
+        <label>NAME</label>
+        <input
+          type="text"
+          id="text"
+          name="fe-mail"
+          placeholder="e-mail"
+        /><br /><br />
+        <label>PASSWORD</label>
+        <input
+          type="text"
+          id="text"
+          name="fpassword"
+          placeholder="password"
+        /><br /><br />
+        <button onclick="">Log in</button>
+      </form>
+      <p>Not a member?</p>
+      <p><a href="registreer.html">Register here!</a></p>
+    </section>
+  </body>
+  <footer>
+    <p>&copy; Magic The Gathering</p>
+    <p>Kubra Kizilkilic, Ibtissam Bouchouari, Nestor Lenaerts</p>
+  </footer>
 </html>

@@ -4,6 +4,7 @@
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  
 }
 body {
 
@@ -23,10 +24,8 @@ form input {
   padding: 10px;
   border-radius: 25px;
   display: flex;
-  background-color: lightgray;
 }
 form label{
-  color: darkgray;
   padding-bottom: 10px;
   display: flex;
   
@@ -47,11 +46,6 @@ button:hover{
 background-color: gold;
 }
 
-footer {
-  margin-bottom: 1vh;
-  border-bottom: solid black 1px;
-  text-align: center;
-}
 
 @media only screen and (max-width: 600px) {
   header {

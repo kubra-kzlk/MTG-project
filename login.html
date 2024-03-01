@@ -30,34 +30,49 @@
         ><img src="assets/images/go-back-icon.png" width="50" height="50"
       /></a>
     </header>
-
+    <img
+      class="rounded mx-auto d-block"
+      src="assets/images/logo.png"
+      width="200"
+      height="200"
+    />
     <section
       class="p-3 bg-warning-subtle bg-opacity-10 border border-warning-subtle border-start-0 rounded-5"
     >
-      <img
-        class="rounded mx-auto d-block"
-        src="assets/images/MicrosoftTeams-image (1).png"
-        width="200"
-        height="200"
-      />
       <br />
       <h1 class="text-center">Login</h1>
-      <p class="text-center fs-2">Sign in to continue</p>
-      <form action="#" class="form-group">
-        <label for="formGroupExampleInput" class="form-label">NAME</label>
-        <input
-          type="text"
-          class="form-control"
-          id="formGroupExampleInput"
-          placeholder="E-mail"
-        /><br /><br />
-        <label for="formGroupExampleInput" class="form-label">PASSWORD</label>
-        <input
-          type="text"
-          class="form-control"
-          id="formGroupExampleInput"
-          placeholder="Password"
-        /><br /><br />
+      <p class="text-center fs-3 border-bottom border-warning">
+        Sign in to continue
+      </p>
+      <form action="#" class="form-group mb-3">
+        <label
+          for="colFormLabelSm"
+          class="d-grid gap-2 col-5 mx-auto col-form-label-sm"
+          >Email</label
+        >
+        <div class="d-grid gap-2 col-3 mx-auto col-sm-5">
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Username"
+          />
+        </div>
+        <br /><br />
+        <label
+          for="colFormLabelSm"
+          class="d-grid gap-2 col-5 mx-auto col-form-label-sm"
+          >Password</label
+        >
+        <div class="d-grid gap-2 col-3 mx-auto col-sm-5">
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Password"
+          />
+        </div>
+        <br /><br />
         <div class="d-grid gap-2 col-3 mx-auto">
           <button class="btn btn-warning btn-lg" onclick="" type="button">
             Log in
@@ -70,7 +85,7 @@
       </p>
     </section>
   </body>
-  <footer class="text-center">
+  <footer class="text-center blockquote-footer">
     <p class="fs-6">&copy; Magic The Gathering</p>
     <p class="fs-6">Kubra Kizilkilic, Ibtissam Bouchouari, Nestor Lenaerts</p>
   </footer>

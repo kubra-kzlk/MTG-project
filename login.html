@@ -26,34 +26,34 @@
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0">
     <header>
-      <a href="landingpage.html"
-        ><img src="assets/images/go-back-icon.png" width="50" height="50"
-      /></a>
+      <ul class="nav">
+        <a href="landingpage.html" class="nav-link" aria-current="page"
+          ><img src="assets/images/go-back-icon.png" width="50" height="50"
+        /></a>
+        <a class="nav-link"></a>
+      </ul>
     </header>
-    <img
-      class="rounded mx-auto d-block"
-      src="assets/images/logo.png"
-      width="200"
-      height="200"
-    />
-    <section
-      class="p-3 bg-warning-subtle bg-opacity-10 border border-warning-subtle border-start-0 rounded-5"
-    >
+
+    <section class="pb-5 bg-warning-subtle border-warning-subtle rounded-5">
       <br />
       <h1 class="text-center">Login</h1>
-      <p class="text-center fs-3 border-bottom border-warning">
-        Sign in to continue
-      </p>
-      <form action="#" class="form-group mb-3">
+      <img
+        class="rounded mx-auto d-block"
+        src="assets/images/logo.png"
+        width="200"
+        height="200"
+      />
+
+      <form action="#" class="px-4 py-3">
         <label
           for="colFormLabelSm"
-          class="d-grid gap-2 col-5 mx-auto col-form-label-sm"
+          class="d-grid gap-2 col-sm-5 mx-auto col-form-label-lg"
           >Email</label
         >
-        <div class="d-grid gap-2 col-3 mx-auto col-sm-5">
+        <div class="col-sm-5 mx-auto col-sm-5">
           <input
-            type="text"
-            class="form-control"
+            type="email"
+            class="form-control form-control-lg"
             id="formGroupExampleInput"
             placeholder="Username"
           />
@@ -61,13 +61,13 @@
         <br /><br />
         <label
           for="colFormLabelSm"
-          class="d-grid gap-2 col-5 mx-auto col-form-label-sm"
+          class="d-grid gap-2 col-sm-5 mx-auto col-form-label-lg"
           >Password</label
         >
-        <div class="d-grid gap-2 col-3 mx-auto col-sm-5">
+        <div class="col-sm-5 mx-auto col-sm-5">
           <input
             type="text"
-            class="form-control"
+            class="form-control form-control-lg"
             id="formGroupExampleInput"
             placeholder="Password"
           />

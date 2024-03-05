@@ -53,6 +53,13 @@ button:hover {
   height: 27.5vh;
   box-shadow: 0 0 2px 3px black;
   filter: grayscale(80%);
+  text-decoration: none;
+  color: white;
+  font-size: xx-large;
+
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
 }
 .block_landing:hover {
   transform: scale(1.1);

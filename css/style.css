@@ -8,29 +8,3 @@
 body {
 }
 
-/*HEADER SECTION*/
-header {
-  margin-bottom: 1vh;
-  padding: 5px;
-  display: flex;
-  gap: 850px;
-}
-
-form input {
-  padding: 10px;
-  border-radius: 25px;
-  display: flex;
-}
-form label {
-  padding-bottom: 10px;
-  display: flex;
-}
-
-h1 {
-  color: orange;
-  font-size: 50px;
-}
-
-button:hover {
-  background-color: gold;
-}

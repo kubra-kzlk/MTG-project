@@ -7,6 +7,7 @@
 }
 body {
   max-width: 100vw;
+  background-color: #191b21;
 }
 
 /*HEADER SECTION*/
@@ -71,4 +72,80 @@ button:hover {
     width: 90%;
     height: 180px;
   }
+}
+
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #191b21;
+  border: 2px solid #21232b;
+  border-radius: 10px;
+}
+.container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.registration {
+  background-color: #21232b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 24px);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #282c34;
+  color: #fff;
+}
+
+button[type="submit"] {
+  background-color: goldenrod;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline
 }

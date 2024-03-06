@@ -74,6 +74,7 @@ button:hover {
   }
 }
 
+
 .container {
   max-width: 500px;
   margin: 0 auto;
@@ -146,5 +147,5 @@ button[type="submit"]:hover {
 }
 
 .login-link a:hover {
-  text-decoration: underline;
+  text-decoration: underline
 }

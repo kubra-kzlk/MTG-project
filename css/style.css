@@ -6,37 +6,160 @@
   font-variation-settings: "wdth" 100;
 }
 body {
+  max-height: 100%;
   max-width: 100vw;
   background-color: #191b21;
 }
+header {
+  background-color: #ddd;
+  padding: 10px;
+  display: flex; /* Arrange elements horizontally */
+  justify-content: space-between; /* Center navigation and button */
+  align-items: center; /* Align vertically */
+}
 
+main{
+  max-width: 100%;
+}
+.main_deckcheck{ display: none; }
+.main_drawtest{ display: none; }
+
+
+/*MAIN HOME NAV*/
 /*HEADER SECTION*/
 header {
   margin-bottom: 1vh;
   padding: 5px;
-  display: flex;
-  gap: 850px;
+  display: flex; 
+  margin: auto;
+}
+.nav_test a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+.nav_test a.active {
+  background-color: #eee; 
 }
 
-form input {
-  padding: 10px;
-  border-radius: 25px;
-  display: flex;
-}
-form label {
-  padding-bottom: 10px;
-  display: flex;
-}
-
-h1 {
-  color: orange;
-  font-size: 50px;
+.logout-btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: gold;
+
+/*MAIN HOME SEARCH SECTION*/
+.search_balk_section{
+ display: flex;
+ justify-content: end;
+}
+.searchbalk{
+  height: 5vh;
+  width: 35vw;
+}
+.search-btn{
+  height: 5.6vh;
 }
 
+
+/*MAIN HOME CARDS*/
+
+.main_page_cards{
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5,1fr);
+  justify-content: center;
+  gap: 50px;
+  margin: 50px;
+}
+.main_page_cards img{
+  height: 100% ;
+  width: 100%;
+}
+
+
+
+.modal-overview {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 52vh;
+  width: 55vw;
+  background-color: white;
+  border: #333 solid 2px;
+  border-radius: 2em;
+  overflow: auto;
+  padding: 20px;
+}
+.image-modal img{
+  height: 45vh; padding: 20px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .block_landing {
+    width: 90%;
+    height: 180px;
+  }
+  /*SEARCH BALK MAIN */
+  .search_balk_section{
+    justify-content: center;
+  }
+  
+  .searchbalk{
+    height: 4.9vh;
+    width: 50vw;
+  }
+  .main_page_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .main_page_cards img{
+    height: 400px;
+    width: 300px;
+  }
+
+  .modal-overview {
+    height: 52vh;
+    width: 55vw;
+  }
+  .image-modal img{
+   height: 200px;
+   width: 200px; 
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main_page_cards{
+    background-color: #333;
+  }
+
+
+}
 /*LANDING PAGE GEDEELTE*/
 .landingpage_container {
   display: flex;
@@ -67,6 +190,7 @@ button:hover {
   filter: grayscale(0%);
   box-shadow: 0 0 2px 3px gold;
 }
+
 @media only screen and (max-width: 600px) {
   .block_landing {
     width: 90%;

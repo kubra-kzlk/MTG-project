@@ -8,7 +8,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #191b21; /* Achtergrondkleur van de body */
+  background-color: black; /* Achtergrondkleur van de body */
+
   position: relative;
   padding-top: 90px; /* Ruimte boven de inhoud voor de header en het witte scheidingseffect */
 }
@@ -18,26 +19,12 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px; /* Hoogte van de header */
+  height: 80px; /* Hoogte van de header */
   background-color: #191b21; /* Achtergrondkleur van de header */
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.8); /* Wittere schaduw */
+  box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8); /* Paarse schaduw */
   z-index: 2; /* Zorg ervoor dat de header bovenop de content ligt */
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 70px; /* Hoogte van de header */
-  left: 0;
-  width: 100%;
-  height: 20px; /* Hoogte van het witte scheidingseffect */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  ); /* Verloop van wit naar transparant */
-  z-index: 1; /* Zorg ervoor dat het witte scheidingseffect onder de header en bovenop de content ligt */
-}
 form input {
   padding: 10px;
   border-radius: 25px;
@@ -57,26 +44,52 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  row-gap: 30px;
-  text-align: center;
-  margin-top: 100px; /* Ruimte boven de inhoud voor de header */
-  padding-top: 20px; /* Ruimte boven de inhoud voor het witte scheidingseffect */
+  align-items: center;
+  min-height: 100vh; /* Minimale hoogte van 100% van de viewport */
 }
 
 .block_landing {
   position: relative;
-  width: 40%; /* Aangepaste breedte */
-  height: 20vh; /* Aangepaste hoogte */
-  box-shadow: 0 0 2px 3px black;
+  width: 45%;
+  height: 30vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); /* Standaard 3D-effect */
   overflow: hidden;
-  border-radius: 20px; /* Aangepaste border-radius */
-  margin-bottom: 10px;
+  border-radius: 20px;
+  margin: 10px;
+  transition: box-shadow 0.3s ease;
+}.landingpage_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh; /* Minimale hoogte van 100% van de viewport */
+}
+
+/* Voeg animatie toe aan de kaders */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%); /* Startpositie boven het scherm */
+  }
+  100% {
+    transform: translateY(0); /* Eindpositie op de normale positie */
+  }
+}
+
+.block_landing {
+  position: relative;
+  width: 45%;
+  height: 30vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); /* Standaard 3D-effect */
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 10px;
+  animation: slideIn 0.5s ease-in-out; /* Voeg de animatie toe */
 }
 
 .block_landing img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   transition: filter 0.3s ease;
 }
 
@@ -98,28 +111,59 @@ h1 {
   opacity: 1;
 }
 
+/* Hover effecten voor specifieke elementen */
+
 .block_landing.fifa:hover::before {
-  background-image: url(../assets/images/fifaverbodentoegang.jpg);
+  background-image: url(../assets/images/fifaverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; /
 }
 
 .block_landing.lego:hover::before {
-  background-image: url(../assets/images/legomasterverbodentoegang.jpg);
+  background-image: url(../assets/images/legomasterverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; 
 }
 
 .block_landing.pokemon:hover::before {
-  background-image: url(../assets/images/pokemonverbodentoegang.jpg);
-}
+  background-image: url(../assets/images/pokemonverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; }
 
 .block_landing.fortnite:hover::before {
-  background-image: url(../assets/images/fortniteverbodentoegang.jpg);
+  background-image: url(../assets/images/fortniteverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; 
 }
 
 .block_landing.lotr:hover::before {
-  background-image: url(../assets/images/lotrverbodentoegang.jpg);
+  background-image: url(../assets/images/lotrverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; /
 }
 
+/* 3D-effecten voor specifieke elementen */
+.block_landing.mtg {
+  box-shadow: 0 20px 40px rgba(125, 201, 201, 0.8); /* Appelblauwzeegroen 3D-effect */
+}
+
+.block_landing.fifa {
+  box-shadow: 0 20px 40px rgba(0, 0, 128, 0.8); /* Donkerblauw 3D-effect */
+}
+
+.block_landing.lego {
+  box-shadow: 0 20px 40px rgba(255, 255, 0, 0.8); /* Geel 3D-effect */
+}
+
+.block_landing.pokemon {
+  box-shadow: 0 20px 40px rgba(255, 255, 128, 0.8); /* Lichtere geel 3D-effect */
+}
+
+.block_landing.fortnite {
+  box-shadow: 0 20px 40px rgba(173, 216, 230, 0.8); /* Lichtblauw 3D-effect */
+}
+
+.block_landing.lotr {
+  box-shadow: 0 20px 40px rgba(174, 99, 8, 0.8); /* Zwarte schaduw */
+}
 .block_landing.mtg:hover {
-  border: 4px solid green;
+  border: 6px solid rgba(0, 255, 0, 1); /* Groene rand */
+  box-shadow: 0 0 10px 4px rgba(0, 255, 0, 0.5); /* Groene schaduw */
 }
 
 .block_landing.fifa:hover,
@@ -127,7 +171,8 @@ h1 {
 .block_landing.pokemon:hover,
 .block_landing.fortnite:hover,
 .block_landing.lotr:hover {
-  border: 4px solid red;
+  border: 6px solid rgba(255, 0, 0, 1); /* Rode rand */
+  box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.5); /* Rode schaduw */
 }
 @media only screen and (max-width: 600px) {
   .block_landing {
@@ -135,7 +180,6 @@ h1 {
     height: 180px;
   }
 }
-
 .container {
   max-width: 500px;
   margin: 0 auto;

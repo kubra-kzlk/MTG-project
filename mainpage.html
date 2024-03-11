@@ -7,5 +7,116 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Mainpagina</title>
   </head>
-  <body></body>
+  <body>
+    <header class="main_heading">
+      <nav class="nav_test">
+        <a href="#home" class="active">Home</a>
+        <a href="#deckcheck">Decks</a>
+        <a href="#contact">DrawTest</a>
+        
+      </nav>
+      <button class="logout-btn">Uitloggen</button>
+    </header>
+    <hr>
+    <main id="home" class="main_Home">
+      <section class="search_balk_section">
+        <input class="searchbalk" type="text" placeholder="Zoeken...">
+        <button class="search-btn" >Zoeken</button>
+      </section>
+      <section class="main_page_cards">
+
+        <div class="card-container">
+          <img class="card-image" src="assets/images/Test.jpg" alt="test">
+        </div>
+
+        <div class="card-container">
+          <img class="card-image" src="assets/images/Test 2.jpg" alt="test">
+        </div>
+        <img class="card-image" src="assets/images/Test 3.jpg" alt="test">
+        <img src="assets/images/Test 4.jpg" alt="test">
+        <img src="assets/images/Test 5.jpg" alt="test">
+        <img src="assets/images/Test 6.jpg" alt="test">
+        <img src="assets/images/Test 7.jpg" alt="test">
+        <img src="assets/images/Test 8.jpg" alt="test">
+        <img src="assets/images/Test 9.jpg" alt="test">
+        <img src="assets/images/Test 10.jpg" alt="test">
+      </section>
+
+      <div id="myModal" class="modal-overview">
+        <div class="modal-content" style="display: flex;  justify-content: space-between;" >
+          <div class="image-modal">
+            <img src="assets/images/Test.jpg" alt="testen" >
+          </div>
+            <section class="information">
+              <span class="close" style="padding: 5px;">&times;</span>
+              <h1 style="font-size: xx-large; font-weight: 900; text-align: center; padding-bottom: 20px; padding-top: 20px;">card name</h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit totam aliquam earum, ipsa harum, soluta deserunt eveniet nisi reiciendis expedita dignissimos beatae consectetur labore praesentium unde. Fuga hic maxime suscipit?</p>
+              <br>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit totam aliquam earum, ipsa harum, soluta deserunt eveniet nisi reiciendis expedita dignissimos beatae consectetur labore praesentium unde. Fuga hic maxime suscipit?</p>
+              
+              <h3 style="text-align: center; font-weight: 900; font-size: medium; padding: 20px;">deze kaart staat nog niet in een Deck, voeg die toe !</h3>
+              <div class="add-modal-part" style="display: flex; justify-content: space-around; margin-top: 5%;">
+                  <select name="decks" id="decks" style="height: 50px; width: 100px;">
+                      <option value="deck-1">Deck 1</option>
+                      <option value="deck-2">Deck 2</option>
+                      <option value="deck-3">Deck 3</option>
+                      <option value="deck-4">Deck 4</option>
+                  </select>
+                  <button  class="addtodeck" >ADD TO DECK</button>
+              </div>
+            </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Main decker -->
+    <main id="deckcheck" class="main_deckcheck">
+
+    </main>
+
+    <!--Main +Draw-->
+    <main id="drawtest" class="main_drawtest">
+
+    </main>
+
+    <script>
+      
+       const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('href').slice(1); 
+                const targetMain = document.getElementById(targetId);
+                document.querySelectorAll('main').forEach(m => m.style.display = 'none');
+                targetMain.style.display = 'block';
+            });
+        });
+      
+      var modal = document.getElementById("myModal");
+      var img = document.getElementsByClassName("card-image")[0];
+      var span = document.getElementsByClassName("close")[0];
+      
+      img.onclick = function() {
+      modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+      modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      }
+
+
+
+
+
+
+
+    </script>
+  </body>
 </html>

@@ -6,6 +6,11 @@
   font-variation-settings: "wdth" 100;
 }
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black; /* Achtergrondkleur van de body */
+  position: relative;
+  padding-top: 90px; /* Ruimte boven de inhoud voor de header en het witte scheidingseffect */
   max-height: 100%;
   max-width: 100vw;
   background-color: #191b21;
@@ -25,14 +30,17 @@ main{
 .main_drawtest{ display: none; }
 
 
-/*MAIN HOME NAV*/
-/*HEADER SECTION*/
 header {
-  margin-bottom: 1vh;
-  padding: 5px;
-  display: flex; 
-  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Hoogte van de header */
+  background-color: black; /* Achtergrondkleur van de header */
+  box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8); /* Paarse schaduw */
+  z-index: 2; /* Zorg ervoor dat de header bovenop de content ligt */
 }
+
 .nav_test a {
   color: #333;
   text-decoration: none;
@@ -42,6 +50,7 @@ header {
 }
 .nav_test a.active {
   background-color: #eee; 
+
 }
 
 .logout-btn {
@@ -85,6 +94,28 @@ header {
 }
 
 
+
+
+.landingpage_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh; /* Minimale hoogte van 100% van de viewport */
+}
+
+.block_landing {
+  position: relative;
+  width: 40%;
+  height: 25vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
 
 .modal-overview {
   display: none;
@@ -160,35 +191,156 @@ header {
 
 
 }
-/*LANDING PAGE GEDEELTE*/
-.landingpage_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  row-gap: 30px;
-  text-align: center;
-  margin-top: 2vh;
+
+/* Voeg animatie toe aan de kaders */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Voeg een vertraging toe voor elk volgend blok */
+.block_landing:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.block_landing:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.block_landing:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.block_landing:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.block_landing:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.block_landing:nth-child(6) {
+  animation-delay: 0.5s;
 }
 .block_landing {
+  position: relative;
+  width: 40%; /* Aangepaste breedte */
+  height: 25vh; /* Aangepaste hoogte */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); /* Standaard 3D-effect */
+  overflow: hidden;
+  border-radius: 10px; /* Aangepaste border-radius */
+  margin: 1px; /* Aangepaste marge */
+  transition: box-shadow 0.3s ease;
+}
+
+.block_landing p {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-family: "Arial", sans-serif; /* Kies een passend lettertype */
+  font-size: 3.5rem; /* Kies een passende lettergrootte */
+  color: rgba(255, 255, 255, 0.9); /* Kies een passende tekstkleur */
+  text-shadow: 10px 8px 4px rgba(0, 0, 0, 0.8); /* Voeg een schaduw toe voor betere leesbaarheid */
+  text-align: center; /* Centreer de tekst */
+  padding: 5px 10px; /* Voeg wat ruimte toe rondom de tekst */
+}
+
+
+
+.block_landing img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transition: filter 0.3s ease;
+}
+
+.block_landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 30px;
-  width: 45%;
-  height: 27.5vh;
-  box-shadow: 0 0 2px 3px black;
-  filter: grayscale(80%);
-  text-decoration: none;
-  color: white;
-  font-size: xx-large;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
-.block_landing:hover {
-  transform: scale(1.1);
-  filter: grayscale(0%);
-  box-shadow: 0 0 2px 3px gold;
+
+.block_landing:hover::before {
+  opacity: 1;
+}
+
+/* Hover effecten voor specifieke elementen */
+
+.block_landing.fifa:hover::before {
+  background-image: url(../assets/images/fifaverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; /
+}
+
+.block_landing.lego:hover::before {
+  background-image: url(../assets/images/legomasterverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; 
+}
+
+.block_landing.pokemon:hover::before {
+  background-image: url(../assets/images/pokemonverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; }
+
+.block_landing.fortnite:hover::before {
+  background-image: url(../assets/images/fortniteverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; 
+}
+
+.block_landing.lotr:hover::before {
+  background-image: url(../assets/images/lotrverbodentoegang.jpg); /* Vervang door gewenste afbeelding */
+  background-size: 100% 100%; /
+}
+
+/* 3D-effecten voor specifieke elementen */
+.block_landing.mtg {
+  box-shadow: 0 20px 40px rgba(125, 201, 201, 0.8); /* Appelblauwzeegroen 3D-effect */
+}
+
+.block_landing.fifa {
+  box-shadow: 0 20px 40px rgba(0, 0, 128, 0.8); /* Donkerblauw 3D-effect */
+}
+
+.block_landing.lego {
+  box-shadow: 0 20px 40px rgba(255, 255, 0, 0.8); /* Geel 3D-effect */
+}
+
+.block_landing.pokemon {
+  box-shadow: 0 20px 40px rgba(255, 255, 128, 0.8); /* Lichtere geel 3D-effect */
+}
+
+.block_landing.fortnite {
+  box-shadow: 0 20px 40px rgba(173, 216, 230, 0.8); /* Lichtblauw 3D-effect */
+}
+
+.block_landing.lotr {
+  box-shadow: 0 20px 40px rgba(174, 99, 8, 0.8); /* Zwarte schaduw */
+}
+.block_landing.mtg:hover {
+  border: 6px solid rgba(0, 255, 0, 1); /* Groene rand */
+  box-shadow: 0 0 10px 4px rgba(0, 255, 0, 0.5); /* Groene schaduw */
+}
+
+.block_landing.fifa:hover,
+.block_landing.lego:hover,
+.block_landing.pokemon:hover,
+.block_landing.fortnite:hover,
+.block_landing.lotr:hover {
+  border: 6px solid rgba(255, 0, 0, 1); /* Rode rand */
+  box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.5); /* Rode schaduw */
 }
 
 @media only screen and (max-width: 600px) {
@@ -198,14 +350,12 @@ header {
   }
 }
 
-
 .container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #191b21;
-  border: 2px solid #21232b;
-  border-radius: 10px;
+  background-color: black;
+
 }
 .container img {
   display: block;
@@ -216,9 +366,8 @@ header {
   margin-bottom: 20px;
 }
 .registration {
-  background-color: #21232b;
+  background-color: black;
   padding: 20px;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -235,13 +384,16 @@ label {
 input[type="email"],
 input[type="password"] {
   width: calc(100% - 24px);
-  padding: 10px;
+  padding: 15px; /* Aangepaste padding */
   margin-top: 10px;
   border-radius: 4px;
   border: none;
   background-color: #282c34;
   color: #fff;
+  height: 30px; /* Aangepaste hoogte */
 }
+
+
 
 button[type="submit"] {
   background-color: goldenrod;

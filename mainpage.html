@@ -5,115 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Mainpagina</title>
   </head>
   <body>
-    <header class="main-page-header">
-      <div class="logo-header"> HIER  EEN LOGO </div> <!--LOGO IN HIER ZETTEN-->
-      <nav class="nav-items">
-        <a href="#home" class="active">Home</a>
-        <a href="#deckcheck">Decks</a>
-        <a href="#contact">DrawTest</a>
-      </nav>
-      <div class="nav-container"><button class="logout-btn">Uitloggen</button></div>
+    <header>
+      <nav>
+        <div class="nav-placeholder"></div>
+        <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="deckpage.html">Deck</a></li>
+            <li><a href="#">+Draw</a></li>
+        </ul>
+        <button class="header-btn">Button</button>
+    </nav>
+    
     </header>
+    
+    <main>
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+        <section id="gallery1" class="image-gallery visible">
+          <div class="image"><img src="./assets/images/Test.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 2.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 3.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/test 4.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 5.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 6.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 7.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 8.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 9.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 10.jpg" alt="Image description"></div>
+        </section>
 
-    <main id="home" class="main_Home">
-      <section class="search_balk_section">
-        <input class="searchbalk" type="text" placeholder="Zoeken...">
-        <button class="search-btn" >Zoeken</button>
+        <section id="gallery2" class="image-gallery">
+          <div class="image"><img src="./assets/images/Test 10.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 11.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 3.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/test 4.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 5.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 6.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 7.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 8.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 9.jpg" alt="Image description"></div>
+          <div class="image"><img src="./assets/images/Test 10.jpg" alt="Image description"></div>
       </section>
-      <section class="main_page_cards">
 
-        <div class="card-container">
-          <img class="card-image" src="assets/images/Test.jpg" alt="test">
-        </div>
-        <img class="card-image" src="assets/images/Test 2.jpg" alt="test">
-        <img class="card-image" src="assets/images/Test 3.jpg" alt="test">
-        <img src="assets/images/Test 4.jpg" alt="test">
-        <img src="assets/images/Test 5.jpg" alt="test">
-        <img src="assets/images/Test 6.jpg" alt="test">
-        <img src="assets/images/Test 7.jpg" alt="test">
-        <img src="assets/images/Test 8.jpg" alt="test">
-        <img src="assets/images/Test 9.jpg" alt="test">
-        <img src="assets/images/Test 10.jpg" alt="test">
+        
+      <section id="gallery3" class="image-gallery">
+        <div class="image"><img src="./assets/images/Test 11.jpg" alt="Image description"></div>
       </section>
 
-      <div id="myModal" class="modal-overview">
-        <div class="modal-content" style="display: flex;  justify-content: space-between;" >
-          <div class="image-modal">
-            <img src="assets/images/Test.jpg" alt="testen" >
-          </div>
-            <section class="information">
-              <span class="close" style="padding: 5px;">&times;</span>
-              <h1 style="font-size: xx-large; font-weight: 900; text-align: center; padding-bottom: 20px; padding-top: 20px;">card name</h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit totam aliquam earum, ipsa harum, soluta deserunt eveniet nisi reiciendis expedita dignissimos beatae consectetur labore praesentium unde. Fuga hic maxime suscipit?</p>
-              <br>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit totam aliquam earum, ipsa harum, soluta deserunt eveniet nisi reiciendis expedita dignissimos beatae consectetur labore praesentium unde. Fuga hic maxime suscipit?</p>
-              
-              <h3 style="text-align: center; font-weight: 900; font-size: medium; padding: 20px;">deze kaart staat nog niet in een Deck, voeg die toe !</h3>
-              <div class="add-modal-part" style="display: flex; justify-content: space-around; margin-top: 5%;">
-                  <select name="decks" id="decks" style="height: 50px; width: 100px;">
-                      <option value="deck-1">Deck 1</option>
-                      <option value="deck-2">Deck 2</option>
-                      <option value="deck-3">Deck 3</option>
-                      <option value="deck-4">Deck 4</option>
-                  </select>
-                  <button  class="addtodeck" >ADD TO DECK</button>
-              </div>
-            </section>
-        </div>
+
+      <div class="pagination">
+        <button id="prevBtn" disabled>Previous</button>
+        <span id="page1" class="page-number active">1</span>
+        <span id="page2" class="page-number">2</span>
+        <span id="page3" class="page-number">3</span>
+        <button id="nextBtn">Next</button>
       </div>
     </main>
 
-    <!-- Main decker -->
-    <main id="deckcheck" class="main_deckcheck">
-
-    </main>
-
-    <!--Main +Draw-->
-    <main id="drawtest" class="main_drawtest">
-
-    </main>
-
-    <script>
-      
-       const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                const targetId = this.getAttribute('href').slice(1); 
-                const targetMain = document.getElementById(targetId);
-                document.querySelectorAll('main').forEach(m => m.style.display = 'none');
-                targetMain.style.display = 'block';
-            });
-        });
-      
-      var modal = document.getElementById("myModal");
-      var img = document.getElementsByClassName("card-image")[0];
-      var span = document.getElementsByClassName("close")[0];
-      
-      img.onclick = function() {
-      modal.style.display = "block";
-      }
-
-      span.onclick = function() {
-      modal.style.display = "none";
-      }
-      window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-      }
-
-
-
-
-
-
-
-    </script>
+    <section id="modal" class="modal">
+      <div class="modal-content">
+          <div class="modal-body">
+              <div class="image-modal">
+                  <img src="./assets/images/Test 11.jpg" alt="Image description">
+              </div>
+              <div class="modal-text">
+                  <h3>Card Name</h3>
+                  <p>Description of the card goes here...</p>
+                  <div class="modal-bottom">
+                      <select>
+                          <option>Deck name to add</option>
+                          <option>Deck 1</option>
+                          <option>Deck 2</option>
+                          <option>Deck 3</option>
+                          <option>Deck 4</option>
+                          <option>Deck 5</option>
+                          <option>Deck 6</option>
+                      </select>
+                      <button id="addToDeck">Toevoegen</button>
+                  </div>
+              </div>
+          </div>
+          <span class="close">&times;</span>
+      </div>
+    </section>
+    <script src="./js/script.js"></script>
   </body>
 </html>

@@ -40,9 +40,9 @@ document.querySelectorAll('.page-number').forEach(page => {
 
 /*MODAL GEDEELTE VAN MAIN PAGE*/
 document.addEventListener('DOMContentLoaded', function() {
-  var modal = document.getElementById("modal");
-  var img = document.querySelector("#gallery1 .image img"); 
-  var span = document.getElementsByClassName("close")[0];
+  let modal = document.getElementById("modal");
+  let img = document.querySelector("#gallery1 .image img"); 
+  let span = document.getElementsByClassName("close")[0];
 
   img.onclick = function() {
       modal.style.display = "block";

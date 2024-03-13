@@ -138,6 +138,7 @@ main{
 header {
   position: sticky;
   top: 0;
+  height: 10vh;
   z-index: 1000;
   background-color: #f5f5f5;
 }

@@ -22,6 +22,12 @@ header {
     height: 7vh;
     z-index: 1000;
 }
+footer {
+margin: 10px;  
+text-align: center;
+color: white;
+}
+
 
 main{
   height: 90vh;
@@ -133,10 +139,6 @@ main{
 .block_landing:nth-child(4) {animation-delay: 0.3s;}
 .block_landing:nth-child(5) {animation-delay: 0.4s;}
 .block_landing:nth-child(6) {animation-delay: 0.5s;}
-
-
-
-
 
 
 /*MAIN PAGE*/
@@ -502,6 +504,7 @@ select, #addToDeck {
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
 .registration {
   background-color: black;
   padding: 20px;
@@ -552,6 +555,7 @@ button[type="submit"]:hover {
 .login-link {
   text-align: center;
   margin-top: 20px;
+  color: white;
 }
 
 .login-link a {

@@ -7,7 +7,7 @@ function updateGallery() {
     document.getElementById(`gallery${currentPage}`).classList.add('visible');
     
     document.getElementById('prevBtn').disabled = currentPage === 1;
-    document.getElementById('nextBtn').disabled = currentPage === 3; // Assuming 3 is the last page
+    document.getElementById('nextBtn').disabled = currentPage === 3; 
 
     document.querySelectorAll('.page-number').forEach(page => {
         page.classList.remove('active');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   span.onclick = function() {
-      modal.style.display = "none";
+      modal.style.display = "none";``
   }
 
   window.onclick = function(event) {

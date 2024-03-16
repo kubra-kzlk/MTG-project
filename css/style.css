@@ -237,6 +237,7 @@ header nav ul li a {
   margin: 0.5em; 
   height: 320px; 
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .image img {
@@ -244,7 +245,51 @@ header nav ul li a {
   height: 100%;
   object-fit: fill; 
 }
+.image:hover {
+  transform: scale(1.05); 
+}
+.image img[src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"],
+[src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"],
+[src="./assets/images/animar-soul-of-elements-50772 (1).jpg"],
+[src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"],
+[src="./assets/images/razaketh-the-foulblooded-70322.jpg"],
+[src="./assets/images/morophon-the-boundless-26736.jpg"],
+[src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"],
+[src="./assets/images/the_ur_dragon.jpg"],
+[src="./assets/images/lord-of-the-nazgul-39803.jpg"]
 
+ {
+  border: 2px solid red;
+}
+.image img[src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"],
+[src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"],
+[src="./assets/images/the-gaffer-32110.jpg"],
+[src="./assets/images/arwen_weaver_of_hope.jpg"],
+[src="./assets/images/Test 8.jpg"],
+[src="./assets/images/Test 5.jpg"] {
+  border: 2px solid white;
+}
+.image img[src="./assets/images/mikaeus-the-unhallowed-42930.jpg"],
+[src="./assets/images/greensleeves_maro_sorcerer_dominaria_united_commander.jpg"],
+[src="./assets/images/urza-lord-protector-76778.jpg"],
+[src="./assets/images/Test 6.jpg"],
+[src="./assets/images/test 4.jpg"],
+[src="./assets/images/Test 3.jpg"]
+   {
+  border: 2px solid blue;
+}
+.image img[src="./assets/images/syr-konrad-the-grim-87113.jpg"],
+[src="./assets/images/mishra-claimed-by-gix-16597.jpg"],
+[src="./assets/images/sakashima-the-impostor-64139.jpg"],
+[src="./assets/images/mangara-the-diplomat-30594.jpg"],
+[src="./assets/images/marrow_gnawer_foil.jpg"],
+[src="./assets/images/questing-beast-throne-of-eldraine-11267.jpg"],
+[src="./assets/images/Test 10.jpg"],
+[src="./assets/images/Test 2.jpg"],
+[src="./assets/images/Test.jpg"]
+{
+  border: 2px solid yellow;
+}
 .pagination {
   display: flex;
   justify-content: center;
@@ -271,6 +316,26 @@ header nav ul li a {
   background-color: purple;
   color: white;
 }
+#backToTopBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: purple;
+  color: black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  z-index: 99;
+  text-decoration: none;
+}
+
+
+
+
 
 @media (max-width: 600px) {
   .block_landing {

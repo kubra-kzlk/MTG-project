@@ -17,6 +17,7 @@
           <li><a href="deckpage.html">Deck</a></li>
           <li><a href="#">+Draw</a></li>
         </ul>
+
         <a href="landingpage.html" class="header-btn">Uitloggen</a>
         <div class="search-box">
           <input type="text" placeholder="Search..." />
@@ -26,6 +27,11 @@
     </header>
 
     <main>
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <button>Search</button>
+      </div>
+
       <section id="gallery1" class="image-gallery visible">
         <div class="image">
           <img src="./assets/images/Test.jpg" alt="Image description" />
@@ -196,7 +202,7 @@
         <span id="page1" class="page-number active">1</span>
         <span id="page2" class="page-number">2</span>
         <span id="page3" class="page-number">3</span>
-        <button id="nextBtn">Next</button>
+        <button id="nextBtn">Volgende</button>
       </div>
     </main>
 
@@ -207,17 +213,20 @@
             <img src="./assets/images/Test 11.jpg" alt="Image description" />
           </div>
           <div class="modal-text">
-            <h3>Card Name</h3>
-            <p>Description of the card goes here...</p>
+            <p>Kaartnaam</p>
+          </br>
+          <br>
+            <p>Beschrijving kaart</p>
             <div class="modal-bottom">
               <select>
-                <option>Deck name to add</option>
-                <option>Deck 1</option>
-                <option>Deck 2</option>
-                <option>Deck 3</option>
-                <option>Deck 4</option>
-                <option>Deck 5</option>
-                <option>Deck 6</option>
+                <option>Stapel kiezen</option>
+                <option>Stapel 1</option>
+                <option>Stapel 2</option>
+                <option>Stapel 3</option>
+                <option>Stapel 4</option>
+                <option>Stapel 5</option>
+                <option>Stapel 6</option>
+
               </select>
               <button id="addToDeck">Toevoegen</button>
             </div>

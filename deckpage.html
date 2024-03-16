@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-placeholder"></div>
-            <ul>
-                <li><a href="mainpage.html">Home</a></li>
-                <li class="active"><a href="deckpage.html">Deck</a></li>
-                <li><a href="#">+Draw</a></li>
-            </ul>
-            <button class="header-btn">Button</button>
-        </nav>
+      <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <nav>
+        <div class="nav-placeholder"></div>
+        <ul>
+          <li><a href="mainpage.html">Home</a></li>
+          <li class="active"><a href="deckpage.html">Deck</a></li>
+          <li><a href="#">+Draw</a></li>
+        </ul>
+        <a href="landingpage.html" class="header-btn">Uitloggen</a>
+      </nav>
     </header>
 
     <main class="deck-main">
-        <div id="decks-container">
-            <!--DIT NIET RAKEN-->
+      <div id="decks-container">
+        <!--DIT NIET RAKEN-->
+      </div>
+      <template id="deckTemplate">
+        <div class="deck-wrapper">
+          <div class="deck-container">
+            <img src="./assets/images/your-image.jpg" alt="Deck Image" />
+            <p>Deck Name</p>
+            <p>Deck Description</p>
+          </div>
+          <p class="deck-external-text">External Text</p>
         </div>
-        <template id="deckTemplate">
-            <div class="deck-wrapper">
-                <div class="deck-container">
-                    <img src="./assets/images/your-image.jpg" alt="Deck Image">
-                    <p>Deck Name</p>
-                    <p>Deck Description</p>
-                </div>
-                <p class="deck-external-text">External Text</p>
-            </div>
-        </template>
-        <button class="deck-add-btn" onclick="addDeck()">DECK ADD</button>
+      </template>
+      <button class="deck-add-btn" onclick="addDeck()">DECK ADD</button>
     </main>
     <script src="/js/script.js"></script>
-</body>
+  </body>
 </html>

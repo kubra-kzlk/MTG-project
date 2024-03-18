@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl-be">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <button class="header-btn" id="menuBtn">Menu</button>
       <nav>
-        <div class="nav-placeholder"></div>
         <ul>
           <li class="active"><a href="#">Home</a></li>
           <li><a href="deckpage.html">Deck</a></li>
           <li><a href="#">+Draw</a></li>
         </ul>
-
-        <a href="landingpage.html" class="header-btn">Uitloggen</a>
-        <div class="search-box">
-          <input type="text" placeholder="Search..." />
-          <button>Zoeken</button>
-        </div>
       </nav>
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <button>Zoeken</button>
+      </div>
     </header>
-
+  
     <main>
       <section id="gallery1" class="image-gallery visible">
         <div class="image">
@@ -232,7 +229,7 @@
     </section>
     <a href="#" id="backToTopBtn">↑</a>
     <script src="./js/script.js"></script>
-  </body>
+  
 
   <footer class="container">
     <p>
@@ -240,4 +237,16 @@
       Nestor Lenaerts
     </p>
   </footer>
+  <div id="mobileMenu" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+    <div class="overlay-content">
+      <a href="#">Home</a>
+      <a href="deckpage.html">Deck</a>
+      <a href="#">+Draw</a>
+    </div>
+  </div>
+  <a href="#" id="backToTopBtn">↑</a>
+
+  <script src="./js/menu.js"></script>
+</body>
 </html>

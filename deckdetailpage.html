@@ -1,76 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-placeholder"></div>
-            <ul>
-                <li><a href="mainpage.html">Home</a></li>
-                <li class="active"><a href="deckpage.html">Deck</a></li>
-                <li><a href="#">+Draw</a></li>
-            </ul>
-            <button class="header-btn">Button</button>
-        </nav>
+      <nav>
+        <div class="nav-placeholder"></div>
+        <ul>
+          <li><a href="mainpage.html">Home</a></li>
+          <li class="active"><a href="deckpage.html">Deck</a></li>
+          <li><a href="#">+Draw</a></li>
+        </ul>
+        <button class="header-btn">Button</button>
+      </nav>
     </header>
     <main>
-        <section class="deck-detail-info">
-            <div class="detail-info-container">
-                <div class="deck-img-profiel"><img src="./assets/images/Test 9.jpg" alt="Image description" height=" 250px" width="200px"/></div>
-                <div class="deck-detail-data">
-                    <p>Deckname</p>
-                    <br>
-                    <p>average mana cost</p>
-                    <p>X / 60 cards</p>
-                    <p>X land cards</p>
-                    
-                </div>
-            </div>
-        </section>
-        <hr>
-        <section class="deck-detail-cards">
-            <div class="temporary-card"><img src="./assets/images/Test 11.jpg" alt="Image description"height=" 300px" width="200px" />
-            
-            </div>
-            <div class="temporary-card"><img src="./assets/images/Test.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 10.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 2.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 7.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 6.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 5.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 4.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 3.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 2.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 9.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-            <div class="temporary-card"><img src="./assets/images/Test 11.jpg" alt="Image description" height=" 300px" width="200px"/></div>
-        </section>
-    </main>
-
-   
-    <section id="modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="image-modal">
-            <img src="./assets/images/Test 11.jpg" alt="Image description" />
+      <section class="deck-detail-info">
+        <div class="detail-info-container">
+          <div class="deck-img-profiel">
+            <img
+              src="./assets/images/Test 9.jpg"
+              alt="Image description"
+              height=" 250px"
+              width="200px"
+            />
           </div>
-          <div class="modal-text">
-            <p>Kaartnaam</p>
-          </br>
-            <div class="modal-bottom">
-             <button id="addToDeck">-</button>
-              <button id="addToDeck">+</button>
-            </div>
+
+          <div class="deck-detail-data">
+            <span class="closeDeckDetail">&times;</span>
+            <p>Deckname</p>
+            <br />
+            <p>average mana cost</p>
+            <p>X / 60 cards</p>
+            <p>X land cards</p>
           </div>
         </div>
-        <span class="close">&times;</span>
-      </div>
-    </section>
-     <script src="./js/script.js"></script>
-</body>
+      </section>
+      <hr />
+      <section class="deck-detail-cards">
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 11.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 10.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 2.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 7.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 6.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 5.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 4.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 3.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 2.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 9.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+        <div class="temporary-card">
+          <img
+            src="./assets/images/Test 11.jpg"
+            alt="Image description"
+            height=" 300px"
+            width="200px"
+          />
+        </div>
+      </section>
+
+      <section class="deckDetailPageModal">
+        <div class="deckDetailPageContent">
+          <div class="deckDetailPageBody">
+            <div class="deckDetailPageImage">
+              <img src="./assets/images/Test 11.jpg" alt="Image description" />
+            </div>
+            <div class="deckDetailPageText">
+              <p>Kaartnaam</p>
+              <button>+</button>
+              <button>-</button><span class="close">&times;</span>
+            </div>
+          </div> 
+        </div>
+       
+      </section>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
 </html>

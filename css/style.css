@@ -421,6 +421,42 @@ select, #addToDeck {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
+.closeDeckDetail{
+ color: red;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-left: 400px;
+margin-bottom: 200px;
+}
+
+.deckDetailPageModal{
+  color: white;
+ margin-top: 100px;
+  margin-left: 100px;
+   border-color: white;
+  
+}
+
+.deckDetailPageContent{
+
+
+}
+
+.deckDetailPageBody{
+  
+}
+
+.deckDetailPageImage{
+  
+}
+
+.deckDetailPageText{
+  margin-left: 400px;
+ 
+ font-size: 20px;
+}
+
 
 
 @keyframes fadeIn {
@@ -508,6 +544,12 @@ select, #addToDeck {
   padding: 8px 16px;
 }
 
+.deckDetailPageText{
+  margin-left: 40px;
+ 
+ font-size: 10px;
+}
+
 
 
 
@@ -591,3 +633,4 @@ button[type="submit"]:hover {
 .login-link a:hover {
   text-decoration: underline
 }
+

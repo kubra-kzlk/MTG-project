@@ -5,31 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://unpkg.com/@saeris/typeface-beleren-bold@latest/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
       <button class="header-btn" id="menuBtn">Menu</button>
       <nav>
-        <button id="menuBtn">Menu</button>
-        <ul id="menu" style="display: none;">
+        <ul>
           <li class="active"><a href="#">Home</a></li>
           <li><a href="deckpage.html">Deck</a></li>
           <li><a href="#">+Draw</a></li>
         </ul>
-        <a href="landingpage.html" class="header-btn">Uitloggen</a>
-        <div class="search-box">
-          <input type="text" placeholder="Search..." />
-          <button>Zoeken</button>
-        </div>
       </nav>
-      <div class="search-box">
-        <input type="text" placeholder="Search..." />
-        <button>Zoeken</button>
-      </div>
     </header>
-  
+    <div class="search-box">
+      <input type="text" placeholder="Zoeken..." />
+      <button>Zoeken</button>
+    </div>
     <main>
       <section id="gallery1" class="image-gallery visible">
         <div class="image">
@@ -236,5 +228,24 @@
     </section>
     <a href="#" id="backToTopBtn">↑</a>
     <script src="./js/script.js"></script>
-  </body>
+  
+
+  <footer class="container">
+    <p>
+      2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
+      Nestor Lenaerts
+    </p>
+  </footer>
+  <div id="mobileMenu" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+    <div class="overlay-content">
+      <a href="#">Home</a>
+      <a href="deckpage.html">Deck</a>
+      <a href="#">+Draw</a>
+    </div>
+  </div>
+  <a href="#" id="backToTopBtn">↑</a>
+
+  <script src="./js/menu.js"></script>
+</body>
 </html>

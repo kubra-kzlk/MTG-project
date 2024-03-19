@@ -79,15 +79,15 @@ header nav ul li.active a {
   padding: 0.5%;
 }
 
-footer {
-  margin: 10px;
-  text-align: center;
-  color: white;
-}
 
 main {
-  height: auto;
+  min-height: 90vh; 
   position: relative;
+}
+footer {
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 .main_deckcheck {
@@ -99,18 +99,19 @@ main {
 
 /*Landing page gedeelte */
 .landingpage_container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px; /* Je kunt de waarde aanpassen om de gewenste ruimte tussen de blokken in te stellen */
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3vh;
+  gap: 10%;
+  justify-content: center;
 }
+
+
 
 .block_landing {
   position: relative;
-  width: 70%;
-  height: 70%;
+  width: 35vw;
+  height: 22vh;
   border-radius: 10px;
   transition: box-shadow 0.3s ease;
 }
@@ -691,17 +692,8 @@ button[type="submit"]:hover {
 
 /* Responsive aanpassingen */
 @media (max-width: 1024px) {
-  .landingpage_container {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolommen voor tablets */
-    grid-auto-rows: minmax(
-      200px,
-      auto
-    ); /* Minimale hoogte voor rijen, maar flexibel */
-  }
-  .block_landing {
-    width: 80%; /* Iets meer breedte binnen de kolom */
-    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
-  }
+  
+ 
 
   #logo {
     max-width: 20%;
@@ -767,6 +759,14 @@ button[type="submit"]:hover {
     width: 100%;
     margin: 10px 0;
   }
+  .landingpage_container{
+    row-gap: 40px;
+  }
+
+  .block_landing {
+    width: 90%; 
+    height: auto; 
+  }
 }
 
 
@@ -808,20 +808,19 @@ button[type="submit"]:hover {
     font-size: 14px;
   }
 
-  .landingpage_container {
-    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
-    grid-auto-rows: minmax(
-      300px,
-      auto
-    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
+  .landingpage_container{
+    row-gap: 40px;
   }
+
   .block_landing {
-    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
-    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+    width: 40%; 
+    height: auto; 
   }
-  .block_landing img {
-    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
+
+  hr{
+    margin-top: 2vh;
   }
+  
 
 }
 
@@ -836,4 +835,15 @@ button[type="submit"]:hover {
     height: 300px;
     margin-bottom: 1em; 
   }
+
+  .landingpage_container{
+    row-gap: 40px;
+  }
+
+  .block_landing {
+    width: 90%; 
+    height: auto; 
+  }
+
+
 }

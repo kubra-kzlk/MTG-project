@@ -7,16 +7,16 @@
 }
 body {
   margin: 0;
-  background-color: black; 
+  background-color: black;
   font-family: Arial, sans-serif;
 }
 header {
-    background-color: black;
-    box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8); 
-    position: sticky;
-    top: 0;
-    height: 120px; 
-    z-index: 1000;
+  background-color: black;
+  box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8);
+  position: sticky;
+  top: 0;
+  height: 120px;
+  z-index: 1000;
 }
 
 #logo {
@@ -24,63 +24,64 @@ header {
   top: 1px;
   left: 15px;
   max-width: 120px; /* Aangepaste maximale breedte */
-  height: auto; 
+  height: auto;
 }
 
 footer {
-margin: 10px;  
-text-align: center;
-color: white;
+  margin: 10px;
+  text-align: center;
+  color: white;
 }
 
-
-main{
+main {
   height: auto;
   position: relative;
 }
 
-.main_deckcheck{ display: none;}
-.main_drawtest{ display: none;}
-
-
+.main_deckcheck {
+  display: none;
+}
+.main_drawtest {
+  display: none;
+}
 
 /*Landing page gedeelte */
+.landingpage_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px; /* Je kunt de waarde aanpassen om de gewenste ruimte tussen de blokken in te stellen */
+  justify-items: center;
+  align-items: center;
+}
+
 .block_landing {
   position: relative;
-  width: 30%; 
-  height: 20vh; 
-  overflow: hidden;
-  border-radius: 10px; 
-  margin: 15px;
+  width: 70%;
+  height: 70%;
+  border-radius: 10px;
   transition: box-shadow 0.3s ease;
 }
 
-.landingpage_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
 .block_landing p {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.5); 
-  color: #000; 
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
   text-align: center;
   padding: 10px;
-  border-radius: 0 0 10px 10px; 
+  border-radius: 0 0 10px 10px;
   margin: 0;
 }
 
 .block_landing img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  width: 100%; /* Neemt 100% van de breedte van de ouder (div) */
+  height: 100%; /* Neemt 100% van de hoogte van de ouder (div) */
+  object-fit: fill; /* Behoudt de aspectverhouding en vult de container volledig */
   transition: filter 0.3s ease;
 }
-
 
 .block_landing::before {
   content: "";
@@ -96,42 +97,132 @@ main{
   transition: opacity 0.3s ease;
 }
 
-
-
 /* Hover effecten */
-.block_landing:hover::before { opacity: 1; }
-.block_landing.fifa:hover::before { background-image: url(../assets/images/fifaverbodentoegang.jpg); background-size: 100% 100%;}
-.block_landing.lego:hover::before { background-image: url(../assets/images/legomasterverbodentoegang.jpg); background-size: 100% 100%; }
-.block_landing.pokemon:hover::before { background-image: url(../assets/images/pokemonverbodentoegang.jpg); background-size: 100% 100%; }
-.block_landing.fortnite:hover::before { background-image: url(../assets/images/fortniteverbodentoegang.jpg); background-size: 100% 100%; }
-.block_landing.lotr:hover::before { background-image: url(../assets/images/lotrverbodentoegang.jpg); background-size: 100% 100%; /}
-.block_landing.mtg { box-shadow: 0 20px 40px rgba(125, 201, 201, 0.8);}
-.block_landing.fifa { box-shadow: 0 20px 40px rgba(0, 0, 128, 0.8); }
-.block_landing.lego {box-shadow: 0 20px 40px rgba(255, 255, 0, 0.8); }
-.block_landing.pokemon { box-shadow: 0 20px 40px rgba(255, 255, 128, 0.8);}
-.block_landing.fortnite { box-shadow: 0 20px 40px rgba(173, 216, 230, 0.8); }
-.block_landing.lotr { box-shadow: 0 20px 40px rgba(174, 99, 8, 0.8);}
+.block_landing:hover::before {
+  opacity: 1;
+}
+
+.block_landing.fifa:hover::before {
+  background-image: url(../assets/images/fifaverbodentoegang.jpg);
+  background-size: 100% 100%;
+}
+
+.block_landing.lego:hover::before {
+  background-image: url(../assets/images/legomasterverbodentoegang.jpg);
+  background-size: 100% 100%;
+}
+
+.block_landing.pokemon:hover::before {
+  background-image: url(../assets/images/pokemonverbodentoegang.jpg);
+  background-size: 100% 100%;
+}
+
+.block_landing.fortnite:hover::before {
+  background-image: url(../assets/images/fortniteverbodentoegang.jpg);
+  background-size: 100% 100%;
+}
+
+.block_landing.lotr:hover::before {
+  background-image: url(../assets/images/lotrverbodentoegang.jpg);
+  background-size: 100% 100%;
+}
+
+.block_landing.mtg {
+  box-shadow: 0 20px 40px rgba(125, 201, 201, 0.8);
+}
+
+.block_landing.fifa {
+  box-shadow: 0 20px 40px rgba(0, 0, 128, 0.8);
+}
+
+.block_landing.lego {
+  box-shadow: 0 20px 40px rgba(255, 255, 0, 0.8);
+}
+
+.block_landing.pokemon {
+  box-shadow: 0 20px 40px rgba(255, 255, 128, 0.8);
+}
+
+.block_landing.fortnite {
+  box-shadow: 0 20px 40px rgba(173, 216, 230, 0.8);
+}
+
+.block_landing.lotr {
+  box-shadow: 0 20px 40px rgba(174, 99, 8, 0.8);
+}
 
 /*Extra hover effecten bij ongeldige projecten + geldige*/
-.block_landing.mtg:hover { border: 6px solid rgba(0, 255, 0, 1);  box-shadow: 0 0 10px 4px rgba(0, 255, 0, 0.5); }
+.block_landing.mtg:hover {
+  border: 6px solid rgba(0, 255, 0, 1);
+  box-shadow: 0 0 10px 4px rgba(0, 255, 0, 0.5);
+}
+
 .block_landing.fifa:hover,
 .block_landing.lego:hover,
 .block_landing.pokemon:hover,
 .block_landing.fortnite:hover,
 .block_landing.lotr:hover {
-  border: 6px solid rgba(255, 0, 0, 1); 
-  box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.5); 
+  border: 6px solid rgba(255, 0, 0, 1);
+  box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.5);
 }
 
 /* Vertraging animatie voor block-landings enzo */
-.block_landing:nth-child(1) { animation-delay: 0s;}
-.block_landing:nth-child(2) {animation-delay: 0.1s;}
-.block_landing:nth-child(3) {animation-delay: 0.2s; }
-.block_landing:nth-child(4) {animation-delay: 0.3s;}
-.block_landing:nth-child(5) {animation-delay: 0.4s;}
-.block_landing:nth-child(6) {animation-delay: 0.5s;}
+.block_landing:nth-child(1) {
+  animation-delay: 0s;
+}
 
+.block_landing:nth-child(2) {
+  animation-delay: 0.1s;
+}
 
+.block_landing:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.block_landing:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.block_landing:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.block_landing:nth-child(6) {
+  animation-delay: 0.5s;
+}
+/* Standaardstijlen die je al hebt gedefinieerd */
+
+/* Responsive aanpassingen */
+@media (max-width: 1024px) {
+  .landingpage_container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolommen voor tablets */
+    grid-auto-rows: minmax(
+      200px,
+      auto
+    ); /* Minimale hoogte voor rijen, maar flexibel */
+  }
+  .block_landing {
+    width: 80%; /* Iets meer breedte binnen de kolom */
+    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+  }
+}
+
+@media (max-width: 768px) {
+  .landingpage_container {
+    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
+    grid-auto-rows: minmax(
+      300px,
+      auto
+    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
+  }
+  .block_landing {
+    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
+    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+  }
+  .block_landing img {
+    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
+  }
+}
 /*MAIN PAGE*/
 
 header nav {
@@ -152,7 +243,7 @@ header nav ul li {
 }
 
 header nav ul li.active a {
-  background-color:#f5f5f5;
+  background-color: #f5f5f5;
   color: black;
 }
 
@@ -163,12 +254,11 @@ header nav ul li a {
   border-radius: 20px;
 }
 
-
 .header-btn {
   position: absolute;
-  right: 20px; 
+  right: 20px;
   padding: 10px 20px;
-  background-color: purple; 
+  background-color: purple;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -177,51 +267,45 @@ header nav ul li a {
 
 }
 
-
-
-.header-btn:hover, .search-btn:hover {
-  background-color: #A020F0; 
+.header-btn:hover,
+.search-btn:hover {
+  background-color: #a020f0;
 }
-
-
-
 
 .search-box {
   display: flex;
   justify-content: center;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
-  
 }
 
 .search-box input {
   padding: 10px;
-  border: 1px solid white; 
-  background-color: transparent; 
-  color: white; 
-  font-size: 16px; 
-  width: 200px; 
-  outline: none; 
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  width: 200px;
+  outline: none;
   border-radius: 20px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .search-box button {
-  padding: 10px 20px; 
+  padding: 10px 20px;
   border: none;
-  background-color: purple; 
-  color: white; 
-  border-radius: 20px; 
-  cursor: pointer; 
+  background-color: purple;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-
 .search-box input::placeholder {
-  color: rgba(255, 255, 255, 0.5); 
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .search-box input:focus {
-  outline: none; 
+  outline: none;
 }
 .image-gallery {
   display: flex;
@@ -234,9 +318,9 @@ header nav ul li a {
 /* MET IMAGE + IMAGE img spelen want het lukt mij niet, werk nogsteed met flex-basis */
 /*GELUKT*/
 .image {
-  flex-basis: calc(18% - 2em); 
-  margin: 0.5em; 
-  height: 320px; 
+  flex-basis: calc(18% - 2em);
+  margin: 0.5em;
+  height: 320px;
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -244,12 +328,13 @@ header nav ul li a {
 .image img {
   width: 100%;
   height: 100%;
-  object-fit: fill; 
+  object-fit: fill;
 }
 .image:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
-.image img[src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"],
+.image
+  img[src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"],
 [src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"],
 [src="./assets/images/animar-soul-of-elements-50772 (1).jpg"],
 [src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"],
@@ -257,9 +342,7 @@ header nav ul li a {
 [src="./assets/images/morophon-the-boundless-26736.jpg"],
 [src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"],
 [src="./assets/images/the_ur_dragon.jpg"],
-[src="./assets/images/lord-of-the-nazgul-39803.jpg"]
-
- {
+[src="./assets/images/lord-of-the-nazgul-39803.jpg"] {
   border: 2px solid red;
 }
 .image img[src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"],
@@ -275,8 +358,7 @@ header nav ul li a {
 [src="./assets/images/urza-lord-protector-76778.jpg"],
 [src="./assets/images/Test 6.jpg"],
 [src="./assets/images/test 4.jpg"],
-[src="./assets/images/Test 3.jpg"]
-   {
+[src="./assets/images/Test 3.jpg"] {
   border: 2px solid blue;
 }
 .image img[src="./assets/images/syr-konrad-the-grim-87113.jpg"],
@@ -287,8 +369,7 @@ header nav ul li a {
 [src="./assets/images/questing-beast-throne-of-eldraine-11267.jpg"],
 [src="./assets/images/Test 10.jpg"],
 [src="./assets/images/Test 2.jpg"],
-[src="./assets/images/Test.jpg"]
-{
+[src="./assets/images/Test.jpg"] {
   border: 2px solid yellow;
 }
 .pagination {
@@ -296,7 +377,7 @@ header nav ul li a {
   justify-content: center;
   align-items: center;
   padding: 1em;
-  clear: both; 
+  clear: both;
 }
 
 .pagination button,
@@ -337,105 +418,6 @@ header nav ul li a {
 
 .image-gallery {
   display: none;
-}
-
-.image-gallery.visible {
-  display: flex;
-}
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  overflow-x: hidden;
-  transition: width 0.5s;
-}
-
-.overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-}
-
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay a:hover,
-.overlay a:focus {
-  color: #f1f1f1;
-}
-
-.closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
-
-.closebtn:hover {
-  color: #f1f1f1;
-}
-
-/* Mediaquery voor schermen met een maximale breedte van 768px */
-@media only screen and (max-width: 768px) {
-  header nav ul {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-  }
-
-  header nav ul li {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  header nav ul li.active a {
-    background-color: #f5f5f5;
-    color: black;
-  }
-
-  header nav ul li a {
-    display: block;
-    color: white;
-    padding: 1em;
-    border-radius: 20px;
-  }
-
-  .image {
-    flex-basis: calc(50% - 1em);
-  }
-
-  .overlay {
-    width: 100%;
-    height: 100%;
-  }
-
-  .overlay-content {
-    top: 25%;
-  }
-
-  .closebtn {
-    top: 0;
-    right: 15px;
-    font-size: 30px;
-  }
 }
 
 /* Mediaquery voor schermen met een maximale breedte van 480px */
@@ -490,37 +472,34 @@ header nav ul li a {
 
 /*mainpage modalgedee*/
 .modal {
-  
   display: none;
-  position: fixed; 
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
-  
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
   background-color: black;
   border-radius: 1.8em;
-  margin: 15% auto; 
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
-  max-width: 800px; 
+  width: 80%;
+  max-width: 800px;
   display: flex;
   align-items: center;
-   box-shadow: 20px 20px 20px rgba(128, 0, 128, 0.8); 
+  box-shadow: 20px 20px 20px rgba(128, 0, 128, 0.8);
 }
 
-.modal-content > *{
+.modal-content > * {
   color: white;
   margin: 20px;
-
 }
 .close {
   color: #aaa;
@@ -539,56 +518,49 @@ header nav ul li a {
 }
 
 .image-modal img {
-  max-width: 200px; 
+  max-width: 200px;
   height: 300px;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .modal-body {
   display: flex;
   align-items: center;
-  
 }
 
 .modal-text {
   flex-grow: 1;
- padding-left: 50px;
- font-size: x-large;
-  
+  padding-left: 50px;
+  font-size: x-large;
 }
 
 .modal-bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 200px; 
+  margin-top: 200px;
   gap: 100px;
 }
 
-select, #addToDeck {
+select,
+#addToDeck {
   padding: 10px;
-    
+
   background-color: purple;
   color: white;
-
 }
-
-
-
-
 /*DECK PAGE */
-.deck-main{
+.deck-main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  align-items: flex-start; 
-  
+  justify-content: center;
+  align-items: flex-start;
 }
 .deck-wrapper {
-  display: inline-flex; 
+  display: inline-flex;
   flex-direction: column;
   text-align: center;
 }
-.deck-external-text{
+.deck-external-text {
   margin-top: 1em;
 }
 .deck-container {
@@ -596,15 +568,14 @@ select, #addToDeck {
   height: 300px;
   border-radius: 1em;
   padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  text-align: center; 
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .deck-container img {
   max-width: 100%;
   height: auto;
-  border-radius: 1em; 
+  border-radius: 1em;
 }
 
 .deck-add-btn {
@@ -616,42 +587,36 @@ select, #addToDeck {
   border-radius: 0.5em;
   background-color: #007bff;
   color: white;
-  cursor: pointer; 
+  cursor: pointer;
 }
-
-
 /*DECK DETAIL*/
-.detail-info-container{
+.detail-info-container {
   margin: 20px;
   display: flex;
   align-items: center;
-  justify-content:center;
-  gap: 80px ;
+  justify-content: center;
+  gap: 80px;
 }
-.deck-img-profiel{
+.deck-img-profiel {
   height: 250px;
   width: 200px;
-  background:#ddd;
+  background: #ddd;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.deck-detail-data{
-  color: white;
-  margin-top: 150px;
 
-}
-.deck-detail-cards{
+.deck-detail-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 100px;
   justify-content: center;
 }
-.temporary-card{
+.temporary-card {
   height: 300px;
   width: 200px;
-  background:#ddd;
+  background: #ddd;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .closeDeckDetail{
@@ -690,8 +655,6 @@ margin-bottom: 200px;
  font-size: 20px;
 }
 
-
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -702,8 +665,6 @@ margin-bottom: 200px;
     transform: translateY(0);
   }
 }
-
-
 
 @media (max-width: 1200px){
   .deck-container{
@@ -785,27 +746,23 @@ select, #addToDeck {
 }
 
 
-
-
-
-}
-
-
 .container {
-  max-width: 500px;
+  max-width: 35%;
   margin: 0 auto;
   padding: 20px;
   background-color: black;
-}
-.container img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.container img {
+  max-width: 65%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
 .registration {
   background-color: black;
@@ -813,14 +770,27 @@ select, #addToDeck {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.registration > *{
-  margin-bottom   : 20px;
+.registration > * {
+  margin-bottom: 20px;
 }
 
+.login-link {
+  color: white;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
 h1 {
   text-align: center;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Aangepast om dichter bij de afbeelding te zijn */
 }
 
 label {
@@ -830,19 +800,15 @@ label {
 input[type="email"],
 input[type="password"] {
   width: calc(100% - 24px);
-  padding: 15px; /* Aangepaste padding */
+  padding: 15px;
   margin-top: 10px;
   border-radius: 4px;
   border: none;
   background-color: #282c34;
   color: #fff;
-  height: 30px; /* Aangepaste hoogte */
 }
 
-
-
 button[type="submit"] {
-
   background-color: purple;
   color: #fff;
   border: none;
@@ -859,14 +825,12 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.login >*{
-  margin-bottom   : 20px;
-
+.login-form > * {
+  margin-bottom: 10px; /* Aangepast om dichter bij de afbeelding te zijn */
 }
 
 .login-link {
   text-align: center;
-  margin-top: 20px;
   color: white;
 }
 
@@ -876,6 +840,33 @@ button[type="submit"]:hover {
 }
 
 .login-link a:hover {
-  text-decoration: underline
+  text-decoration: underline;
+}
+/*MEDIAQUERY VOOR LOGIN EN REGISTRATIE*/
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 

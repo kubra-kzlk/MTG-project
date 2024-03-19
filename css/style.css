@@ -404,7 +404,6 @@ select, #addToDeck {
 }
 .deck-detail-data{
   color: white;
-  margin-top: 150px;
 
 }
 .deck-detail-cards{
@@ -425,18 +424,17 @@ select, #addToDeck {
  color: red;
   font-size: 28px;
   font-weight: bold;
-  margin-top: 100px;
-  margin-left: 400px;
-margin-bottom: 200px;
+  margin-left: 90vw;
+
+}
+.deck-detail-info{
+  
+
 }
 
-.deckDetailPageModal{
-  color: white;
- margin-top: 100px;
-  margin-left: 100px;
-   border-color: white;
+
   
-}
+
 
 .deckDetailPageContent{
 
@@ -444,6 +442,14 @@ margin-bottom: 200px;
 }
 
 .deckDetailPageBody{
+  flex-direction: row;
+  justify-content: center ;
+    display: flex;
+  flex-wrap:  ;
+  align-items: center;
+   padding-bottom: 10px;
+   border: 5px solid white;
+   color:white;
   
 }
 
@@ -452,7 +458,6 @@ margin-bottom: 200px;
 }
 
 .deckDetailPageText{
-  margin-left: 400px;
  
  font-size: 20px;
 }
@@ -521,6 +526,12 @@ select, #addToDeck {
     margin: 10px 0; 
 }
 
+.closeDeckDetail{
+
+}
+.detail-info-container{
+  flex-direction: column;
+}
 
 }
 
@@ -545,14 +556,21 @@ select, #addToDeck {
 }
 
 .deckDetailPageText{
-  margin-left: 40px;
  
  font-size: 10px;
 }
 
+.deckDetailPageBody{
+  flex-direction: column;
+  
+}
+.deckDetailPageText{
+  
+}
+.deck-detail-info{
 
-
-
+  flex-direction: column;
+}
   
 }
 

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="nl-be">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://unpkg.com/@saeris/typeface-beleren-bold@latest/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <button class="header-btn" id="menuBtn">Menu</button>
       <nav>
         <button id="menuBtn">Menu</button>
         <ul id="menu" style="display: none;">
@@ -23,8 +24,12 @@
           <button>Zoeken</button>
         </div>
       </nav>
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <button>Zoeken</button>
+      </div>
     </header>
-
+  
     <main>
       <section id="gallery1" class="image-gallery visible">
         <div class="image">

@@ -23,7 +23,7 @@ header {
 }
 
 header nav {
-  flex-grow: 1;  /**/
+  flex-grow: 1; /**/
   display: flex;
   justify-content: center;
 }
@@ -64,21 +64,20 @@ header nav ul li a {
 
 #logo {
   display: block;
-  top: 10px; 
+  top: 10px;
   left: 15px;
   width: 100%;
   max-width: 120px;
-  height: auto; 
+  height: auto;
 }
 
-.logout-btn {
-  color: red;
-  background-color: black;
-  border: 1px solid red;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-right: 1em;
+.logout-button {
+  color: white;
+  text-decoration: none;
+  padding: 30px 60px;
+  font-size: 32px;
 }
+
 #menuBtn {
   display: none; /* Zorg ervoor dat de menuknop standaard verborgen is */
   background-color: purple;
@@ -604,7 +603,7 @@ select,
 .custom-deck-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
+  grid-template-rows: auto auto;
   gap: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -613,24 +612,40 @@ select,
 
 .custom-deck-card {
   width: 100%;
+  text-align: center;
 }
 
 .custom-deck-card img {
-  width: 70%;
+  max-width: 70%;
   height: auto;
 }
 
-.deck-add-btn {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 0.5em;
-  background-color: #007bff;
+
+.deck-number {
+  background-color: purple;
+  color: black;
+  padding: 2px 6px; /* Kleinere padding */
+  margin: 3px 0; /* Kleinere marges */
+  border-radius: 2px; /* Kleinere border-radius */
+}
+
+.add-button {
+  background-color: purple;
   color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .custom-deck-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+}
+
+
 /*DECK DETAIL*/
 .detail-info-container {
   margin: 20px;

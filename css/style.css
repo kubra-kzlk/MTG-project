@@ -140,77 +140,6 @@ footer {
   text-align: center;
   color: white;
 }
-/* Media query voor tablet */
-@media screen and (max-width: 768px) {
-  header nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #menuBtn {
-    display: none;
-  }
-  #logo {
-    max-width: 80px;
-  }
-}
-@media screen and (max-width: 480px) {
-  /* Laat het mobiele menu zien */
-  header nav {
-    display: none; /* Verberg het normale navigatiemenu */
-  }
-
-  #menuBtn {
-    display: block; /* Toon de menuknop */
-  }
-
-  /* Voeg stijlen toe aan het mobiele menu */
-  #mobileMenu {
-    height: 100%;
-    width: 100%; /* Maak het mobiele menu volledig breed */
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    display: none; /* Verberg het mobiele menu standaard */
-  }
-
-  #mobileMenu.open {
-    display: block; /* Toon het mobiele menu wanneer geopend */
-  }
-
-  #mobileMenu .overlay-content {
-    position: relative;
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  #mobileMenu a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  #mobileMenu a:hover,
-  #mobileMenu a:focus {
-    color: #f1f1f1;
-  }
-
-  #mobileMenu .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-  }
-}
 
 main {
   height: auto;
@@ -371,37 +300,6 @@ main {
 }
 /* Standaardstijlen die je al hebt gedefinieerd */
 
-/* Responsive aanpassingen */
-@media (max-width: 1024px) {
-  .landingpage_container {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolommen voor tablets */
-    grid-auto-rows: minmax(
-      200px,
-      auto
-    ); /* Minimale hoogte voor rijen, maar flexibel */
-  }
-  .block_landing {
-    width: 80%; /* Iets meer breedte binnen de kolom */
-    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
-  }
-}
-
-@media (max-width: 768px) {
-  .landingpage_container {
-    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
-    grid-auto-rows: minmax(
-      300px,
-      auto
-    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
-  }
-  .block_landing {
-    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
-    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
-  }
-  .block_landing img {
-    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
-  }
-}
 /*MAIN PAGE*/
 
 header nav {
@@ -722,6 +620,7 @@ select,
   height: auto;
 }
 
+
 .deck-number {
   background-color: purple;
   color: black;
@@ -745,6 +644,7 @@ select,
     gap: 10px;
   }
 }
+
 
 /*DECK DETAIL*/
 .detail-info-container {
@@ -816,113 +716,6 @@ select,
   }
 
   font-size: 20px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 1200px) {
-  .deck-container {
-    background-color: yellow;
-    width: 250px;
-    height: 250px;
-  }
-  .image {
-    flex-basis: 20%;
-    height: 300px;
-  }
-}
-
-/* Tablet */
-@media (max-width: 1000px) {
-  .image {
-    flex-basis: 30%;
-  }
-
-  .modal-content {
-    margin: 10% auto;
-    width: 90%;
-  }
-
-  .modal-body {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .image-modal img {
-    max-width: 100%;
-    margin: 0 0 20px 0;
-  }
-
-  .modal-text {
-    width: 100%;
-  }
-
-  .modal-bottom {
-    flex-direction: column;
-  }
-
-  .closeDeckDetail:hover,
-  .closeDeckDetail:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .detail-info-container {
-    flex-direction: column;
-  }
-
-  select,
-  #addToDeck {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .block_landing {
-    width: 90%;
-    height: 180px;
-  }
-  .image {
-    flex-basis: 98%; /* 1 image per row */
-  }
-  .modal-content {
-    margin: 20% auto;
-  }
-
-  .close {
-    font-size: 24px;
-  }
-  .deck-add-btn {
-    padding: 8px 16px;
-  }
-
-  .deckDetailPageText {
-    font-size: 10px;
-  }
-
-  .deckDetailPageBody {
-    flex-direction: column;
-  }
-
-  .deck-detail-info {
-    flex-direction: column;
-  }
-  .deckDetailPageText {
-    font-size: 20px;
-  }
 }
 
 .container {
@@ -1046,5 +839,227 @@ button[type="submit"]:hover {
   button[type="submit"] {
     padding: 10px;
     font-size: 14px;
+  }
+}
+
+/* Media query voor tablet */
+@media screen and (max-width: 768px) {
+  header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menuBtn {
+    display: none;
+  }
+  #logo {
+    max-width: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* Laat het mobiele menu zien */
+  header nav {
+    display: none; /* Verberg het normale navigatiemenu */
+  }
+
+  #menuBtn {
+    display: block; /* Toon de menuknop */
+  }
+
+  /* Voeg stijlen toe aan het mobiele menu */
+  #mobileMenu {
+    height: 100%;
+    width: 100%; /* Maak het mobiele menu volledig breed */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: none; /* Verberg het mobiele menu standaard */
+  }
+
+  #mobileMenu.open {
+    display: block; /* Toon het mobiele menu wanneer geopend */
+  }
+
+  #mobileMenu .overlay-content {
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  #mobileMenu a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  #mobileMenu a:hover,
+  #mobileMenu a:focus {
+    color: #f1f1f1;
+  }
+
+  #mobileMenu .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+}
+
+
+
+/* Responsive aanpassingen */
+@media (max-width: 1024px) {
+  .landingpage_container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolommen voor tablets */
+    grid-auto-rows: minmax(
+      200px,
+      auto
+    ); /* Minimale hoogte voor rijen, maar flexibel */
+  }
+  .block_landing {
+    width: 80%; /* Iets meer breedte binnen de kolom */
+    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+  }
+}
+
+@media (max-width: 768px) {
+  .landingpage_container {
+    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
+    grid-auto-rows: minmax(
+      300px,
+      auto
+    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
+  }
+  .block_landing {
+    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
+    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+  }
+  .block_landing img {
+    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .deck-container {
+    background-color: yellow;
+    width: 250px;
+    height: 250px;
+  }
+  .image {
+    flex-basis: 20%;
+    height: 300px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .image {
+    flex-basis: 30%;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 90%;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-modal img {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .modal-text {
+    width: 100%;
+  }
+
+  .modal-bottom {
+    flex-direction: column;
+  }
+
+  .closeDeckDetail:hover,
+  .closeDeckDetail:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .detail-info-container {
+    flex-direction: column;
+  }
+
+  select,
+  #addToDeck {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .block_landing {
+    width: 90%;
+    height: 180px;
+  }
+  .image {
+    flex-basis: 98%; /* 1 image per row */
+  }
+  .modal-content {
+    margin: 20% auto;
+  }
+
+  .close {
+    font-size: 24px;
+  }
+  .deck-add-btn {
+    padding: 8px 16px;
+  }
+
+  .deckDetailPageText {
+    font-size: 10px;
+  }
+
+  .deckDetailPageBody {
+    flex-direction: column;
+  }
+
+  .deck-detail-info {
+    flex-direction: column;
+  }
+  .deckDetailPageText {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .custom-deck-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
   }
 }

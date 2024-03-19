@@ -405,7 +405,6 @@ main {
 }
 /*MAIN PAGE*/
 
-
 header nav {
   display: flex;
   justify-content: center;
@@ -440,12 +439,12 @@ header nav ul li a {
   right: 20px;
   padding: 10px 20px;
 
-  color: #333; 
-  border: none; 
+  color: #333;
+  border: none;
   border-radius: 0.5em;
   background-color: #007bff;
   color: white;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .header-btn:hover,
@@ -704,25 +703,29 @@ select,
   color: white;
 }
 /*DECK PAGE */
-.imagedeckgallery {
-  display: flex;
-  justify-content: center; /* Gallery centreren op de pagina */
+.custom-deck-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
-.image-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px; /* Optioneel: voeg marge tussen de kolommen toe */
+.custom-deck-card {
+  width: 100%;
 }
 
-.deckimage {
-  margin-bottom: 20px; /* Optioneel: voeg marge onder elke afbeelding toe */
-}
-
-.deckimage img {
+.custom-deck-card img {
   width: 70%;
   height: auto;
+}
+@media screen and (max-width: 768px) {
+  .custom-deck-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
 }
 
 .deck-add-btn {
@@ -752,64 +755,58 @@ select,
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.deck-detail-data{
+.deck-detail-data {
   color: white;
 
-
-.deck-detail-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
-  justify-content: center;
-}
-.temporary-card {
-  height: 300px;
-  width: 200px;
-  background: #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-.closeDeckDetail:hover,
-.closeDeckDetail:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.closeDeckDetail{
- color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 90vw;
-
-}
-
-
-.deckDetailPageBody{
-  flex-direction: row;
-  justify-content: center ;
+  .deck-detail-cards {
     display: flex;
-  align-items: center;
-   padding-bottom: 10px;
-   border: 2px solid white;
-   color:white;
-  
-}
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+  }
+  .temporary-card {
+    height: 300px;
+    width: 200px;
+    background: #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.deckDetailPageText{
- 
- font-size: 20px;
-}
-.deckPopUpbutton{
-  padding: 10px 20px;
-  border: none;
-  border-radius: 0.5em;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer; 
-}
+  .closeDeckDetail:hover,
+  .closeDeckDetail:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .closeDeckDetail {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 90vw;
+  }
+
+  .deckDetailPageBody {
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border: 2px solid white;
+    color: white;
+  }
+
+  .deckDetailPageText {
+    font-size: 20px;
+  }
+  .deckPopUpbutton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
 
   font-size: 20px;
 }
@@ -867,18 +864,16 @@ select,
     flex-direction: column;
   }
 
+  .closeDeckDetail:hover,
+  .closeDeckDetail:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-.closeDeckDetail:hover,
-.closeDeckDetail:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.detail-info-container{
-  flex-direction: column;
-}
-
+  .detail-info-container {
+    flex-direction: column;
+  }
 
   select,
   #addToDeck {
@@ -897,35 +892,30 @@ select,
     flex-basis: 98%; /* 1 image per row */
   }
   .modal-content {
+    margin: 20% auto;
+  }
 
-    margin: 20% auto; 
-}
+  .close {
+    font-size: 24px;
+  }
+  .deck-add-btn {
+    padding: 8px 16px;
+  }
 
-.close {
-    font-size: 24px; 
-}
-.deck-add-btn {
-  padding: 8px 16px;
-}
+  .deckDetailPageText {
+    font-size: 10px;
+  }
 
-.deckDetailPageText{
- 
- font-size: 10px;
-}
+  .deckDetailPageBody {
+    flex-direction: column;
+  }
 
-.deckDetailPageBody{
-  flex-direction: column;
-  
-}
-
-.deck-detail-info{
-
-  flex-direction: column;
-}
-  .deckDetailPageText{
- 
- font-size: 20px;
-}
+  .deck-detail-info {
+    flex-direction: column;
+  }
+  .deckDetailPageText {
+    font-size: 20px;
+  }
 }
 
 .container {

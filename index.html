@@ -13,8 +13,8 @@
       justify-content: space-evenly;
     }
     .image-deck{
-      height: 450px;
-      width: 350px;
+      height: 350px;
+      width: 300px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -27,8 +27,10 @@
     }
     .draw-interaction-btn{
       display: flex;
-      flex-direction: column;
-      gap: 10VH;
+      flex-direction: row;
+      margin-top: 2%;
+      gap: 15%;
+      justify-content: center;
     }
     .draw-interaction-btn button{
       font-size: large;
@@ -38,12 +40,16 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      width: fit-content;
+      margin-top: 2vh;
     }
-    .draw-select-options{
-      margin-left: 45.5%;
-      padding: 20px;
+    .draw-select-options option{
+      text-align: center;
       
     } 
+    .draw-select-options{
+      text-align: center;
+    }
     .drawn-summary{
       margin-top: 4vh;
       
@@ -57,7 +63,7 @@
     .draw-cards-summary{
       display: flex;
       margin: auto;
-      justify-content: flex-end;
+      justify-content: flex-start;
       gap: 2vw  ;
       margin-top: 2vh;
     }
@@ -68,11 +74,13 @@
       color: white;
       padding: 10px;
     }
-    @media only screen and (max-width: 768px) {
+    .drawn-cards-info{
 
+      text-align: center;
     }
+ 
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 760px) {
       .image-deck{
       height: 250px;
       width: 150px;
@@ -80,7 +88,6 @@
 
       .draw-cards-decks{
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
       gap: 20px ;
@@ -89,42 +96,42 @@
       display: flex;
       flex-direction: row;
       gap: 10VW;
+      margin-top: 2vh;
+      justify-content: center;
     }
-    .draw-select-options{
-      width: fit-content;
-      margin-left: 25%;
-
-
+    .draw-select-options option{
+      text-align: center;
     }
 
     .draw-interaction-btn button{
       font-size: small;
-      padding: 15px 10px;
+      padding: 15px 1Spx;
       background-color: purple; 
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
+    .draw-cards-summary{
+      display: flex;
+      justify-content: space-evenly;
+    }
+}
 
-      }
+
   </style>
 </head>
 <body>
-  <header class="draw-header">
+  <header>
     <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
     <button class="header-btn" id="menuBtn">Menu</button>
     <nav>
       <ul>
-        <li><a href="mainpage.html">Home</a></li>
+        <li class="active"><a href="#">Home</a></li>
         <li><a href="deckpage.html">Deck</a></li>
-        <li class="active"><a href="index.html">+Draw</a></li>
+        <li><a href="#">+Draw</a></li>
       </ul>
     </nav>
-    <div class="search-box">
-      <input type="text" placeholder="Search..." />
-      <button>Zoeken</button>
-    </div>
   </header>
   <main >
     <section class="draw-select-options">
@@ -143,10 +150,7 @@
             alt="Image description"
           />
       </article>
-      <section class="draw-interaction-btn">
-        <button>Schudden</button>
-        <button>Kaart Nemen</button>
-      </section>
+ 
       <article class="image-deck">
         <h2 class="drawn-deck-info">4 / 60</h2>
         <img
@@ -154,10 +158,16 @@
         alt="Image description"
       />
       </article>
+      
+    </section>
+    <section class="draw-interaction-btn">
+      <button>Schudden</button>
+      <button>Kaart Nemen</button>
     </section>
 
     
     <section class="drawn-summary">
+      <h2 class="drawn-cards-info">Getrokken kaarten</h2>
       <hr>
       <ul class="draw-cards-summary">
         <li><img

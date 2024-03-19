@@ -23,14 +23,12 @@ header {
 }
 
 header nav {
-  flex-grow: 1;
+  flex-grow: 1;  /**/
   display: flex;
   justify-content: center;
 }
 
 header nav ul {
-  list-style: none;
-  padding: 0;
   display: flex;
 }
 
@@ -65,19 +63,21 @@ header nav ul li a {
 }
 
 #logo {
-  position: absolute; /* Veranderd van fixed naar absolute voor meer flexibiliteit */
-  top: 10px; /* Aangepast van 1px voor consistentie */
+  display: block;
+  top: 10px; 
   left: 15px;
-  width: 100%; /* Maakt het logo responsief */
-  max-width: 120px; /* Maximale breedte om te voorkomen dat het logo te groot wordt */
-  height: auto; /* Behoudt de aspect ratio van het logo */
+  width: 100%;
+  max-width: 120px;
+  height: auto; 
 }
 
-header nav ul li:last-child a {
+.logout-btn {
   color: red;
+  background-color: black;
   border: 1px solid red;
-  padding: 8px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
+  margin-right: 1em;
 }
 #menuBtn {
   display: none; /* Zorg ervoor dat de menuknop standaard verborgen is */

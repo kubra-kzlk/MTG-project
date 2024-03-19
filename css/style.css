@@ -179,10 +179,12 @@ nav {
 
 .header-btn, .search-btn {
   padding: 10px 20px;
-  background-color: #eee; 
   color: #333; 
   border: none; 
-  border-radius: 5px; 
+  border-radius: 0.5em;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer; 
 }
 
 .header-btn:hover, .search-btn:hover {
@@ -293,9 +295,7 @@ nav {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
-  margin-right: 100px;
-  margin-bottom: 300px;
-  margin-left: 100px;
+  margin-left: 40vw;
 }
 
 .close:hover,
@@ -420,40 +420,30 @@ select, #addToDeck {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
+.closeDeckDetail:hover,
+.closeDeckDetail:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .closeDeckDetail{
- color: red;
+ color: #aaa;
   font-size: 28px;
   font-weight: bold;
   margin-left: 90vw;
 
 }
-.deck-detail-info{
-  
 
-}
-
-
-  
-
-
-.deckDetailPageContent{
-
-
-}
 
 .deckDetailPageBody{
   flex-direction: row;
   justify-content: center ;
     display: flex;
-  flex-wrap:  ;
   align-items: center;
    padding-bottom: 10px;
-   border: 5px solid white;
+   border: 2px solid white;
    color:white;
-  
-}
-
-.deckDetailPageImage{
   
 }
 
@@ -461,7 +451,14 @@ select, #addToDeck {
  
  font-size: 20px;
 }
-
+.deckPopUpbutton{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer; 
+}
 
 
 @keyframes fadeIn {
@@ -526,9 +523,14 @@ select, #addToDeck {
     margin: 10px 0; 
 }
 
-.closeDeckDetail{
 
+.closeDeckDetail:hover,
+.closeDeckDetail:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
+
 .detail-info-container{
   flex-direction: column;
 }
@@ -564,14 +566,15 @@ select, #addToDeck {
   flex-direction: column;
   
 }
-.deckDetailPageText{
-  
-}
+
 .deck-detail-info{
 
   flex-direction: column;
 }
-  
+  .deckDetailPageText{
+ 
+ font-size: 20px;
+}
 }
 
 

@@ -64,7 +64,7 @@
         </div>
       </section>
 
-      <section id="gallery2" class="image-gallery">
+      <section id="gallery2" class="image-gallery" hidden>
         <div class="image">
           <img
             src="./assets/images/arwen_weaver_of_hope.jpg"
@@ -238,16 +238,17 @@
       Nestor Lenaerts
     </p>
   </footer>
-  <div id="mobileMenu" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
-    <div class="overlay-content">
-      <a href="#">Home</a>
-      <a href="deckpage.html">Deck</a>
-      <a href="#">+Draw</a>
+    <template>
+    <div id="mobileMenu" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+      <div class="overlay-content">
+        <a href="#">Home</a>
+        <a href="deckpage.html">Deck</a>
+        <a href="#">+Draw</a>
+      </div>
     </div>
-  </div>
-  <a href="#" id="backToTopBtn">↑</a>
-
+    <a href="#" id="backToTopBtn">↑</a>
+  </template>
   <script src="./js/menu.js"></script>
 </body>
 </html>

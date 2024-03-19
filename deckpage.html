@@ -16,25 +16,71 @@
           <li><a href="mainpage.html">Home</a></li>
           <li class="active"><a href="deckpage.html">Deck</a></li>
           <li><a href="#">+Draw</a></li>
+          <li><a href="landingpage.html">Uitloggen ➾</a></li>
         </ul>
-        <a href="landingpage.html" class="header-btn">Uitloggen</a>
       </nav>
     </header>
-
-    <main class="deck-main">
-      <div id="decks-container">
-        <!--DIT NIET RAKEN-->
-      </div>
-      <template id="deckTemplate">
-        <div class="deck-wrapper">
-          <div class="deck-container">
-            <img src="./assets/images/your-image.jpg" alt="Deck Image" />
-            <p>Deck Name</p>
-            <p>Deck Description</p>
+    <div class="container">
+      <section class="image-gallery">
+        <div class="image-column">
+          <div class="image">
+            <img
+              src="./assets/images/urza-lord-protector-76778.jpg"
+              alt="Image description"
+            />
           </div>
-          <p class="deck-external-text">External Text</p>
+          <div class="image">
+            <img
+              src="./assets/images/arwen_weaver_of_hope.jpg"
+              alt="Image description"
+            />
+          </div>
         </div>
-      </template>
+        <div class="image-column">
+          <div class="image">
+            <img
+              src="./assets/images/the-gaffer-32110.jpg"
+              alt="Image description"
+            />
+          </div>
+          <div class="image">
+            <img
+              src="./assets/images/the_ur_dragon.jpg"
+              alt="Image description"
+            />
+          </div>
+        </div>
+        <div class="image-column">
+          <div class="deckimage">
+            <img
+              src="./assets/images/questing-beast-throne-of-eldraine-11267.jpg"
+              alt="Image description"
+            />
+          </div>
+          <div class="image">
+            <img
+              src="./assets/images/marrow_gnawer_foil.jpg"
+              alt="Image description"
+            />
+          </div>
+        </div>
+        <div class="image-column">
+          <div class="image">
+            <img
+              src="./assets/images/greensleeves_maro_sorcerer_dominaria_united_commander.jpg"
+              alt="Image description"
+            />
+          </div>
+          <div class="image">
+            <img
+              src="./assets/images/mangara-the-diplomat-30594.jpg"
+              alt="Image description"
+            />
+          </div>
+        </div>
+      </section>
+      
+    </div>
       <button class="deck-add-btn" onclick="addDeck()">DECK ADD</button>
     </main>
     <script src="/js/script.js"></script>

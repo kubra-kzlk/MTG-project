@@ -16,29 +16,23 @@ header {
   position: sticky;
   top: 0;
   height: 120px;
-  z-index: 1000;
+  width: 100%;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 header nav {
-  flex-grow: 1;  /**/
   display: flex;
   justify-content: center;
 }
 
 header nav ul {
   display: flex;
-}
-
-header nav ul li {
-  margin-right: 1em;
-}
-
-header nav ul li.active a {
-  background-color: #f5f5f5;
-  color: black;
+  list-style: none;
+  padding: 0;
+  display: flex;
 }
 
 header nav ul li a {
@@ -46,6 +40,12 @@ header nav ul li a {
   color: white;
   padding: 1em;
   border-radius: 20px;
+}
+
+
+header nav ul li.active a {
+  background-color: #f5f5f5;
+  color: black;
 }
 
 .header-btn {
@@ -66,74 +66,17 @@ header nav ul li a {
   display: block;
   top: 10px; 
   left: 15px;
-  width: 100%;
-  max-width: 120px;
-  height: auto; 
+  max-width: 100px;
+  height: 100px; 
 }
 
-.logout-btn {
-  color: red;
+.logout-button {
+  color: white;
   background-color: black;
-  border: 1px solid red;
-  padding: 10px 20px;
   border-radius: 5px;
-  margin-right: 1em;
-}
-#menuBtn {
-  display: none; /* Zorg ervoor dat de menuknop standaard verborgen is */
-  background-color: purple;
-}
-
-/* Stijl voor de menuknop bij hover */
-#menuBtn:hover {
-  background-color: #a020f0; /* Verander de achtergrondkleur bij hover */
-}
-
-/* Stijl voor het mobiele menu */
-#mobileMenu {
-  height: 100%;
-  width: 100%; /* Maak het mobiele menu volledig breed */
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  background-color: purple;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  display: none; /* Verberg het mobiele menu standaard */
-}
-
-#mobileMenu.open {
-  display: block; /* Toon het mobiele menu wanneer geopend */
-}
-
-#mobileMenu .overlay-content {
-  position: relative;
-  text-align: center;
-  margin-top: 30px;
-}
-
-#mobileMenu a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 20px; /* Verklein de tekstgrootte voor betere leesbaarheid */
-  color: #fff; /* Verander de kleur van de links */
-  display: block;
-  transition: 0.3s;
-}
-
-#mobileMenu a:hover,
-#mobileMenu a:focus {
-  color: #a020f0; /* Verander de kleur van de links bij hover */
-}
-
-#mobileMenu .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 20px; /* Verklein de afstand vanaf de rechterrand */
-  font-size: 30px; /* Verklein de tekstgrootte van de sluitknop */
-  color: #fff; /* Verander de kleur van de sluitknop */
+  margin-right: 0.5em;
+  font-size: 32px;
+  padding: 0.5%;
 }
 
 footer {
@@ -303,34 +246,6 @@ main {
 
 /*MAIN PAGE*/
 
-header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
-}
-
-header nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-}
-
-header nav ul li {
-  margin-right: 1em;
-}
-
-header nav ul li.active a {
-  background-color: #f5f5f5;
-  color: black;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: white;
-  padding: 1em;
-  border-radius: 20px;
-}
 
 .header-btn {
   position: absolute;
@@ -390,13 +305,13 @@ header nav ul li a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 1em;
-  row-gap: 1em;
+  gap: 1em;
 }
 
 /* MET IMAGE + IMAGE img spelen want het lukt mij niet, werk nogsteed met flex-basis */
 /*GELUKT*/
 .image {
-  flex-basis: calc(18% - 2em);
+  flex-basis: 18%; 
   margin: 0.5em;
   height: 320px;
   cursor: pointer;
@@ -494,35 +409,6 @@ header nav ul li a {
 }
 .image-gallery.visible {
   display: flex;
-}
-
-@media only screen and (max-width: 768px) {
-  .search-box input {
-    width: 100%; /* Volledige breedte op kleinere schermen */
-    margin-right: 0; /* Geen rechtermarge op kleinere schermen */
-  }
-
-  .image {
-    flex-basis: calc(33.33% - 1em); /* Drie afbeeldingen per rij op tabletten */
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .search-box input {
-    max-width: 200px; /* Verder beperken van de breedte voor mobiele apparaten */
-  }
-
-  .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Zorgt voor ruimte rond de afbeeldingen */
-  }
-
-  .image {
-    flex: 0 0 100%; /* Zorgt ervoor dat elke afbeelding 100% van de breedte van de container inneemt */
-    height: 150px; /* Vaste hoogte voor elke afbeelding */
-    margin-bottom: 1em; /* Voegt ruimte toe tussen afbeeldingen */
-  }
 }
 /*mainpage modalgedee*/
 .modal {
@@ -799,105 +685,7 @@ button[type="submit"]:hover {
 .login-link a:hover {
   text-decoration: underline;
 }
-/*MEDIAQUERY VOOR LOGIN EN REGISTRATIE*/
-@media only screen and (max-width: 768px) {
-  .container {
-    max-width: 90%;
-  }
 
-  input[type="email"],
-  input[type="password"],
-  button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .container {
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  input[type="email"],
-  input[type="password"],
-  button[type="submit"] {
-    padding: 10px;
-    font-size: 14px;
-  }
-}
-
-/* Media query voor tablet */
-@media screen and (max-width: 768px) {
-  header nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #menuBtn {
-    display: none;
-  }
-  #logo {
-    max-width: 80px;
-  }
-}
-@media screen and (max-width: 480px) {
-  /* Laat het mobiele menu zien */
-  header nav {
-    display: none; /* Verberg het normale navigatiemenu */
-  }
-
-  #menuBtn {
-    display: block; /* Toon de menuknop */
-  }
-
-  /* Voeg stijlen toe aan het mobiele menu */
-  #mobileMenu {
-    height: 100%;
-    width: 100%; /* Maak het mobiele menu volledig breed */
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    display: none; /* Verberg het mobiele menu standaard */
-  }
-
-  #mobileMenu.open {
-    display: block; /* Toon het mobiele menu wanneer geopend */
-  }
-
-  #mobileMenu .overlay-content {
-    position: relative;
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  #mobileMenu a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  #mobileMenu a:hover,
-  #mobileMenu a:focus {
-    color: #f1f1f1;
-  }
-
-  #mobileMenu .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-  }
-}
 
 
 
@@ -914,25 +702,12 @@ button[type="submit"]:hover {
     width: 80%; /* Iets meer breedte binnen de kolom */
     height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
   }
-}
 
-@media (max-width: 768px) {
-  .landingpage_container {
-    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
-    grid-auto-rows: minmax(
-      300px,
-      auto
-    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
-  }
-  .block_landing {
-    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
-    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
-  }
-  .block_landing img {
-    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
+  #logo {
+    max-width: 20%;
+    height: fit-content;
   }
 }
-
 
 
 @keyframes fadeIn {
@@ -946,24 +721,12 @@ button[type="submit"]:hover {
   }
 }
 
-@media (max-width: 1200px) {
-  .deck-container {
-    background-color: yellow;
-    width: 250px;
-    height: 250px;
-  }
-  .image {
-    flex-basis: 20%;
-    height: 300px;
-  }
-}
 
 /* Tablet */
 @media (max-width: 1000px) {
   .image {
     flex-basis: 30%;
   }
-
   .modal-content {
     margin: 10% auto;
     width: 90%;
@@ -1006,45 +769,71 @@ button[type="submit"]:hover {
   }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .block_landing {
-    width: 90%;
-    height: 180px;
-  }
-  .image {
-    flex-basis: 98%; /* 1 image per row */
-  }
-  .modal-content {
-    margin: 20% auto;
+
+@media only screen and (max-width: 768px) {
+  .search-box input {
+    width: 100%; /* Volledige breedte op kleinere schermen */
+    margin-right: 0; /* Geen rechtermarge op kleinere schermen */
   }
 
-  .close {
-    font-size: 24px;
-  }
-  .deck-add-btn {
-    padding: 8px 16px;
-  }
-
-  .deckDetailPageText {
-    font-size: 10px;
-  }
-
-  .deckDetailPageBody {
-    flex-direction: column;
-  }
-
-  .deck-detail-info {
-    flex-direction: column;
-  }
-  .deckDetailPageText {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .custom-deck-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
+  }
+
+
+  
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  #logo {
+    max-width: 20%;
+    height: fit-content;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .landingpage_container {
+    grid-template-columns: 1fr; /* 1 kolom voor mobiele apparaten */
+    grid-auto-rows: minmax(
+      300px,
+      auto
+    ); /* Aangepaste minimale hoogte voor rijen op mobiel */
+  }
+  .block_landing {
+    width: 90%; /* Maximale breedte binnen de kolom voor mobiele apparaten */
+    height: auto; /* Aanpassen aan inhoud om stapeling te voorkomen */
+  }
+  .block_landing img {
+    object-fit: cover; /* Zorgt dat afbeeldingen netjes passen zonder de verhouding te verliezen */
+  }
+
+}
+
+/*KLEINE MOBILE*/
+@media only screen and (max-width: 480px) {
+  .search-box input {
+    max-width: 200px; 
+  }
+
+  .image {
+    flex-basis: 80%;
+    height: 300px;
+    margin-bottom: 1em; 
   }
 }

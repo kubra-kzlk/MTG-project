@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
@@ -49,6 +50,7 @@
     } 
     .draw-select-options{
       text-align: center;
+    
     }
     .drawn-summary{
       margin-top: 4vh;
@@ -105,7 +107,7 @@
 
     .draw-interaction-btn button{
       font-size: small;
-      padding: 15px 1Spx;
+      padding: 15px 10px;
       background-color: purple; 
       color: #fff;
       border: none;
@@ -117,24 +119,22 @@
       justify-content: space-evenly;
     }
 }
-
-
   </style>
 </head>
 <body>
   <header>
     <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
-    <button class="header-btn" id="menuBtn">Menu</button>
     <nav>
       <ul>
-        <li class="active"><a href="#">Home</a></li>
+        <li><a href="mainpage.html">Home</a></li>
         <li><a href="deckpage.html">Deck</a></li>
-        <li><a href="#">+Draw</a></li>
+        <li class="active"><a href="index.html">+Draw</a></li>
       </ul>
     </nav>
+    <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
   </header>
   <main >
-    <section class="draw-select-options">
+  <section class="draw-select-options">
     <select>
       <option> Kiez Stappel </option>
       <option> Stappel 1 </option>

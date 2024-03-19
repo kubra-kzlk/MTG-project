@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -11,190 +12,92 @@
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
       <nav>
         <ul>
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="mainpage.html">Home</a></li>
           <li><a href="deckpage.html">Deck</a></li>
           <li><a href="index.html">+Draw</a></li>
         </ul>
       </nav>
-      <a class="logout-btn">Uitloggen  ➾</a> <!--dit moet later een button worden voor de backend goed te hebben zodat user wordt uitgelogd enzo-->
+      <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
     </header>
+
+
     <div class="search-box">
       <input type="text" placeholder="Zoeken..." />
       <button>Zoeken</button>
     </div>
     <main>
-      <section id="gallery1" class="image-gallery visible">
-        <div class="image">
-          <img src="./assets/images/Test.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 2.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 3.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img src="./assets/images/test 4.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 5.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 6.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/lord-of-the-nazgul-39803.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 8.jpg" alt="Image description" />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/urza-lord-protector-76778.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img src="./assets/images/Test 10.jpg" alt="Image description" />
-        </div>
-      </section>
 
-      <section id="gallery2" class="image-gallery" hidden>
-        <div class="image">
-          <img
-            src="./assets/images/arwen_weaver_of_hope.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/the-gaffer-32110.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/the_ur_dragon.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/questing-beast-throne-of-eldraine-11267.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/marrow_gnawer_foil.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/greensleeves_maro_sorcerer_dominaria_united_commander.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/mangara-the-diplomat-30594.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/sakashima-the-impostor-64139.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"
-            alt="Image description"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="./assets/images/morophon-the-boundless-26736.jpg"
-            alt="Image description"
-          />
-        </div>
-      </section>
 
-      <section id="gallery3" class="image-gallery">
-        <div class="image">
+      <section id="gallery1" class="image-gallery">
+        <article class="image">
           <img
             src="./assets/images/mishra-claimed-by-gix-16597.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/razaketh-the-foulblooded-70322.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/syr-konrad-the-grim-87113.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
             alt="Image description"
           />
-        </div>
-        <div class="image">
+        </article>
+        <article class="image">
           <img
             src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
             alt="Image description"
           />
-        </div>
+        </article>
       </section>
 
-      <div class="pagination">
-        <button id="prevBtn" disabled>Previous</button>
+      <section class="pagination">
+        <button id="prevBtn" disabled>Vorige</button>
         <span id="page1" class="page-number active">1</span>
         <span id="page2" class="page-number">2</span>
         <span id="page3" class="page-number">3</span>
         <button id="nextBtn">Volgende</button>
-      </div>
+      </section>
     </main>
 
     <section id="modal" class="modal">
@@ -226,27 +129,13 @@
         <span class="close">&times;</span>
       </div>
     </section>
-    <a href="#" id="backToTopBtn">↑</a>
-    <script src="./js/script.js"></script>
-  
-
   <footer class="container">
     <p>
       2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
       Nestor Lenaerts
     </p>
   </footer>
-    <template>
-    <div id="mobileMenu" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
-      <div class="overlay-content">
-        <a href="#">Home</a>
-        <a href="deckpage.html">Deck</a>
-        <a href="#">+Draw</a>
-      </div>
-    </div>
-    <a href="#" id="backToTopBtn">↑</a>
-  </template>
   <script src="./js/menu.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 </html>

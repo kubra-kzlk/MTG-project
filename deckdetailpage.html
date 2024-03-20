@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
@@ -11,157 +12,127 @@
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
       <nav>
-        <div class="nav-placeholder"></div>
         <ul>
           <li><a href="mainpage.html">Home</a></li>
           <li class="active"><a href="deckpage.html">Deck</a></li>
-          <li><a href="#">+Draw</a></li>
-          <li><a href="landingpage.html">Uitloggen ➾</a></li>
+          <li><a href="index.html">+Draw</a></li>
         </ul>
-        <a href="landingpage.html" class="header-btn">Uitloggen</a>
       </nav>
+      <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
     </header>
 
     <main>
-      <section class="deck-detail-info">
-        <span class="closeDeckDetail">&times;</span>
-        <div class="detail-info-container">
-          <div class="deck-img-profiel">
-            <img
-              src="./assets/images/Test 9.jpg"
-              alt="Image description"
-              height=" 250px"
-              width="200px"
-            />
-          </div>
-
-          <div class="deck-detail-data">
-            <p>Deckname</p>
-            <br />
-            <p>average mana cost</p>
-            <p>X / 60 cards</p>
-            <p>X land cards</p>
-          </div>
+      <section class="deck-head-section">
+        <div class="deck-detail-placeholder" >placeholder</div>
+      <section class="deck-detail-content">
+        <article class="image-deck-detail">
+          <img
+            src="./assets/images/mtgkaartachterkant.jpg"
+            alt="Image description"
+          />
+        </article>
+        <div class="Deck-information-content">
+          <p>StappelNaam</p>
+          <p>Gemmiddelde mana verbruik : 10</p>
+          <p>10 / 60</p>
+          <P>X landen kaarten</P>
         </div>
       </section>
+      <a href="deckpage.html" class="button-backto-deck"><i class="fa-solid fa-arrow-left"></i></a>
+    </section>
       <hr />
-      <section class="deck-detail-cards">
-        <div class="temporary-card">
+
+      <section id="gallery1" class="image-gallery">
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 11.jpg"
+            src="./assets/images/mishra-claimed-by-gix-16597.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test.jpg"
+            src="./assets/images/razaketh-the-foulblooded-70322.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 10.jpg"
+            src="./assets/images/syr-konrad-the-grim-87113.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 2.jpg"
+            src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 7.jpg"
+            src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 6.jpg"
+            src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 5.jpg"
+            src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">3/4</h2>
           <img
-            src="./assets/images/Test 4.jpg"
+            src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
-            src="./assets/images/Test 3.jpg"
+            src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
+        </article>
+        <article class="image">
+          <h2 class="card-amount-info">1/4</h2>
           <img
-            src="./assets/images/Test 2.jpg"
+            src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
             alt="Image description"
-            height=" 300px"
-            width="200px"
           />
-        </div>
-        <div class="temporary-card">
-          <img
-            src="./assets/images/Test 9.jpg"
-            alt="Image description"
-            height=" 300px"
-            width="200px"
-          />
-        </div>
-        <div class="temporary-card">
-          <img
-            src="./assets/images/Test 11.jpg"
-            alt="Image description"
-            height=" 300px"
-            width="200px"
-          />
-        </div>
+        </article>
       </section>
 
-      <section class="deckDetailPageModal">
-        <div class="deckDetailPageContent">
-          <div class="deckDetailPageBody">
-            <div class="deckDetailPageImage">
-              <img src="./assets/images/Test 11.jpg" alt="Image description" />
-            </div>
-            <div class="deckDetailPageText">
-              <p>Kaartnaam</p>
-              <button class="deckPopUpbutton">+</button>
-              <button class="deckPopUpbutton">-</button
-              ><span class="close">&times;</span>
-            </div>
-          </div>
-        </div>
+
+      
+      <section class="pagination">
+        <button id="prevBtn" disabled>Vorige</button>
+        <span id="page1" class="page-number active">1</span>
+        <span id="page2" class="page-number">2</span>
+        <span id="page3" class="page-number">3</span>
+        <button id="nextBtn">Volgende</button>
       </section>
       <button class="circle-question">?</button>
     </main>
+    <hr>
+    <footer>
+      <p>
+        2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
+        Nestor Lenaerts
+      </p>
+    </footer>
 
-    <script src="./js/script.js"></script>
   </body>
 </html>

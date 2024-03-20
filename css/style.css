@@ -478,6 +478,7 @@ footer {
   display: flex;
 }
 
+
 .modal {
   display: none;
   position: fixed;
@@ -522,29 +523,7 @@ footer {
   cursor: pointer;
 }
 
-.image-modal img {
-  max-width: 200px;
-  height: 300px;
-  margin-right: 20px;
-}
 
-.modal-body {
-  display: flex;
-  align-items: center;
-}
-
-.modal-text {
-  flex-grow: 1;
-  padding-left: 50px;
-  font-size: x-large;
-}
-
-.modal-bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 200px;
-  gap: 100px;
-}
 
 select,
 #addToDeck {
@@ -553,6 +532,7 @@ select,
   background-color: purple;
   color: white;
 }
+
 
 .custom-deck-container {
   display: grid;
@@ -584,59 +564,60 @@ select,
 
 .detail-info-container {
   margin: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 80px;
-}
-.deck-img-profiel {
-  height: 250px;
-  width: 200px;
-  background: #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2px 6px; /* Kleinere padding */
+  margin: 3px 0; /* Kleinere marges */
+  border-radius: 2px; /* Kleinere border-radius */
 }
 
-.deck-detail-data {
+.add-button {
+  background-color: purple;
   color: white;
-}
-
-.deck-detail-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
-  justify-content: center;
-}
-.temporary-card {
-  height: 300px;
-  width: 200px;
-  background: #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.closeDeckDetail:hover,
-.closeDeckDetail:focus {
-  color: black;
-  text-decoration: none;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.closeDeckDetail {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 90vw;
+/*DECK DETAIL*/
+.deck-detail-content{
+  height: 30vh;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+}
+.card-amount-info{
+  color: white; text-align: center;
+  margin-top: 10px;
+}
+.deck-head-section{
+  display: flex;
+  justify-content: space-around;
+}
+.Deck-information-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.Deck-information-content > *{
+  color: white;
 }
 
-.deckDetailPageBody {
-  flex-direction: row;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding-bottom: 10px;
-  border: 2px solid white;
+.image-deck-detail img{
+  height: 29vh;
+  width: 15vw;
+
+}
+
+.button-backto-deck{
   color: white;
+  font-size: large;  
+  margin:20px ;
+  padding: 5px;
+  border: solid white 2px;
+  border-radius: 2em;
+  height: 20px;
 }
 
 .container {
@@ -787,8 +768,8 @@ button[type="submit"]:hover {
 
 @media (max-width: 1024px) {
   #logo {
-    max-width: 20%;
-    height: fit-content;
+    max-width: 10%;
+
   }
 }
 
@@ -808,40 +789,7 @@ button[type="submit"]:hover {
   .image {
     flex-basis: 30%;
   }
-  .modal-content {
-    margin: 10% auto;
-    width: 90%;
-  }
 
-  .modal-body {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .image-modal img {
-    max-width: 100%;
-    margin: 0 0 20px 0;
-  }
-
-  .modal-text {
-    width: 100%;
-  }
-
-  .modal-bottom {
-    flex-direction: column;
-  }
-
-  .closeDeckDetail:hover,
-  .closeDeckDetail:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .detail-info-container {
-    flex-direction: column;
-  }
 
   select,
   #addToDeck {
@@ -878,7 +826,7 @@ button[type="submit"]:hover {
   }
 
   #logo {
-    max-width: 20%;
+    max-width: 12%;
     height: fit-content;
   }
 
@@ -889,6 +837,7 @@ button[type="submit"]:hover {
     box-sizing: border-box;
   }
 
+  
   input[type="email"],
   input[type="password"],
   button[type="submit"] {
@@ -909,13 +858,65 @@ button[type="submit"]:hover {
   hr {
     margin-top: 2vh;
   }
+
+
+  .image-deck{
+    height: 250px;
+    width: 150px;
+  }
+
+    .draw-cards-decks{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px ;
+    }
+    .draw-interaction-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 10VW;
+    margin-top: 2vh;
+    justify-content: center;
+  }
+  .draw-select-options option{
+    text-align: center;
+  }
+
+  .draw-interaction-btn button{
+    font-size: small;
+    padding: 15px 10px;
+    background-color: purple; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .draw-cards-summary{
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   .search-box input {
     max-width: 200px;
   }
-
+ #logo{
+  max-width: 12%;
+ }
+  .deck-detail-content{
+    gap: 20px  ;
+    
+  }
+  .deck-detail-placeholder{
+    display: none;
+  }
+  .image-deck-detail img{
+    height: 29vh;
+    width: fit-content;
+  
+  }
+  
   .image {
     flex-basis: 80%;
     height: 300px;

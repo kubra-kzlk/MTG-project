@@ -541,13 +541,6 @@ select,
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-  .custom-deck-container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-  }
-}
-
 /*DECK DETAIL*/
 .deck-detail-content{
   height: 30vh;
@@ -562,7 +555,7 @@ select,
 }
 .deck-head-section{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .Deck-information-content{
   display: flex;
@@ -582,8 +575,12 @@ select,
 
 .button-backto-deck{
   color: white;
-  font-size: xx-large;  
-  margin:30px 
+  font-size: large;  
+  margin:20px ;
+  padding: 5px;
+  border: solid white 2px;
+  border-radius: 2em;
+  height: 20px;
   
 }
 
@@ -687,8 +684,8 @@ button[type="submit"]:hover {
 /* Responsive aanpassingen */
 @media (max-width: 1024px) {
   #logo {
-    max-width: 20%;
-    height: fit-content;
+    max-width: 10%;
+
   }
 }
 
@@ -745,7 +742,7 @@ button[type="submit"]:hover {
   }
 
   #logo {
-    max-width: 20%;
+    max-width: 12%;
     height: fit-content;
   }
 
@@ -754,6 +751,7 @@ button[type="submit"]:hover {
     padding: 10px;
   }
 
+  
   input[type="email"],
   input[type="password"],
   button[type="submit"] {
@@ -773,6 +771,43 @@ button[type="submit"]:hover {
   hr {
     margin-top: 2vh;
   }
+
+
+  .image-deck{
+    height: 250px;
+    width: 150px;
+  }
+
+    .draw-cards-decks{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px ;
+    }
+    .draw-interaction-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 10VW;
+    margin-top: 2vh;
+    justify-content: center;
+  }
+  .draw-select-options option{
+    text-align: center;
+  }
+
+  .draw-interaction-btn button{
+    font-size: small;
+    padding: 15px 10px;
+    background-color: purple; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .draw-cards-summary{
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 /*KLEINE MOBILE*/
@@ -780,7 +815,22 @@ button[type="submit"]:hover {
   .search-box input {
     max-width: 200px;
   }
-
+ #logo{
+  max-width: 12%;
+ }
+  .deck-detail-content{
+    gap: 20px  ;
+    
+  }
+  .deck-detail-placeholder{
+    display: none;
+  }
+  .image-deck-detail img{
+    height: 29vh;
+    width: fit-content;
+  
+  }
+  
   .image {
     flex-basis: 80%;
     height: 300px;

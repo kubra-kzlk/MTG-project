@@ -478,7 +478,6 @@ footer {
   display: flex;
 }
 
-
 .modal {
   display: none;
   position: fixed;
@@ -523,8 +522,6 @@ footer {
   cursor: pointer;
 }
 
-
-
 select,
 #addToDeck {
   padding: 10px;
@@ -532,7 +529,6 @@ select,
   background-color: purple;
   color: white;
 }
-
 
 .custom-deck-container {
   display: grid;
@@ -579,41 +575,41 @@ select,
 }
 
 /*DECK DETAIL*/
-.deck-detail-content{
+.deck-detail-content {
   height: 30vh;
   margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 5em;
 }
-.card-amount-info{
-  color: white; text-align: center;
+.card-amount-info {
+  color: white;
+  text-align: center;
   margin-top: 10px;
 }
-.deck-head-section{
+.deck-head-section {
   display: flex;
   justify-content: space-around;
 }
-.Deck-information-content{
+.Deck-information-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
 }
-.Deck-information-content > *{
+.Deck-information-content > * {
   color: white;
 }
 
-.image-deck-detail img{
+.image-deck-detail img {
   height: 29vh;
   width: 15vw;
-
 }
 
-.button-backto-deck{
+.button-backto-deck {
   color: white;
-  font-size: large;  
-  margin:20px ;
+  font-size: large;
+  margin: 20px;
   padding: 5px;
   border: solid white 2px;
   border-radius: 2em;
@@ -765,11 +761,20 @@ button[type="submit"]:hover {
 .confirmation:focus {
   outline: none;
 }
+.add-less {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+}
 
 @media (max-width: 1024px) {
   #logo {
     max-width: 10%;
-
   }
 }
 
@@ -789,7 +794,6 @@ button[type="submit"]:hover {
   .image {
     flex-basis: 30%;
   }
-
 
   select,
   #addToDeck {
@@ -837,7 +841,6 @@ button[type="submit"]:hover {
     box-sizing: border-box;
   }
 
-  
   input[type="email"],
   input[type="password"],
   button[type="submit"] {
@@ -859,39 +862,38 @@ button[type="submit"]:hover {
     margin-top: 2vh;
   }
 
-
-  .image-deck{
+  .image-deck {
     height: 250px;
     width: 150px;
   }
 
-    .draw-cards-decks{
+  .draw-cards-decks {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 20px ;
-    }
-    .draw-interaction-btn{
+    gap: 20px;
+  }
+  .draw-interaction-btn {
     display: flex;
     flex-direction: row;
-    gap: 10VW;
+    gap: 10vw;
     margin-top: 2vh;
     justify-content: center;
   }
-  .draw-select-options option{
+  .draw-select-options option {
     text-align: center;
   }
 
-  .draw-interaction-btn button{
+  .draw-interaction-btn button {
     font-size: small;
     padding: 15px 10px;
-    background-color: purple; 
+    background-color: purple;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
-  .draw-cards-summary{
+  .draw-cards-summary {
     display: flex;
     justify-content: space-evenly;
   }
@@ -901,22 +903,20 @@ button[type="submit"]:hover {
   .search-box input {
     max-width: 200px;
   }
- #logo{
-  max-width: 12%;
- }
-  .deck-detail-content{
-    gap: 20px  ;
-    
+  #logo {
+    max-width: 12%;
   }
-  .deck-detail-placeholder{
+  .deck-detail-content {
+    gap: 20px;
+  }
+  .deck-detail-placeholder {
     display: none;
   }
-  .image-deck-detail img{
+  .image-deck-detail img {
     height: 29vh;
     width: fit-content;
-  
   }
-  
+
   .image {
     flex-basis: 80%;
     height: 300px;

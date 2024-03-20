@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-be">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>decktailepage</title>
   </head>
   <body>
     <header>
@@ -18,28 +21,34 @@
           <li><a href="index.html">+Draw</a></li>
         </ul>
       </nav>
-      <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+      <a href="landingpage.html" class="logout-button"
+        ><i class="fa-solid fa-right-from-bracket"></i
+      ></a>
     </header>
 
     <main>
       <section class="deck-head-section">
-        <div class="deck-detail-placeholder" >placeholder</div>
-      <section class="deck-detail-content">
-        <article class="image-deck-detail">
-          <img
-            src="./assets/images/mtgkaartachterkant.jpg"
-            alt="Image description"
-          />
-        </article>
-        <div class="Deck-information-content">
-          <p>StappelNaam</p>
-          <p>Gemmiddelde mana verbruik : 10</p>
-          <p>10 / 60</p>
-          <P>X landen kaarten</P>
-        </div>
+        <div class="deck-detail-placeholder">placeholder</div>
+        <section class="deck-detail-content">
+          <article class="image-deck-detail">
+            <a href="cardinfodetailpage.html">
+              <img
+                src="./assets/images/mtgkaartachterkant.jpg"
+                alt="Image description"
+              />
+            </a>
+          </article>
+          <div class="Deck-information-content">
+            <p>StappelNaam</p>
+            <p>Gemmiddelde mana verbruik : 10</p>
+            <p>10 / 60</p>
+            <p>X landen kaarten</p>
+          </div>
+        </section>
+        <a href="deckpage.html" class="button-backto-deck"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></a>
       </section>
-      <a href="deckpage.html" class="button-backto-deck"><i class="fa-solid fa-arrow-left"></i></a>
-    </section>
       <hr />
 
       <section id="gallery1" class="image-gallery">
@@ -115,8 +124,6 @@
         </article>
       </section>
 
-
-      
       <section class="pagination">
         <button id="prevBtn" disabled>Vorige</button>
         <span id="page1" class="page-number active">1</span>
@@ -126,13 +133,12 @@
       </section>
       <button class="circle-question">?</button>
     </main>
-    <hr>
+    <hr />
     <footer>
       <p>
         2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
         Nestor Lenaerts
       </p>
     </footer>
-
   </body>
 </html>

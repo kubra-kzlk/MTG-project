@@ -721,6 +721,7 @@ button[type="submit"]:hover {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+
 }
 
 .cardinfo-image {
@@ -738,7 +739,7 @@ button[type="submit"]:hover {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  width: 40%;
+  width: 150px;
   margin-top: 20px;
 }
 
@@ -760,6 +761,11 @@ button[type="submit"]:hover {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
+}
+.buttons-cardinfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .confirmation:focus {
@@ -898,6 +904,10 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 480px) {
+  .buttons-cardinfo{
+    margin-top: 2vh;
+    flex-direction: column;
+  }
   .search-box input {
     max-width: 200px;
   }

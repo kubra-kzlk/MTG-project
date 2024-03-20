@@ -416,73 +416,7 @@ footer {
   display: flex;
 }
 /*mainpage modalgedee*/
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal-content {
-  background-color: black;
-  border-radius: 1.8em;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 800px;
-  display: flex;
-  align-items: center;
-  box-shadow: 20px 20px 20px rgba(128, 0, 128, 0.8);
-}
-
-.modal-content > * {
-  color: white;
-  margin: 20px;
-}
-.close {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 40vw;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.image-modal img {
-  max-width: 200px;
-  height: 300px;
-  margin-right: 20px;
-}
-
-.modal-body {
-  display: flex;
-  align-items: center;
-}
-
-.modal-text {
-  flex-grow: 1;
-  padding-left: 50px;
-  font-size: x-large;
-}
-
-.modal-bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 200px;
-  gap: 100px;
-}
 
 select,
 #addToDeck {
@@ -490,6 +424,12 @@ select,
 
   background-color: purple;
   color: white;
+}
+
+
+.close{
+  font-size: xx-large;
+  padding: 20px;
 }
 /*DECK PAGE */
 .custom-deck-container {
@@ -539,75 +479,42 @@ select,
 
 
 /*DECK DETAIL*/
-.detail-info-container {
-  margin: 20px;
+.deck-detail-content{
+  height: 30vh;
+  margin-top: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 5em;
 }
-.deck-img-profiel {
-  height: 250px;
-  width: 200px;
-  background: #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.card-amount-info{
+  color: white; text-align: center;
+  margin-top: 10px;
 }
-
-.deck-detail-data {
+.deck-head-section{
+  display: flex;
+  justify-content: space-between;
+}
+.Deck-information-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.Deck-information-content > *{
   color: white;
+}
+.image-deck-detail img{
+  height: 29vh;
+  width: 15vw;
 
-  .deck-detail-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 100px;
-    justify-content: center;
-  }
-  .temporary-card {
-    height: 300px;
-    width: 200px;
-    background: #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .closeDeckDetail:hover,
-  .closeDeckDetail:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
 
-  .closeDeckDetail {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    margin-left: 90vw;
-  }
-
-  .deckDetailPageBody {
-    flex-direction: row;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-    border: 2px solid white;
-    color: white;
-  }
-
-  .deckDetailPageText {
-    font-size: 20px;
-  }
-  .deckPopUpbutton {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 0.5em;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-
-  font-size: 20px;
+.button-backto-deck{
+  color: white;
+  font-size: xx-large;  
+  margin:30px 
+  
 }
 
 .container {
@@ -739,40 +646,7 @@ button[type="submit"]:hover {
   .image {
     flex-basis: 30%;
   }
-  .modal-content {
-    margin: 10% auto;
-    width: 90%;
-  }
 
-  .modal-body {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .image-modal img {
-    max-width: 100%;
-    margin: 0 0 20px 0;
-  }
-
-  .modal-text {
-    width: 100%;
-  }
-
-  .modal-bottom {
-    flex-direction: column;
-  }
-
-  .closeDeckDetail:hover,
-  .closeDeckDetail:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .detail-info-container {
-    flex-direction: column;
-  }
 
   select,
   #addToDeck {

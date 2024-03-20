@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Landingpagina</title>
   </head>
   <body>
+    <button id="popup-btn">
+      <i class="far fa-circle-question"></i>
+    </button>
     <main class="landingpage_container">
-      
-        <a class="block_landing mtg" href="registreer.html">
-          <img src="./assets/images/mtg1.jpg" alt="Magic The Gathering" />
-          <p>Magic The Gathering</p>
-        </a>
+      <a class="block_landing mtg" href="registreer.html">
+        <img src="./assets/images/mtg1.jpg" alt="Magic The Gathering" />
+        <p>Magic The Gathering</p>
+      </a>
       <article class="block_landing fifa">
         <a href="#">
           <img src="./assets/images/fifa1.jpg" alt="Fifa" />
@@ -45,12 +51,19 @@
         </a>
       </article>
     </main>
-    <hr>
+    <div id="customPopup" class="custom-popup">
+      <div class="custom-popup-content">
+        <span class="custom-popup-close">&times;</span>
+        <div id="popup-content"></div>
+      </div>
+    </div>
+    <hr />
     <footer>
       <p>
         2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
         Nestor Lenaerts
       </p>
     </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>

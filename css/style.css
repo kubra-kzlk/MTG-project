@@ -236,85 +236,8 @@ footer {
 .block_landing:nth-child(6) {
   animation-delay: 0.5s;
 }
-.circle-question {
-  color: white;
-  background-color: black;
-  border: purple;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  line-height: 40px;
-  cursor: help;
-  position: absolute;
-  top: 80px;
-  right: 20px;
-}
 
-.custom-popup {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
 
-.custom-popup-content {
-  background-color: black;
-  border-radius: 1.8em;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 800px;
-  display: flex;
-  align-items: center;
-  box-shadow: 20px 20px 20px rgba(128, 0, 128, 0.8);
-  white-space: pre-line;
-}
-.custom-popup-content > * {
-  color: white;
-  margin: 20px;
-}
-
-.custom-popup-close {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 40vw;
-}
-
-.custom-popup-close:hover,
-.custom-popup-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.custom-popup-body {
-  display: flex;
-  align-items: center;
-}
-
-.custom-popup-text {
-  flex-grow: 1;
-  padding-left: 50px;
-  font-size: x-large;
-}
-.custom-popup-content p {
-  max-width: 100%;
-}
-
-.custom-popup-bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 200px;
-  gap: 100px;
-}
 
 .header-btn {
   position: absolute;
@@ -615,7 +538,20 @@ select,
   border-radius: 2em;
   height: 20px;
 }
-
+.button-backto-deck-2{
+  color: white;
+  font-size: large;
+  border: solid white 2px;
+  border-radius: 2em;
+  height: 20px;
+  padding: 5px;
+  margin: 2vw;
+  float:right;
+  position: absolute;
+}
+.main-cardinfo{
+  margin-top: 15vh;
+}
 .container {
   max-width: 35%;
   margin: 0 auto;
@@ -728,7 +664,11 @@ button[type="submit"]:hover {
   max-width: 70%;
   height: auto;
 }
-
+.cardinfo-amount{
+  color: white;
+  font-size: large;
+  margin-top: 2vh;
+}
 .cardinfo-text {
   background-color: purple;
   color: white;
@@ -738,7 +678,11 @@ button[type="submit"]:hover {
   width: 150px;
   margin-top: 20px;
 }
-
+.extra-buttons-cardinfo{
+  display: flex;
+  justify-content: center;
+  gap: 0px ;
+}
 .title {
   font-size: 20px;
   font-weight: bold;
@@ -758,6 +702,7 @@ button[type="submit"]:hover {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .buttons-cardinfo{
   display: flex;
   flex-direction: row;

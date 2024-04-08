@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Document</title>
+</head>
+<body>
+    <h2><%= cards.length %></h2>
+
+    <% if (cards && cards.length > 0) { %>
+        <% cards.forEach(function(card) { %>
+            <article class="card">
+                <h2><%= card.name %></h2>
+                <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+                <p><%= card.text %></p>
+            </article>
+        <% }) %>
+    <% } else { %>
+        <p>No cards found.</p>
+    <% } %>
+   
+</body>
+</html>

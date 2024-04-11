@@ -690,12 +690,12 @@ button[type="submit"]:hover {
 }
 
 .content {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
 .confirmation {
-  background-color: green;
+  background-color: purple;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -870,6 +870,7 @@ button[type="submit"]:hover {
   .image-deck-detail img {
     height: 29vh;
     width: fit-content;
+    /*ervr zorgen dat foto niet aan de wand plakt*/
   }
 
   .image {

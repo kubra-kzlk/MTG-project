@@ -1,0 +1,43 @@
+
+
+<%- include('./partials/header') %>
+  <body>
+    <header>
+      <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <nav>
+        <ul>
+          <li><a href="mainpage.html">Home</a></li>
+          <li class="active"><a href="deckpage.html">Deck</a></li>
+          <li><a href="index.html">+Draw</a></li>
+        </ul>
+      </nav>
+      <a href="landingpage.html" class="logout-button"
+        ><i class="fa-solid fa-right-from-bracket"></i
+      ></a>
+    </header>
+    
+    <a href="mainpage.html" class="button-backto-deck-2"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></a>
+    <main>
+    <div class="cardinfo-container">
+   
+        <article class="cardinfo-image">
+          <img
+            src="./assets/images/mishra-claimed-by-gix-16597.jpg"
+            alt="Mishra claimed by Gix"
+          />
+        </article>
+        <h2 class="cardinfo-amount">1 / 4</h2>
+        <div class="cardinfo-text">
+          <h1 class="title">Mishra claimed by Gix</h1>
+            <div class="extra-buttons-cardinfo">
+            <button class="confirmation">Keuze bevestiggen</button>
+            <button class="add-less">+</button>
+            <button class="add-less">-</button>
+          </div>
+        </div>
+    </div>
+  </main>
+  </body>
+<%- include('./partials/footer') %>

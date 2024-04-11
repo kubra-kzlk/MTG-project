@@ -1,0 +1,136 @@
+<%- include('./partials/header') %>
+  <body>
+    <header>
+      <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <nav>
+        <ul>
+          <li class="active"><a href="mainpage.html">Home</a></li>
+          <li><a href="deckpage.html">Deck</a></li>
+          <li><a href="index.html">+Draw</a></li>
+        </ul>
+      </nav>
+      <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </header>
+
+    <div class="search-box">
+      <input type="text" placeholder="Zoeken..." />
+      <button>Zoeken</button>
+    </div>
+
+
+    <main>
+      <section id="gallery1" class="image-gallery">
+        <article class="image">
+          <a href="cardinfopage.html">
+          <img
+            src="./assets/images/mishra-claimed-by-gix-16597.jpg"
+            alt="Image description"
+          />
+        </a>
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/razaketh-the-foulblooded-70322.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/syr-konrad-the-grim-87113.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
+            alt="Image description"
+          />
+        </article>
+        <article class="image">
+          <img
+            src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
+            alt="Image description"
+          />
+        </article>
+      </section>
+
+      <section class="pagination">
+        <button id="prevBtn" disabled>Vorige</button>
+        <span id="page1" class="page-number active">1</span>
+        <span id="page2" class="page-number">2</span>
+        <span id="page3" class="page-number">3</span>
+        <button id="nextBtn">Volgende</button>
+      </section>
+    </main>
+
+    <section id="modal" class="modal">
+      <article class="modal-content">
+        <div class="modal-body">
+          <div class="image-modal">
+            <img src="./assets/images/Test 11.jpg" alt="Image description" />
+          </div>
+          <div class="modal-text">
+            <p>Kaartnaam</p>
+          </br>
+          <br>
+            <p>Beschrijving kaart</p>
+            <div class="modal-bottom">
+              <select>
+                <option>Stapel kiezen</option>
+                <option>Stapel 1</option>
+                <option>Stapel 2</option>
+                <option>Stapel 3</option>
+                <option>Stapel 4</option>
+                <option>Stapel 5</option>
+                <option>Stapel 6</option>
+
+              </select>
+             
+            </div>
+          </div>
+        </div>
+        <span class="close">&times;</span>
+      </article>
+      
+    </section>
+    <hr>
+    <footer>
+      <p>
+        2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
+        Nestor Lenaerts
+      </p>
+    </footer>
+  <script src="./js/menu.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+<%- include('./partials/footer') %>

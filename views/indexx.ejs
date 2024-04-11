@@ -1,0 +1,81 @@
+<%- include('./partials/header') %>
+  <body>
+    <header>
+      <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <nav>
+        <ul>
+          <li><a href="mainpage.html">Home</a></li>
+          <li><a href="deckpage.html">Deck</a></li>
+          <li class="active"><a href="index.html">+Draw</a></li>
+        </ul>
+      </nav>
+      <a href="landingpage.html" class="logout-button"
+        ><i class="fa-solid fa-right-from-bracket"></i
+      ></a>
+    </header>
+    
+    <main>
+      <section class="draw-select-options">
+        <select>
+          <option>Kiez Stappel</option>
+          <option>Stappel 1</option>
+          <option>Stappel 2</option>
+          <option>Stappel 3</option>
+        </select>
+      </section>
+      <section class="draw-cards-decks">
+        <article class="image-deck">
+          <h2 class="drawn-deck-info">56 / 60</h2>
+          <img
+            src="./assets/images/mtgkaartachterkant.jpg"
+            alt="Image description"
+          />
+        </article>
+
+        <article class="image-deck">
+          <h2 class="drawn-deck-info">4 / 60</h2>
+          <img
+            src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
+            alt="Image description"
+          />
+        </article>
+      </section>
+      <section class="draw-interaction-btn">
+        <button>Schudden</button>
+        <button>Kaart Nemen</button>
+      </section>
+
+      <section class="drawn-summary">
+        <h2 class="drawn-cards-info">Getrokken kaarten</h2>
+        <hr />
+        <ul class="draw-cards-summary">
+          <li>
+            <img
+              src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
+              alt="Image description"
+            />
+          </li>
+          <li>
+            <img
+              src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"
+              alt="Image description"
+            />
+          </li>
+          <li>
+            <img
+              src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
+              alt="Image description"
+            />
+          </li>
+          <li>
+            <img
+              src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"
+              alt="Image description"
+            />
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+<%- include('./partials/footer') %>

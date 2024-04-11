@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+  <body>
+    <section class="container">
+      <img src="./assets/images/mtg.png" alt="Magic the Gathering" />
+
+      <section class="registration">
+        <h1>Registreer</h1>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Kies een wachtwoord</label>
+        <input type="password" id="password" name="password" required />
+        <label for="password-confirm">Herhaal wachtwoord</label>
+        <input
+          type="password"
+          id="password-confirm"
+          name="password-confirm"
+          required
+        />
+        <a href="mainpage.html"><button type="submit">Registratie bevestigen</button></a>
+      </section>
+      <section class="login-link">
+        <p>
+          Heb je al een account? <a href="login.html">Meld je dan hier aan!</a>
+        </p>
+      </section>
+      
+    </section>
+  </body>
+  <%- include('./partials/footer') %>

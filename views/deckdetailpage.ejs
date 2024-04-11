@@ -1,35 +1,48 @@
-<!DOCTYPE html>
-<html lang="nl-be">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<%- include('./partials/header') %>
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
       <nav>
         <ul>
-          <li class="active"><a href="mainpage.html">Home</a></li>
-          <li><a href="deckpage.html">Deck</a></li>
+          <li><a href="mainpage.html">Home</a></li>
+          <li class="active"><a href="deckpage.html">Deck</a></li>
           <li><a href="index.html">+Draw</a></li>
         </ul>
       </nav>
-      <a href="landingpage.html" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
+      <a href="landingpage.html" class="logout-button"
+        ><i class="fa-solid fa-right-from-bracket"></i
+      ></a>
     </header>
 
-    <div class="search-box">
-      <input type="text" placeholder="Zoeken..." />
-      <button>Zoeken</button>
-    </div>
-
-
     <main>
+      <section class="deck-head-section">
+        <div class="deck-detail-placeholder">placeholder</div>
+        <section class="deck-detail-content">
+          <article class="image-deck-detail">
+            <a href="cardinfodetailpage.html">
+              <img
+                src="./assets/images/mtgkaartachterkant.jpg"
+                alt="Image description"
+              />
+            </a>
+          </article>
+          <div class="Deck-information-content">
+            <p>StappelNaam</p>
+            <p>Gemmiddelde mana verbruik : 10</p>
+            <p>10 / 60</p>
+            <p>X landen kaarten</p>
+          </div>
+        </section>
+        <a href="deckpage.html" class="button-backto-deck"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></a>
+      </section>
+      <hr />
+
       <section id="gallery1" class="image-gallery">
         <article class="image">
-          <a href="cardinfopage.html">
+          <h2 class="card-amount-info">2/4</h2>
+          <a href="cardinfodetailpage.html">
           <img
             src="./assets/images/mishra-claimed-by-gix-16597.jpg"
             alt="Image description"
@@ -37,63 +50,70 @@
         </a>
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/razaketh-the-foulblooded-70322.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/syr-konrad-the-grim-87113.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">3/4</h2>
           <img
             src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">2/4</h2>
           <img
             src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
             alt="Image description"
           />
         </article>
         <article class="image">
+          <h2 class="card-amount-info">1/4</h2>
           <img
             src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
             alt="Image description"
           />
         </article>
       </section>
-      <section>
-        
-      </section>
+
       <section class="pagination">
         <button id="prevBtn" disabled>Vorige</button>
         <span id="page1" class="page-number active">1</span>
@@ -101,46 +121,9 @@
         <span id="page3" class="page-number">3</span>
         <button id="nextBtn">Volgende</button>
       </section>
+     
     </main>
-
-    <section id="modal" class="modal">
-      <article class="modal-content">
-        <div class="modal-body">
-          <div class="image-modal">
-            <img src="./assets/images/Test 11.jpg" alt="Image description" />
-          </div>
-          <div class="modal-text">
-            <p>Kaartnaam</p>
-          </br>
-          <br>
-            <p>Beschrijving kaart</p>
-            <div class="modal-bottom">
-              <select>
-                <option>Stapel kiezen</option>
-                <option>Stapel 1</option>
-                <option>Stapel 2</option>
-                <option>Stapel 3</option>
-                <option>Stapel 4</option>
-                <option>Stapel 5</option>
-                <option>Stapel 6</option>
-
-              </select>
-             
-            </div>
-          </div>
-        </div>
-        <span class="close">&times;</span>
-      </article>
-      
-    </section>
-    <hr>
-    <footer>
-      <p>
-        2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
-        Nestor Lenaerts
-      </p>
-    </footer>
-  <script src="./js/menu.js"></script>
-  <script src="./js/script.js"></script>
-</body>
-</html>
+    <hr />
+   
+  </body>
+<%- include('./partials/footer') %>

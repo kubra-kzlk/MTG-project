@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl-be">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<%- include('./partials/header') %>
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
@@ -91,9 +83,7 @@
           />
         </article>
       </section>
-      <section>
-        
-      </section>
+
       <section class="pagination">
         <button id="prevBtn" disabled>Vorige</button>
         <span id="page1" class="page-number active">1</span>
@@ -143,4 +133,4 @@
   <script src="./js/menu.js"></script>
   <script src="./js/script.js"></script>
 </body>
-</html>
+<%- include('./partials/footer') %>

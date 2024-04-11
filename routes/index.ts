@@ -20,8 +20,9 @@ app.get("/", async (req, res) => {
     try {
         const response = await fetch("https://api.magicthegathering.io/v1/cards");
         const data: CardsResponse = await response.json();
-        const visibleCards = data.cards.filter(card => card.imageUrl);
-        res.render("index", { cards: visibleCards })
+        //const visibleCards = data.cards.filter(card => card.imageUrl);
+        //res.render("index", { cards: visibleCards })
+        res.render("landingpage");
     }
     catch (error) {
         console.error("Fetch error:", error);

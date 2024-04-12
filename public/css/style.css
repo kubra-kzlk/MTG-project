@@ -355,6 +355,37 @@ footer {
 [src="./assets/images/Test.jpg"] {
   border: 2px solid yellow;
 }
+#legend {
+  margin: 10px auto;
+  padding: 5px;
+  width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: black;
+}
+
+#legend h2 {
+  text-align: center;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#legend ul {
+  list-style: none;
+  padding: 0;
+}
+
+#legend li {
+  margin-bottom: 3px;
+  padding: 3px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

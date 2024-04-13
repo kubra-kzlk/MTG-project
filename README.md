@@ -1,4 +1,4 @@
-het idee is dat het zo lijkt de structuur van de project :
+structuur van het project :
 
 
 /my-project

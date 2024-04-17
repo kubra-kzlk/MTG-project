@@ -1,28 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-    <title>Document</title>
-</head>
+<%- include('./partials/header') %>
 <body>
-    <h2><%= cards.length %></h2>
 
 
-    <% if (cards && cards.length > 0) { %>
-        <% cards.forEach(function(card) { %>
-            <article class="card">
-                <h2><%= card.name %></h2>
-                <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
-                <p><%= card.text %></p>
-            </article>
-        <% }) %>
-    <% } else { %>
-        <p>No cards found.</p>
-    <% } %>
-   
+
+  <main class="landingpage_container">
+    <a class="block_landing mtg" href="/register">
+      <img src="/assets/images/mtg1.jpg" alt="Magic The Gathering" />
+      <p>Magic The Gathering</p>
+    </a>
+    <article class="block_landing fifa">
+      <a href="/fifa">
+        <img src="/assets/images/fifa1.jpg" alt="Fifa" />
+        <p>Fifa</p>
+      </a>
+    </article>
+    <article class="block_landing lego">
+      <a href="/lego">
+        <img src="/assets/images/legomaster1.jpg" alt="Lego" />
+        <p>Lego Master</p>
+      </a>
+    </article>
+    <article class="block_landing pokemon">
+      <a href="/pokemon">
+        <img src="/assets/images/pokemon1.jpg" alt="Pokemon" />
+        <p>Pokemon</p>
+      </a>
+    </article>
+    <article class="block_landing fortnite">
+      <a href="/fortnite">
+        <img src="/assets/images/fortnite1.jpg" alt="Fortnite" />
+        <p>Fortnite</p>
+      </a>
+    </article>
+    <article class="block_landing lotr">
+      <a href="/lotr">
+        <img src="/assets/images/lotr1.jpg" alt="Lord Of The Rings" />
+        <p>Lord Of The Rings</p>
+      </a>
+    </article>
+  </main>
+  <div id="customPopup" class="custom-popup">
+    <div class="custom-popup-content">
+      <span class="custom-popup-close">&times;</span>
+      <div id="popup-content"></div>
+    </div>
+  </div>
+ 
+  <hr />
+  <script src="/app.js"></script>
+
+<%- include('./partials/footer') %>
 </body>
-</html>

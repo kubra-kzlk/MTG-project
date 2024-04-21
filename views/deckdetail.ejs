@@ -15,106 +15,32 @@
     </header>
 
     <main>
-      <section class="deck-head-section">
-        <div class="deck-detail-placeholder">placeholder</div>
-        <section class="deck-detail-content">
-          <article class="image-deck-detail">
-            <a href="/cardinfodetailpage">
-              <img
-                src="./assets/images/mtgkaartachterkant.jpg"
-                alt="Image description"
-              />
-            </a>
-          </article>
-          <div class="Deck-information-content">
-            <p>StappelNaam</p>
-            <p>Gemmiddelde mana verbruik : 10</p>
-            <p>10 / 60</p>
-            <p>X landen kaarten</p>
-          </div>
-        </section>
-        <a href="/deckpage" class="button-backto-deck"
-          ><i class="fa-solid fa-arrow-left"></i
-        ></a>
-      </section>
-      <hr />
-
       <section id="gallery1" class="image-gallery">
+      <% for(card of cards) { %>      
         <article class="image">
           <h2 class="card-amount-info">2/4</h2>
-          <a href="/cardinfodetailpage">
+          <a href="/cardinfodetail">
           <img
-            src="./assets/images/mishra-claimed-by-gix-16597.jpg"
-            alt="Image description"
+            src= "<%= card.imageUrl%>"
+            alt="<%= card.name%>"
           />
         </a>
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/razaketh-the-foulblooded-70322.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/syr-konrad-the-grim-87113.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">3/4</h2>
-          <img
-            src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <img
-            src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <h2 class="card-amount-info">1/4</h2>
-          <img
-            src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
-            alt="Image description"
-          />
-        </article>
+        </article>        
+        <% } %>
       </section>
 
       <section class="pagination">
+      <li class="<%= currentPage == 1 ? 'disabled' : '' %>">
+      <a href="/page/<%= currentPage - 1 %>">&laquo; Previous</a>
+     </li>
+      <%for (var i = 1; i < totalPages; i++) {%>
+      <li class="<%= i == currentPage ? 'active' : '' %>">
+      <a href="/page/<%= i %>"><%= i %></a>
+      </li>
+      <% } %>
+      <li class="<%= currentPage == totalPages ? 'disabled' : '' %>">
+       <a href="/page/<%= currentPage + 1 %>">Next &raquo;</a>
+      </li>
         <button id="prevBtn" disabled>Vorige</button>
         <span id="page1" class="page-number active">1</span>
         <span id="page2" class="page-number">2</span>

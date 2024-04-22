@@ -1,52 +1,44 @@
 import express from "express";
-import { Card, CardsResponse } from "../interfaces/mgtcards";
+import { Card } from "../public/interfaces/mgtcards";
+import { fetchCards } from "./fetchCards";
+import { connect, getAllCards, getPageCard } from '../public/db/database'
 import path from "path";
-import { render } from "ejs";
 
 const app = express();
 
-
-app.set("view engine", "ejs"); 
+//app sets 
+app.set("view engine", "ejs");
 app.set("port", 3000);
 
-
+//ap use 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //const api 
-let cards: CardsResponse;
 
 
-/*INDEX PAGE*/
 app.get("/", async (req, res) => {
+
 
     res.render("index")
 })
 
-//Main page =>
 app.get("/main", async (req, res) => {
-    res.render("main",{
-        cards
+    const page = req.query.p || 1; 
+    const cardsPerPage = 9; 
+    let cards: Card[] = await getPageCard((Number(page) * cardsPerPage));
+    res.render("main", {
+        cards : cards
     })
 })
 
-app.get("/deckdetail", async(req,res)=>{
-    res.render("deckdetail",cards)
-})
-
-app.get("/overview", async (req, res)=>{
-    res.render("overview", cards)
-})
-
-
-app.set("port", process.env.PORT || 3000);
 
 
 
-app.listen(app.get("port"), async() => { 
-    
-    let response = await fetch("https://api.magicthegathering.io/v1/cards");
-    cards = await response.json() as CardsResponse;
-    
-    console.log("[server] http://localhost:" + app.get("port")) });
+
+
+app.listen(app.get("port"), async () => {
+    await connect();
+    console.log("[server] http://localhost:" + app.get("port"))
+});

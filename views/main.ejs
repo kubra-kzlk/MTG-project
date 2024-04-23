@@ -1,5 +1,6 @@
 <%- include('./partials/head') %>
 
+
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
@@ -23,7 +24,7 @@
 
       <section class="image-gallery">
         <% for( card of cards ) { %>
-          <article class="image">
+          <article class="">
             <a href="/cardinfopage">
               <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
             </a>
@@ -31,17 +32,35 @@
           <% } %>
       </section>
 
- 
-    </main>
-
-
-    <hr>
-    <footer>
-      <p>
-        2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
-        Nestor Lenaerts
-      </p>
-    </footer>
-
+      <section class="pagination">
+        <% if (currentPage > 1) { %>
+          <a href="/main?p=<%= currentPage - 1 %>">Previous</a>
+        <% } %>
+        <% if (currentPage > 3) { %>
+          <a href="/main?p=1"><%= 1 %></a>
+        <% } %>
+        <% if (currentPage > 3) { %>
+          <span>...</span>
+        <% } %>
+        <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
+          <% if (i > 0 && i <= totalPages) { %>
+            <a
+              class="<%= i === currentPage ? 'active' : '' %>"
+              href="/main?p=<%= i %>"
+              ><%= i %></a
+            >
+          <% } %>
+        <% } %>
+        <% if (currentPage < totalPages - 2) { %>
+          <span>...</span>
+        <% } %>
+        <% if (currentPage < totalPages - 1) { %>
+          <a href="/main?p=<%= totalPages %>"><%= totalPages %></a>
+        <% } %>
+        <% if (currentPage < totalPages) { %>
+          <a href="/main?p=<%= currentPage + 1 %>">Next</a>
+        <% } %>
+      </section>
+    </main>  
   </body>
   <%- include('./partials/footer') %>

@@ -6,7 +6,6 @@ import path from "path";
 
 const app = express();
 
-//app sets 
 app.set("view engine", "ejs");
 app.set("port", 3000);
 
@@ -16,13 +15,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //const api 
+
 const cardsPerPage = 9;
+
 
 app.get("/", async (req, res) => {
     res.render("index")
 })
 
 app.get("/main", async (req, res) => {
+
     const page = parseInt(req.query.p as string) || 1;
 
     const totalCards = (await getAllCards()).length;
@@ -60,6 +62,8 @@ app.get('/next', async (req, res) => {
   })
 
 app.listen(app.get("port"), async () => {
+
     await connect();
     console.log("[server] http://localhost:" + app.get("port"))
 });
+

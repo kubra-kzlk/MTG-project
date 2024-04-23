@@ -1,56 +1,69 @@
 import express from "express";
-import { Card, CardsResponse } from "../interfaces/mgtcards";
+import { Card } from "../public/interfaces/mgtcards";
+import { fetchCards } from "./fetchCards";
+import { connect, getAllCards, getPageCard } from '../public/db/database'
 import path from "path";
-import { render } from "ejs";
 
 const app = express();
-
 
 app.set("view engine", "ejs");
 app.set("port", 3000);
 
-
+//ap use 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //const api 
-let cards: Card[] = [];
+
+const cardsPerPage = 9;
 
 
-/*INDEX PAGE*/
 app.get("/", async (req, res) => {
-
     res.render("index")
 })
 
-//Main page =>
 app.get("/main", async (req, res) => {
+
+    const page = parseInt(req.query.p as string) || 1;
+
+    const totalCards = (await getAllCards()).length;
+    const totalPages = Math.ceil(totalCards / cardsPerPage);
+    let cards: Card[] = await getPageCard(page);
     res.render("main", {
-        cards
+        cards : cards,
+        currentPage: page,
+        totalPages: totalPages,
     })
 })
 
-app.get("/deckdetail", async (req, res) => {
-    res.render("deckdetail", cards)
-})
 
-app.get("/overview", async (req, res) => {
-    res.render("overview", cards)
-})
+app.get('/next', async (req, res) => {
+    const page = parseInt(req.query.p as string) || 1;
+    const nextPage = page + 1;
+    const totalCards = (await getAllCards()).length;
+    const cards = await getPageCard(nextPage);
+    const totalPages = Math.ceil(totalCards / cardsPerPage);
+    res.render('main', {
+      cards,
+      currentPage: nextPage,
+      totalPages: totalPages,
+    });
+  });
 
 
-app.set("port", process.env.PORT || 3000);
+  app.get('/register' , (req, res)=>{
 
+    res.render('register')
+  })
+  app.get('/overview' , (req, res)=>{
 
+    res.render('overview')
+  })
 
 app.listen(app.get("port"), async () => {
 
-    let response = await fetch("https://api.magicthegathering.io/v1/cards");
-    let arrayOfCards = await response.json() as CardsResponse;
-    cards = arrayOfCards.cards as Card[];
+    await connect();
     console.log("[server] http://localhost:" + app.get("port"))
 });
-
-
 

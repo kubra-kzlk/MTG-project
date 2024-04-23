@@ -1,4 +1,6 @@
-<%- include('./partials/header') %>
+<%- include('./partials/head') %>
+
+
   <body>
     <header>
       <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
@@ -19,127 +21,46 @@
 
 
     <main>
-      <section id="gallery1" class="image-gallery">
-        <article class="image">
-          <a href="/cardinfopage">
-          <img
-            src="./assets/images/mishra-claimed-by-gix-16597.jpg"
-            alt="Image description"
-          />
-        </a>
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/razaketh-the-foulblooded-70322.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/syr-konrad-the-grim-87113.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/animar-soul-of-elements-50772 (1).jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/mikaeus-the-unhallowed-42930.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"
-            alt="Image description"
-          />
-        </article>
-        <article class="image">
-          <img
-            src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"
-            alt="Image description"
-          />
-        </article>
+
+      <section class="image-gallery">
+        <% for( card of cards ) { %>
+          <article class="">
+            <a href="/cardinfopage">
+              <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+            </a>
+          </article>
+          <% } %>
       </section>
 
       <section class="pagination">
-        <button id="prevBtn" disabled>Vorige</button>
-        <span id="page1" class="page-number active">1</span>
-        <span id="page2" class="page-number">2</span>
-        <span id="page3" class="page-number">3</span>
-        <button id="nextBtn">Volgende</button>
+        <% if (currentPage > 1) { %>
+          <a href="/main?p=<%= currentPage - 1 %>">Previous</a>
+        <% } %>
+        <% if (currentPage > 3) { %>
+          <a href="/main?p=1"><%= 1 %></a>
+        <% } %>
+        <% if (currentPage > 3) { %>
+          <span>...</span>
+        <% } %>
+        <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
+          <% if (i > 0 && i <= totalPages) { %>
+            <a
+              class="<%= i === currentPage ? 'active' : '' %>"
+              href="/main?p=<%= i %>"
+              ><%= i %></a
+            >
+          <% } %>
+        <% } %>
+        <% if (currentPage < totalPages - 2) { %>
+          <span>...</span>
+        <% } %>
+        <% if (currentPage < totalPages - 1) { %>
+          <a href="/main?p=<%= totalPages %>"><%= totalPages %></a>
+        <% } %>
+        <% if (currentPage < totalPages) { %>
+          <a href="/main?p=<%= currentPage + 1 %>">Next</a>
+        <% } %>
       </section>
-    </main>
-    <section id="legend">
-      <h2>Legende</h2>
-      <ul>
-        <li>Witte rand: Commons</li>
-        <li>Blauwe rand: Uncommons</li>
-        <li>Gele rand: Rares</li>
-        <li>Rode rand: Mythic Rares</li>
-      </ul>
-    </section>
-
-    <section id="modal" class="modal">
-      <article class="modal-content">
-        <div class="modal-body">
-          <div class="image-modal">
-            <img src="./assets/images/Test 11.jpg" alt="Image description" />
-          </div>
-          <div class="modal-text">
-            <p>Kaartnaam</p>
-          </br>
-          <br>
-            <p>Beschrijving kaart</p>
-            <div class="modal-bottom">
-              <select>
-                <option>Stapel kiezen</option>
-                <option>Stapel 1</option>
-                <option>Stapel 2</option>
-                <option>Stapel 3</option>
-                <option>Stapel 4</option>
-                <option>Stapel 5</option>
-                <option>Stapel 6</option>
-
-              </select>
-             
-            </div>
-          </div>
-        </div>
-        <span class="close">&times;</span>
-      </article>
-      
-    </section>
-    <hr>
-    <footer>
-      <p>
-        2024 &copy; Magic The Gathering - Kubra Kizilkilic, Ibtissam Bouchouari,
-        Nestor Lenaerts
-      </p>
-    </footer>
-  <script src="./js/menu.js"></script>
-  <script src="./js/script.js"></script>
-</body>
-<%- include('./partials/footer') %>
+    </main>  
+  </body>
+  <%- include('./partials/footer') %>

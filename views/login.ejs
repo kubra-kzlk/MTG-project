@@ -1,15 +1,5 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-
-
+<%- include('./partials/head') %>
+  <body>
     <section class="container">
       <img src="./assets/images/mtg.png" alt="Magic the Gathering" />
       <section class="login-form">
@@ -20,7 +10,7 @@
         <input type="password" id="password" name="password" required />
         <a href="/mainpage"><button type="submit">Login</button></a>
         <p class="login-link">
-          Nog geen lid? <a href="/registreer">Registreer hier!</a>
+          Nog geen lid? <a href="/register">Registreer hier!</a>
         </p>
       </section>
     </section>

@@ -20,7 +20,7 @@
   "main": "routes/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon routes/index.ts"
+    "start": "ts-node routes/index.ts"
   },
   "author": "",
   "license": "ISC"

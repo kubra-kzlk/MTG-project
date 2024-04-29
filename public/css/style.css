@@ -1078,3 +1078,52 @@ button[type="submit"]:hover {
           justify-content: space-evenly;
         }
       }
+/* Hier is wat css bijgekomen later zal ik ze ordelijker plaatsen.
+  (Ik wil ze momenteel niet mengen met andere code. */
+
+  .icon-button {
+    background-color: #000;
+    border: none;
+    padding: 20px;
+    font-size: 30px;
+    cursor: pointer!important;
+  }
+  
+  .icon-button i {
+    color: white;
+  }
+  
+  .popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+ 
+  }
+  
+  .popup-button {
+    background-color: #000;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    color: white}
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-button i {
+  color: #000;
+  font-weight: 900;
+}

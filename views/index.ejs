@@ -63,15 +63,15 @@
 
 
 <script>
-  // JavaScript om de pop-up weer te geven wanneer er op een afbeelding wordt geklikt
+
   document.querySelectorAll('.block_landing a').forEach(function(el) {
     el.addEventListener('click', function(event) {
-      event.preventDefault(); // Voorkom dat de link wordt gevolgd
-      document.getElementById('noAccessPopup').style.display = 'block'; // Toon de pop-up
+      event.preventDefault(); 
+      document.getElementById('noAccessPopup').style.display = 'block';
     });
   });
 
-  // JavaScript om de pop-up te sluiten wanneer er op de sluitknop wordt geklikt
+  
   document.querySelector('.no-access-popup-close').addEventListener('click', function() {
     document.getElementById('noAccessPopup').style.display = 'none'; // Verberg de pop-up
   });

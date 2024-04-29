@@ -12,7 +12,9 @@
     "@types/express": "^4.17.21",
     "@types/lodash": "^4.17.0",
     "@types/node": "^14.14.37",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   },
   "name": "projectwpl",
   "description": "het idee is dat het zo lijkt de structuur van de project :",

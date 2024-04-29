@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+    <nav>
+      <ul>
+        <li class="active"><a href="/mainpage">Home</a></li>
+        <li ><a href="/deckpage">Deck</a></li>
+        <li><a href="/indexx">+Draw</a></li>
+      </ul>
+    </nav>
+    <a href="/landingpage" class="logout-button"
+      ><i class="fa-solid fa-right-from-bracket"></i
+    ></a>
+    <button class="icon-button"> <i class="fa-solid fa-gear"></i> </button>
+    <div id="popup" class="popup-container">
+      <button class="close-button">
+        <i class="fa-solid fa-times"></i>
+      </button>
+      <button id="sound-switch" class="popup-button switch-button">
+        <span class="switch-label">Geluid aan</span>
+        <div class="switch-slider">
+          <div class="switch-circle"></div>
+        </div>
+      </button>
+    </div>
+  </header>
+  <script>
+    let soundSwitch = document.getElementById("sound-switch");
+    let audio = new Audio("./assets/sound/geluid.mp3");
+    let isPlaying = false;
+
+    function playMusic() {
+      audio.play();
+      isPlaying = true;
+      soundSwitch.querySelector(".switch-label").textContent = "Geluid uit";
+    }
+
+    function stopMusic() {
+      audio.pause();
+      audio.currentTime = 0;
+      isPlaying = false;
+      soundSwitch.querySelector(".switch-label").textContent = "Geluid aan";
+    }
+
+    soundSwitch.addEventListener("click", function() {
+      if (isPlaying) {
+        stopMusic();
+      } else {
+        playMusic();
+      }
+      this.classList.toggle("on");
+    });
+
+    let iconButton = document.querySelector(".icon-button");
+    let popup = document.getElementById("popup");
+
+    iconButton.addEventListener("click", function() {
+      popup.style.display = "block"; 
+    });
+
+    // Add event listener to the overlay to hide the popup
+    let overlay = document.createElement("div");
+    overlay.className = "overlay";
+    document.body.appendChild(overlay);
+    overlay.addEventListener("click", function() {
+      popup.style.display = "none"; // Hide the popup
+    });
+
+    let closeButton = document.querySelector(".close-button");
+    closeButton.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+  </script>

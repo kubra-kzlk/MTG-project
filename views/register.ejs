@@ -1,4 +1,4 @@
-<%- include('./partials/header') %>
+<%- include('./partials/head') %>
 <body>
   <section class="container">
     <img src="/assets/images/mtg.png" alt="Magic the Gathering" />
@@ -14,12 +14,17 @@
       <button type="submit">Registratie bevestigen</button>
     </form>
 
+    <% if (userEmailExists == true  ) { %>
+      <p class="error-message">email bestaat al, gebruik een andere</p>
+    <% } %>
+
     <section class="login-link">
       <p>
         Heb je al een account? <a href="/login">Meld je dan hier aan!</a>
       </p>
     </section>
     
-  </section>
+  </section> 
+  
 </body>
 <%- include('./partials/footer') %>

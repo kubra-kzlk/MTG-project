@@ -17,7 +17,7 @@
   "name": "projectwpl",
   "description": "het idee is dat het zo lijkt de structuur van de project :",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "routes/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon routes/index.ts"

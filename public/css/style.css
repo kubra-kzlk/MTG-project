@@ -496,12 +496,26 @@ select,
   height: auto;
 }
 
-.deck-number {
-  background-color: purple;
-  color: black;
-  padding: 2px 6px;
-  margin: 3px 0;
-  border-radius: 2px;
+.deck-name {
+  width: 150px; /* Aangepaste breedte gelijk aan die van de kaarten */
+  margin: auto; /* Centreert de deck-namen als de container breder is dan 150px */
+  display: block; /* Zorgt voor eigen regel, handig als dit nog niet ingesteld was */
+  background-color: #1C1C1C;
+  color: #E0D46C;
+  padding: 3px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+  text-shadow: 1px 1px 2px black;
+  font-family: 'Noto Serif', serif;
+  transition: all 0.3s ease-in-out;
+}
+.deck-name:hover {
+  background-color: #333;
+  color: #FFF;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(255,255,255,0.5);
 }
 
 .detail-info-container {

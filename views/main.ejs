@@ -2,7 +2,7 @@
 
 
  
-
+<button class="scroll-to-top">&#x2191;</button>
     <div class="search-box">
       <input type="text" placeholder="Zoeken..." />
       <button>Zoeken</button>
@@ -23,7 +23,7 @@
 
       <section class="pagination">
         <% if (currentPage > 1) { %>
-          <a href="/main?p=<%= currentPage - 1 %>">Previous</a>
+          <a href="/main?p=<%= currentPage - 1 %>">Vorige</a>
         <% } %>
         <% if (currentPage > 3) { %>
           <a href="/main?p=1"><%= 1 %></a>
@@ -47,9 +47,10 @@
           <a href="/main?p=<%= totalPages %>"><%= totalPages %></a>
         <% } %>
         <% if (currentPage < totalPages) { %>
-          <a href="/main?p=<%= currentPage + 1 %>">Next</a>
+          <a href="/main?p=<%= currentPage + 1 %>">Volgende</a>
         <% } %>
       </section>
     </main>  
+   
   </body>
   <%- include('./partials/footer') %>

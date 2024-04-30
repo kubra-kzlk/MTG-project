@@ -1,5 +1,18 @@
-<%- include('./partials/header') %>
-
+<%- include('./partials/head') %>
+  <body>
+    <header>
+      <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+      <nav>
+        <ul>
+          <li><a href="/mainpage">Home</a></li>
+          <li><a href="/deckpage">Deck</a></li>
+          <li class="active"><a href="/index">+Draw</a></li>
+        </ul>
+      </nav>
+      <a href="/andingpage" class="logout-button"
+        ><i class="fa-solid fa-right-from-bracket"></i
+      ></a>
+    </header>
     
     <main>
       <section class="draw-select-options">

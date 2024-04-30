@@ -1,4 +1,4 @@
-import { Card, CardsResponse } from "../public/interfaces/mgtcards";
+import { Card, CardsResponse } from "../public/models/mgtcards";
 
 export const fetchCards = async (): Promise<Card[]> => {
     try {

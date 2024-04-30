@@ -616,6 +616,9 @@ select,
 .registration > * {
   margin-bottom: 20px;
 }
+.error-message{
+  color: red; font-weight: bold;
+}
 
 .login-link {
   color: white;

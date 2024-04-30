@@ -120,8 +120,8 @@ app.listen(app.get("port"), async () => {
 
 
 app.get('/decklist', async (req, res) => {
-  const deckCards: Card[] = await fetchCards(); 
+
   res.render('decklist', {
-      cards: deckCards, 
+
   });
 });

@@ -1,49 +1,138 @@
 <%- include('./partials/header') %>
  
     <div class="custom-deck-container">
-      <div class="custom-deck-card">
-        <a href="/deckdetailpage">
-            <img src="./assets/images/mtgachterkant.jpg" alt="Urza, Lord Protector" />
-        </a>
-        <p class="deck-name">Mono Red Aggro</p>
-    </div>
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Arwen, Weaver of Hope" />
-        <p class="deck-name">Jund Midrange</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="The Gaffer" />
-        <p class="deck-name">Storm Combo</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="The Ur-Dragon" />
-        <p class="deck-name">Green Ramp</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Questing Beast" />
-        <p class="deck-name">Merfolk Tribal</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Marrow-Gnawer" />
-        <p class="deck-name">Golgari Reanimator</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Greensleeves, Maro Sorcerer" />
-        <p class="deck-name">Izzet Tempo</p>
-      </div>
-      
-      <div class="custom-deck-card">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Mangara, the Diplomat" />
-        <p class="deck-name">Azorius Control</p>
-      </div>
-      
-    </div>
+<!--
+<div class="custom-deck-card">
+    <a href="/deckdetailpage">
+        <img src="./assets/images/mtgachterkant.jpg" alt="Urza, Lord Protector" />
+    </a>
+    <p class="deck-name">Mono Red Aggro</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="Arwen, Weaver of Hope" />
+    <p class="deck-name">Jund Midrange</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="The Gaffer" />
+    <p class="deck-name">Storm Combo</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="The Ur-Dragon" />
+    <p class="deck-name">Green Ramp</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="Questing Beast" />
+    <p class="deck-name">Merfolk Tribal</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="Marrow-Gnawer" />
+    <p class="deck-name">Golgari Reanimator</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="Greensleeves, Maro Sorcerer" />
+    <p class="deck-name">Izzet Tempo</p>
+</div>
+
+<div class="custom-deck-card">
+    <img src="./assets/images/mtgachterkant.jpg" alt="Mangara, the Diplomat" />
+    <p class="deck-name">Azorius Control</p>
+</div>
+-->
+
+
+<button class="createdeck">Deck aanmaken</button>
+
+<div id="imageContainer">
+    <!-- Afbeeldingen worden hier ingevoegd -->
+</div>
+
+<script>
+    // JSON met afbeeldingen
+    const imagesJson = [
+        {
+            "naam": "achterkanboom.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkanboom.jpg"
+        },
+        {
+            "naam": "achterkantdoodskop.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdoodskop.jpg"
+        },
+        {
+            "naam": "achterkantdraak.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg"
+        },
+        {
+            "naam": "achterkantmixthemas.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg"
+        },
+        {
+            "naam": "achterkantmixthemas2.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg"
+        },
+        {
+            "naam": "achterkantmountain.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmountain.jpg"
+        },
+        {
+            "naam": "achterkantorigineel.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg"
+        },
+        {
+            "naam": "achterkantpaarsevrouw.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantpaarsevrouw.jpg"
+        },
+        {
+            "naam": "achterkantvrouw.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg"
+        },
+        {
+            "naam": "achterkantvuurman.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg"
+        },
+        {
+            "naam": "achterkantzon.jpg",
+            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantzon.jpg"
+        }
+    ];
+
+    function showImages() {
+        const imageContainer = document.getElementById("imageContainer");
+        imageContainer.innerHTML = "";
+
+        imagesJson.forEach(image => {
+            const imgElement = document.createElement("img");
+            imgElement.src = image.link;
+            imgElement.alt = image.naam;
+            imgElement.style.width = "100px"; 
+
+         
+            imgElement.addEventListener("click", () => {
+                selectImage(image.link);
+            });
+
+            imageContainer.appendChild(imgElement);
+        });
+    }
+
     
+    function selectImage(imageLink) {
+        
+        console.log("Geselecteerde afbeelding: " + imageLink);
+    }
+
+    // Voeg een event listener toe aan de knop om het deck aan te maken
+    document.querySelector(".createdeck").addEventListener("click", () => {
+        // Hier kun je logica toevoegen om het deck aan te maken
+        // Bijvoorbeeld: toon de afbeeldingen wanneer op de knop wordt geklikt
+        showImages();
+    });
+</script>
     </main>
     
     

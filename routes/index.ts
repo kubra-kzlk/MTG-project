@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import { Card } from "../public/models/mgtcards";
-import { connect, createUser, findUserByEmail, getAllCards, getPageCard, usersCollection } from '../public/db/database'
+import { connect, createUser, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
 import { NewUser, User } from "../public/models/user";
 import bcrypt from 'bcrypt';
 
@@ -78,16 +78,47 @@ app.get("/register", (req: Request, res: Response) => {
   })
 })
 
+app.get("/cardinfo", async(req,res)=>{
+    const cardName = req.query.name as string;
+    const card = await findUserByName(cardName);
+
+  if(card == null){
+    res.render("cardinfo",{
+      card : card
+    })
+  }else{
+    res.render("404")
+  }
+
+})
+
 
 app.get("/main", async (req, res) => {
+
+  const searchedCards: string = typeof req.query.searchedCards === "string" ? req.query.searchedCards : "";
+
+  let cards: Card[] = [];   
+
   const page = parseInt(req.query.p as string) || 1;
-  const totalCards = (await getAllCards()).length;
-  const totalPages = Math.ceil(totalCards / 9);
-  let cards: Card[] = await getPageCard(page);
+ 
+  let totalPages : number = 0; 
+  // checken als iets word gezocht ! 
+  if (searchedCards !== "") {
+    const filteredCards = await searchCards(searchedCards);
+    totalPages = Math.ceil(filteredCards.length/ 9)
+    cards = filteredCards.slice((page-1) * 9, page * 9);
+  }
+  else {
+    cards = await getPageCard(page)
+    const totalCards :number = (await getAllCards()).length;
+    totalPages = Math.ceil(totalCards / 9);
+  }
+
   res.render("main", {
     cards: cards,
     currentPage: page,
     totalPages: totalPages,
+    searchedCards: searchedCards
   })
 })
 

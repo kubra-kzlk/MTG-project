@@ -42,7 +42,7 @@ export async function createUser(newUser: NewUser): Promise<User> {
     const existingUser = await findUserByEmail(newUser.email);
     if (existingUser) {
         throw new Error('User already exists');
-    }else{
+    } else {
         const hashedPassword = await bcrypt.hash(newUser.password, 10);
         newUser.password = hashedPassword;
         const result = await client.db("projectwpl").collection("users").insertOne(newUser)
@@ -50,14 +50,20 @@ export async function createUser(newUser: NewUser): Promise<User> {
         console.log("user is gecreerd!")
         return createdUser;
     }
-    
-    
-   
-  }
+
+
+
+}
 export async function findUserByEmail(email: string): Promise<User | null> {
     return await usersCollection.findOne({ email });
 }
+export async function searchCards(query: string): Promise<Card[]> {
+    return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
+}
 
+export async function findUserByName(name:string): Promise<User | null> {
+    return await usersCollection.findOne({name}); 
+}
 
 
 //behandeling van de datbase connect - exit

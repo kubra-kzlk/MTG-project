@@ -149,3 +149,10 @@ app.listen(app.get("port"), async () => {
   console.log("[server] http://localhost:" + app.get("port"))
 });
 
+
+app.get('/decklist', async (req, res) => {
+
+  res.render('decklist', {
+
+  });
+});

@@ -1,56 +1,51 @@
 <%- include('./partials/header') %>
+<div class="search-box">
+<form action="/main" method="get">
+  <input type="text" id="search" name="searchedCards" placeholder="Search for a card...">
+  <button type="submit">Search</button>
+</form>
+</div>
 
+<div class="image-gallery">
+  <% for( card of cards ) { %>
+    <article class="">
+      <a href="/cardinfo?name=<%= card.name %>">
+        <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+      </a>
+    </article>
+  <% } %>
+</div>
 
- 
-<button class="scroll-to-top">&#x2191;</button>
-    <div class="search-box">
-      <input type="text" placeholder="Zoeken..." />
-      <button>Zoeken</button>
-    </div>
-
-
-    <main>
-
-      <section class="image-gallery">
-        <% for( card of cards ) { %>
-          <article class="">
-            <a href="/cardinfopage">
-              <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
-            </a>
-          </article>
-          <% } %>
-      </section>
-
-      <section class="pagination">
-        <% if (currentPage > 1) { %>
-          <a href="/main?p=<%= currentPage - 1 %>">Vorige</a>
-        <% } %>
-        <% if (currentPage > 3) { %>
-          <a href="/main?p=1"><%= 1 %></a>
-        <% } %>
-        <% if (currentPage > 3) { %>
-          <span>...</span>
-        <% } %>
-        <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
-          <% if (i > 0 && i <= totalPages) { %>
-            <a
-              class="<%= i === currentPage ? 'active' : '' %>"
-              href="/main?p=<%= i %>"
-              ><%= i %></a
-            >
-          <% } %>
-        <% } %>
-        <% if (currentPage < totalPages - 2) { %>
-          <span>...</span>
-        <% } %>
-        <% if (currentPage < totalPages - 1) { %>
-          <a href="/main?p=<%= totalPages %>"><%= totalPages %></a>
-        <% } %>
-        <% if (currentPage < totalPages) { %>
-          <a href="/main?p=<%= currentPage + 1 %>">Volgende</a>
-        <% } %>
-      </section>
-    </main>  
-   
+<section class="pagination">
+  <% if (currentPage > 1) { %>
+    <a href="/main?p=<%= currentPage - 1 %>&searchedCards=<%= searchedCards %>">Previous</a>
+  <% } %>
+  <% if (currentPage > 3) { %>
+    <a href="/main?p=1&searchedCards=<%= searchedCards %>">
+      <%= 1 %>
+    </a>
+  <% } %>
+  <% if (currentPage > 3) { %>
+    <span>...</span>
+  <% } %>
+  <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
+    <% if (i > 0 && i <= totalPages) { %>
+      <a class="<%= i === currentPage? 'active' : '' %>" href="/main?p=<%= i %>&searchedCards=<%= searchedCards %>">
+        <%= i %>
+      </a>
+    <% } %>
+  <% } %>
+  <% if (currentPage < totalPages - 2) { %>
+    <span>...</span>
+  <% } %>
+  <% if (currentPage < totalPages - 1) { %>
+    <a href="/main?p=<%= totalPages %>&searchedCards=<%= searchedCards %>">
+      <%= totalPages %>
+    </a>
+  <% } %>
+  <% if (currentPage < totalPages) { %>
+    <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">Next</a>
+  <% } %>
+</section>
   </body>
   <%- include('./partials/footer') %>

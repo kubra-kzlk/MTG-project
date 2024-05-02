@@ -609,7 +609,8 @@ select,
 
 .registration {
   background-color: black;
-  padding: 20px;
+ 
+   margin-bottom: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -659,22 +660,28 @@ button[type="submit"] {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 12px 20px;
-  margin-top: 20px;
+  padding: 15px;
+  margin-top: 10px;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  width: calc(100% - 24px);
 }
 
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.login-form > * {
+.login  {
   margin-bottom: 10px;
+  background-color: black;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
+.login > * {
+  margin-bottom: 20px;
+}
 .login-link {
   text-align: center;
   color: white;
@@ -764,9 +771,7 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 1024px) {
-  #logo {
-    max-width: 10%;
-  }
+ 
 }
 
 @keyframes fadeIn {
@@ -806,6 +811,7 @@ button[type="submit"]:hover {
     width: 100%;
     margin-right: 0;
   }
+  
 
   .custom-deck-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -818,6 +824,7 @@ button[type="submit"]:hover {
     width: 100%;
     padding: 15px;
     font-size: 16px;
+     width: calc(100% - 24px);
   }
 
   #logo {

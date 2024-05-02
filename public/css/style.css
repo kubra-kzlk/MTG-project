@@ -47,10 +47,25 @@ header nav ul li.active a {
   color: black;
 }
 
+nav a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #eee1c6;
+  letter-spacing: 0.2rem;
+  margin: 4rem 1.5rem 0 0;
+  transition: letter-spacing 0.2s, color 0.2s;
+}
+nav a:hover {
+  color: purple;
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+}
+
 .header-btn {
   padding: 10px 20px;
   background-color: purple;
-  color: #fff;
+  /*color: #fff;*/
   border: none;
   border-radius: 5px;
   cursor: pointer;

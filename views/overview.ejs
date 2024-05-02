@@ -2,14 +2,14 @@
   <body>
     <header>
      <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
-    <nav>
+     <nav>
       <ul>
-        <li class="active"><a href="/main">Home</a></li>
-        <li ><a href="/decklist">Deck</a></li>
-        <li><a href="/overview">+Draw</a></li>
+        <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
+        <li class="<%= activePage === 'deck' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
+        <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
       </ul>
     </nav>
-    <a href="/landingpage" class="logout-button"
+    <a href="/landing" class="logout-button"
       ><i class="fa-solid fa-right-from-bracket"></i
     ></a>
     </header>

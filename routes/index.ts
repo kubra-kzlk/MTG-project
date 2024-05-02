@@ -78,15 +78,15 @@ app.get("/register", (req: Request, res: Response) => {
   })
 })
 
-app.get("/cardinfo", async(req,res)=>{
-    const cardName = req.query.name as string;
-    const card = await findUserByName(cardName);
+app.get("/cardinfo", async (req, res) => {
+  const cardName = req.query.name as string;
+  const card = await findUserByName(cardName);
 
-  if(card == null){
-    res.render("cardinfo",{
-      card : card
+  if (card == null) {
+    res.render("cardinfo", {
+      card: card
     })
-  }else{
+  } else {
     res.render("404")
   }
 
@@ -97,24 +97,25 @@ app.get("/main", async (req, res) => {
 
   const searchedCards: string = typeof req.query.searchedCards === "string" ? req.query.searchedCards : "";
 
-  let cards: Card[] = [];   
+  let cards: Card[] = [];
 
   const page = parseInt(req.query.p as string) || 1;
- 
-  let totalPages : number = 0; 
+
+  let totalPages: number = 0;
   // checken als iets word gezocht ! 
   if (searchedCards !== "") {
     const filteredCards = await searchCards(searchedCards);
-    totalPages = Math.ceil(filteredCards.length/ 9)
-    cards = filteredCards.slice((page-1) * 9, page * 9);
+    totalPages = Math.ceil(filteredCards.length / 9)
+    cards = filteredCards.slice((page - 1) * 9, page * 9);
   }
   else {
     cards = await getPageCard(page)
-    const totalCards :number = (await getAllCards()).length;
+    const totalCards: number = (await getAllCards()).length;
     totalPages = Math.ceil(totalCards / 9);
   }
 
   res.render("main", {
+    activePage: 'home',
     cards: cards,
     currentPage: page,
     totalPages: totalPages,
@@ -138,7 +139,9 @@ app.get('/next', async (req, res) => {
 
 
 app.get('/overview', (req, res) => {
-  res.render('overview')
+  res.render('overview', {
+    activePage: 'draw'
+  })
 })
 
 
@@ -153,6 +156,8 @@ app.listen(app.get("port"), async () => {
 app.get('/decklist', async (req, res) => {
 
   res.render('decklist', {
-
+    activePage: 'deck'
   });
 });
+
+

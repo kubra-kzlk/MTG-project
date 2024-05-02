@@ -37,16 +37,16 @@ header nav ul {
 
 header nav ul li a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
   padding: 1em;
   border-radius: 20px;
 }
 
-header nav ul li.active a {
-  background-color: #f5f5f5;
-  color: black;
-}
 
+header nav ul li.active a{
+background-color: purple;
+color: white;
+}
 nav a {
   display: block;
   text-decoration: none;
@@ -252,8 +252,6 @@ footer {
   animation-delay: 0.5s;
 }
 
-
-
 .header-btn {
   position: absolute;
   right: 20px;
@@ -272,15 +270,23 @@ footer {
   background-color: #a020f0;
 }
 
+
 .search-box {
   display: flex;
   justify-content: center;
+  align-items: center; 
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.search-box form {
+  display: flex; 
+  align-items: center;
+}
+
 .search-box input {
   padding: 10px;
+  margin-right: 10px; 
   border: 1px solid white;
   background-color: transparent;
   color: white;
@@ -288,7 +294,6 @@ footer {
   width: 200px;
   outline: none;
   border-radius: 20px;
-  margin-right: 10px;
 }
 
 .search-box button {
@@ -305,8 +310,12 @@ footer {
 }
 
 .search-box input:focus {
+  border-color: white; 
   outline: none;
 }
+
+
+
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -404,7 +413,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 .pagination a {
   text-decoration: none;
@@ -674,7 +683,7 @@ button[type="submit"] {
   background-color: purple;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 15px;
   margin-top: 10px;
   cursor: pointer;

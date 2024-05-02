@@ -7,4 +7,5 @@ window.onload = function() {
       // Update the class based on the value of userEmailExists
       emailInput.classList.add('error');
     }
-  };
+};
+  

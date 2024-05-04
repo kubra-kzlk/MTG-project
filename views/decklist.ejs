@@ -1,6 +1,3 @@
-<%- include('./partials/header') %>
- 
-    <div class="custom-deck-container">
 <!--
 <div class="custom-deck-card">
     <a href="/deckdetailpage">
@@ -44,101 +41,19 @@
     <p class="deck-name">Azorius Control</p>
 </div>
 -->
+<%- include('./partials/header') %>
+<body>
+    <div class="custom-deck-container">
+        <button id="add-deck-btn">Maak een nieuw deck aan</button>
+        <div id="popup-container" class="hidden">
+            <div id="deck-image-container"></div>
+            <input type="text" id="deck-name-input" placeholder="Voer een decknaam in" class="deckname-input">
+            <button id="save-deck-btn" class="save-button">Mijn keuze opslaan</button>
+        </div>
+    </div>
+    <div id="display-deck-container"></div>
 
-
-<button class="createdeck">Deck aanmaken</button>
-
-<div id="imageContainer">
-    <!-- Afbeeldingen worden hier ingevoegd -->
-</div>
-
-<script>
-    // JSON met afbeeldingen
-    const imagesJson = [
-        {
-            "naam": "achterkanboom.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkanboom.jpg"
-        },
-        {
-            "naam": "achterkantdoodskop.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdoodskop.jpg"
-        },
-        {
-            "naam": "achterkantdraak.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg"
-        },
-        {
-            "naam": "achterkantmixthemas.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg"
-        },
-        {
-            "naam": "achterkantmixthemas2.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg"
-        },
-        {
-            "naam": "achterkantmountain.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmountain.jpg"
-        },
-        {
-            "naam": "achterkantorigineel.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg"
-        },
-        {
-            "naam": "achterkantpaarsevrouw.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantpaarsevrouw.jpg"
-        },
-        {
-            "naam": "achterkantvrouw.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg"
-        },
-        {
-            "naam": "achterkantvuurman.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg"
-        },
-        {
-            "naam": "achterkantzon.jpg",
-            "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantzon.jpg"
-        }
-    ];
-
-    function showImages() {
-        const imageContainer = document.getElementById("imageContainer");
-        imageContainer.innerHTML = "";
-
-        imagesJson.forEach(image => {
-            const imgElement = document.createElement("img");
-            imgElement.src = image.link;
-            imgElement.alt = image.naam;
-            imgElement.style.width = "100px"; 
-
-         
-            imgElement.addEventListener("click", () => {
-                selectImage(image.link);
-            });
-
-            imageContainer.appendChild(imgElement);
-        });
-    }
-
+</body>
+<script src="/script/deck.js"></script>
     
-    function selectImage(imageLink) {
-        
-        console.log("Geselecteerde afbeelding: " + imageLink);
-    }
-
-    // Voeg een event listener toe aan de knop om het deck aan te maken
-    document.querySelector(".createdeck").addEventListener("click", () => {
-        // Hier kun je logica toevoegen om het deck aan te maken
-        // Bijvoorbeeld: toon de afbeeldingen wanneer op de knop wordt geklikt
-        showImages();
-    });
-</script>
-    </main>
-    
-    
-    
-
-  </body>
-  <hr>
- 
 <%- include('./partials/footer') %>

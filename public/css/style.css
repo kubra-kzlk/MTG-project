@@ -1200,3 +1200,100 @@ button[type="submit"]:hover {
   right: 10px;
   cursor: pointer;
 }
+
+/*____________________________________________________*/
+
+#popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  z-index: 1000; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+#popup-container:not(.hidden) {
+  display: block;
+}
+
+#add-deck-btn {
+  width: 200px;
+  height: 50px;
+  background-image: linear-gradient(to right, #9d50bb, #6e48aa);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+
+#add-deck-btn:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+}
+
+.deck-image {
+  width: 200px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.saved-deck-container {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.deckname-input {
+  width: 150px;
+  height: 30px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+.deckname-input:focus {
+  border-color: #c0c0c0;
+}
+
+.save-button {
+  width: 150px;
+  height: 40px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.save-button:hover {
+  background-color: #c0c0c0;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.deck-name {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.popup-deck-image {
+  width: 100px;
+  height: auto;
+}

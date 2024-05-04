@@ -5,48 +5,56 @@
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkanboom.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantdoodskop.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdoodskop.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantdraak.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantmixthemas.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantmixthemas2.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantmountain.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmountain.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantorigineel.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantpaarsevrouw.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantpaarsevrouw.jpg"
       }
     },
+
     {
       "afbeelding": {
         "naam": "achterkantvrouw.jpg",
@@ -63,6 +71,13 @@
       "afbeelding": {
         "naam": "achterkantzon.jpg",
         "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantzon.jpg"
+      }
+    }
+    ,
+    {
+      "afbeelding": {
+        "naam": "waterachterkant.jpg",
+        "link": "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/waterachterkant.jpg"
       }
     }
   ]

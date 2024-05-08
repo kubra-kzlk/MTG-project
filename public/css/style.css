@@ -15,7 +15,59 @@ body {
 background-color: wheat;
 }
 
-header {
+/* Hamburger menu */
+.hamburger {
+  background: none;
+  border: 0px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; 
+}
+ 
+.nav-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2C3740;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 999; 
+}
+ 
+.nav-menu ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  margin: 10px;
+}
+ 
+.nav-menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+  margin: 30px;
+  width: 100%;
+}
+ 
+.nav-menu a:hover {
+  color: #f1f1f1;
+}
+ 
+.nav-menu.open {
+  width: 350px;
+}
+
+/*header {
   background-color: black;
   box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8);
   position: sticky;
@@ -70,7 +122,7 @@ nav a:hover {
 .header-btn {
   padding: 10px 20px;
   background-color: purple;
-  /*color: #fff;*/
+
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -79,7 +131,7 @@ nav a:hover {
 
 .header-btn:hover {
   background-color: #a020f0;
-}
+}*/
 
 #logo {
   display: block;
@@ -89,14 +141,6 @@ nav a:hover {
   height: 100px;
 }
 
-.logout-button {
-  color: white;
-  background-color: black;
-  border-radius: 5px;
-  margin-right: 0.5em;
-  font-size: 32px;
-  padding: 0.5%;
-}
 
 main {
   min-height: 90vh;
@@ -241,7 +285,7 @@ footer {
   animation-delay: 0.5s;
 }
 
-.header-btn {
+/*.header-btn {
   position: absolute;
   right: 20px;
   padding: 10px 20px;
@@ -258,7 +302,7 @@ footer {
 .search-btn:hover {
   background-color: #a020f0;
 }
-
+*/
 
 .search-box {
   display: flex;
@@ -1118,54 +1162,9 @@ button[type="submit"]:hover {
 /* Hier is wat css bijgekomen later zal ik ze ordelijker plaatsen.
   (Ik wil ze momenteel niet mengen met andere code. */
 
-  .icon-button {
-    background-color: #000;
-    border: none;
-    padding: 20px;
-    font-size: 30px;
-    cursor: pointer!important;
-  }
-  
-  .icon-button i {
-    color: white;
-  }
-  
-  .popup-container {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 1000;
- 
-  }
-  
-  .popup-button {
-    background-color: #000;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    color: white}
-.close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
 
-.close-button i {
-  color: #000;
-  font-weight: 900;
-}
-/*____________________________________________________*/
 
+  
 
 .no-access-popup {
   display: none;

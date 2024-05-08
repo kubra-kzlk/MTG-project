@@ -7,34 +7,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <script src="/public/js/nav.js" defer></script>
+  <script src="/js/styling-register.js" defer></script>
+
 </head>
 
 <body>
   <header>
-    <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
+  <!--<a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
+-->  
+    <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
+        <nav id="nav-menu" class="nav-menu">
+            <ul>
+                <li><a href="/main">Home</a></li>
+                <li><a href="/decklist">decklist</a></li>
+                <li><a href="/overview">+ Draw</a></li>
+                <li><a href="/landing" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                
+                <li> 
+                  <div id="popup" class="popup-container">
+                    <button class="close-button">
+                      <i class="fa-solid fa-times"></i>
+                    </button>
+                    <button id="sound-switch" class="popup-button switch-button">
+                      <span class="switch-label">Geluid aan</span>
+                      <div class="switch-slider">
+                        <div class="switch-circle"></div>
+                      </div>
+                    </button>
+                  </div></li>
 
-    <nav>
-      <ul>
-        <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
-        <li class="<%= activePage === 'deck' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
-        <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
-      </ul>
-    </nav>
+              </ul>
+        </nav>
 
-    <a href="/landing" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i></a>
-    <button class="icon-button"> <i class="fa-solid fa-gear"></i> </button>
-    <div id="popup" class="popup-container">
-      <button class="close-button">
-        <i class="fa-solid fa-times"></i>
-      </button>
-      <button id="sound-switch" class="popup-button switch-button">
-        <span class="switch-label">Geluid aan</span>
-        <div class="switch-slider">
-          <div class="switch-circle"></div>
-        </div>
-      </button>
-    </div>
+   
+
   </header>
   <script>
     let soundSwitch = document.getElementById("sound-switch");

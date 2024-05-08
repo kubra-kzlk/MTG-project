@@ -20,8 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //app Post: 
-
-
 app.post("/register", async (req, res) => {
   const { username, email, password, "password-confirm": passwordConfirm } = req.body;
 

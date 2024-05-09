@@ -52,8 +52,26 @@
             <button id="save-deck-btn" class="save-button">Mijn keuze opslaan</button>
         </div>
     </div>
-    <div id="display-deck-container"></div>
+    <div id="display-deck-container">
+        <% decks.forEach(deck => { %>
+          <div class="saved-deck-container">
+          </div>
+          <% decks.forEach((deck) => { %>
+            <div class="deck" style="display: flex; justify-content: space-evenly; flex-direction: column; height: 150px; width: 150px;">
+              <h2 style="color: yellow;"><%= deck.name %></h2>
+              <img class="image" src="<%= deck.imageUrl %>" alt="<%= deck.name %>">
+            </div>
+          <% }); %>
+        <% }); %>
+      </div>
+
+
+
 
 </body>
-<script src="/js/decklist.js"></script>
+<script src="/js/decklist.js">
+      document.getElementById('create-deck-btn').addEventListener('click', createDeck);
+
+</script>
+
 <%- include('./partials/footer') %> 

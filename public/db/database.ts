@@ -1,9 +1,9 @@
-import { Collection, Db, MongoClient } from "mongodb";
+import { Collection, Db, MongoClient, ObjectId } from "mongodb";
 import { Card, CardsResponse } from "../models/mgtcards";
-import { fetchCards } from "../../routes/fetchCards";
 import { NewUser, User } from "../models/user";
 import * as bcrypt from 'bcrypt';
 import _ from 'lodash'; // dit is een js library die ik heb gevonden die ons fetching en zetten van de data makkelijker maak naar de database
+import { Deck, DeckCreate } from "../models/deck";
 
 const uri = "mongodb+srv://wpl:password_wpl@projectwpl.l2arpvq.mongodb.net/?retryWrites=true&w=majority&appName=projectwpl";
 const client = new MongoClient(uri)
@@ -11,6 +11,25 @@ const client = new MongoClient(uri)
 
 export const usersCollection: Collection<User> = client.db("projectwpl").collection<User>("users");
 export const cardsCollection: Collection<Card> = client.db("projectwpl").collection<Card>("cards");
+export const decksCollection: Collection<Deck> = client.db("projectwpl").collection<Deck>("decks");
+
+
+
+export async function getDecks(){
+    return await decksCollection.find().toArray();
+}
+
+export async function createDeck(deckData: DeckCreate, userId :string): Promise<Deck> {
+    const newDeck: Deck = {
+        _id: new ObjectId(),
+        name: deckData.name,
+        imageUrl: deckData.imageUrl,
+        cards: {},
+        userId: ""
+    };
+    await decksCollection.insertOne(newDeck);
+    return newDeck;
+  }
 
 //behandeling van de kaarten: 
 export async function getAllCards() {
@@ -59,6 +78,8 @@ export async function searchCards(query: string): Promise<Card[]> {
 export async function findUserByName(name: string): Promise<User | null> {
     return await usersCollection.findOne({ name });
 }
+
+
 
 
 //behandeling van de datbase connect - exit

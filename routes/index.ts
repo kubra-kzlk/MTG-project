@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 import { Card } from "../public/models/mgtcards";
-import { connect, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
-import bcrypt from 'bcrypt';
+import { connect, createDeck, decksCollection, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
 import { register } from "../public/controllers/registerController";
 import { login } from "../public/controllers/loginController";
+import { Deck, DeckCreate, DeckUpdate } from "../public/models/deck";
 
 
 const app = express();
@@ -22,6 +22,33 @@ app.use(express.urlencoded({ extended: true }));
 //app Post: 
 app.post("/register", register);
 app.post("/login", login);
+
+
+// index.ts
+
+app.post('/decklist', async (req: Request, res: Response) => {
+  try {
+    const deckData: DeckCreate = req.body;
+    const userId : string = ""; // assuming you have a req.user object with the user's ID
+    const newDeck = await createDeck(deckData, userId);
+    res.status(201).send({ success: true, message: 'Deck created successfully' });
+  } catch (error) {
+    console.error('Error creating deck:', error);
+    res.status(500).send({ success: false, message: 'Error creating deck' });
+  }
+});
+
+app.get('/decklist', async (req: Request, res: Response) => {
+  try {
+    const userId:string = "";
+    const decks = await decksCollection.find({ userId }).toArray();
+    res.render('decklist', { decks });
+  } catch (error) {
+    console.error('Error retrieving decks:', error);
+    res.status(500).send({ success: false, message: 'Error retrieving decks' });
+  }
+});
+
 
 
 //app.get
@@ -113,18 +140,13 @@ app.get('/overview', (req, res) => {
 
 
 
+
+
 app.listen(app.get("port"), async () => {
 
   await connect();
   console.log("[server] http://localhost:" + app.get("port"))
 });
 
-
-app.get('/decklist', async (req, res) => {
-
-  res.render('decklist', {
-    activePage: 'deck'
-  });
-});
 
 

@@ -1,12 +1,10 @@
-// src/interfaces/user.ts
 export interface User {
-    _id: string;
-    username: string;
-    email: string;
-    password: string;
-  }
-  export interface NewUser {
-  username: string;
+  _id: string;
+  email: string;
+  password: string;
+}
+
+export interface NewUser {
   email: string;
   password: string;
 }

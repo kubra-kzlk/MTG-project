@@ -36,24 +36,19 @@ export async function loadCardsFromApi() {
 }
 
 
-
 export async function createUser(newUser: NewUser): Promise<User> {
-
     const existingUser = await findUserByEmail(newUser.email);
     if (existingUser) {
-        throw new Error('User already exists');
-    } else {
-        const hashedPassword = await bcrypt.hash(newUser.password, 10);
-        newUser.password = hashedPassword;
-        const result = await client.db("projectwpl").collection("users").insertOne(newUser)
-        const createdUser = { ...newUser, _id: result.insertedId.toString() };
-        console.log("user is gecreerd!")
-        return createdUser;
+      throw new Error('User already exists');
     }
-
-
-
-}
+  
+    const hashedPassword = await bcrypt.hash(newUser.password, 10);
+    newUser.password = hashedPassword;
+    const result =await client.db("projectwpl").collection("users").insertOne(newUser)
+    const createdUser = {...newUser, _id: result.insertedId.toString() };
+    console.log("User created!");
+    return createdUser;
+  }
 export async function findUserByEmail(email: string): Promise<User | null> {
     return await usersCollection.findOne({ email });
 }
@@ -61,8 +56,8 @@ export async function searchCards(query: string): Promise<Card[]> {
     return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
 }
 
-export async function findUserByName(name:string): Promise<User | null> {
-    return await usersCollection.findOne({name}); 
+export async function findUserByName(name: string): Promise<User | null> {
+    return await usersCollection.findOne({ name });
 }
 
 
@@ -82,8 +77,7 @@ export async function connect() {
         await loadCardsFromApi();
         console.log("Connected to database");
         process.on('SIGINT', exit);
-
-    } catch (error) { console.log('er is een error: ' + error) }
+    } catch (error) { console.log('er is een error bij het inloggen: ' + error) }
 
 }
 

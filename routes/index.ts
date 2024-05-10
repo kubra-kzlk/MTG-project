@@ -1,12 +1,12 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { Card } from "../public/models/mgtcards";
-import { connect, createUser, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
-import { NewUser, User } from "../public/models/user";
-import bcrypt from 'bcrypt';
+import { connect, createDeck, decksCollection, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
+import { register } from "../public/controllers/registerController";
+import { login } from "../public/controllers/loginController";
+import { Deck, DeckCreate, DeckUpdate } from "../public/models/deck";
 
 
 const app = express();
-let emailIsAlreadryInUse = false;
 
 
 
@@ -20,59 +20,55 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //app Post: 
-app.post("/register", async (req, res) => {
-  const { username, email, password, "password-confirm": passwordConfirm } = req.body;
+app.post("/register", register);
+app.post("/login", login);
 
-  const newUser: NewUser = { username, email, password, };
 
+// index.ts
+
+app.post('/decklist', async (req: Request, res: Response) => {
   try {
-    const existingUser = await findUserByEmail(email);
-    if (existingUser) {
-      res.render('register', {
-        userEmailExists: true
-      });
-      return;
-    } else {
-      await createUser(newUser);
-      res.redirect("/login");
-    }
+    const deckData: DeckCreate = req.body;
+    const userId : string = ""; // assuming you have a req.user object with the user's ID
+    const newDeck = await createDeck(deckData, userId);
+    res.status(201).send({ success: true, message: 'Deck created successfully' });
   } catch (error) {
-    console.error(error);
-    emailIsAlreadryInUse = false;
-    res.status(500).send("Error creating user.");
+    console.error('Error creating deck:', error);
+    res.status(500).send({ success: false, message: 'Error creating deck' });
   }
-  emailIsAlreadryInUse = false;
+});
 
+app.get('/decklist', async (req: Request, res: Response) => {
+  try {
+    const userId:string = "";
+    const decks = await decksCollection.find({ userId }).toArray();
+    res.render('decklist', { decks });
+  } catch (error) {
+    console.error('Error retrieving decks:', error);
+    res.status(500).send({ success: false, message: 'Error retrieving decks' });
+  }
 });
 
 
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await findUserByEmail(email);
-  if (!user) {
-    return res.status(400).send("Invalid email or password.");
-  }
-
-  const isPasswordValid = await bcrypt.compare(password, user.password);
-  if (!isPasswordValid) {
-    return res.status(400).send("Invalid password.");
-  }
-  res.redirect('/main')
-}
-);
 
 //app.get
 app.get("/", async (req, res) => {
   res.render("index")
 })
 app.get('/login', (req, res) => {
-  emailIsAlreadryInUse = false;
-  res.render('login')
+  res.render('login', {
+    emailIsAlreadryInUse : false,
+    checkEmailandPassword : true,
+    email: ''
+  })
 })
 
 app.get("/register", (req: Request, res: Response) => {
   res.render('register', {
-    userEmailExists: emailIsAlreadryInUse
+    userEmailExists: false,
+    passwordLengthError: false,
+    passwordMatchError: false,
+    email : ''
   })
 })
 
@@ -144,18 +140,13 @@ app.get('/overview', (req, res) => {
 
 
 
+
+
 app.listen(app.get("port"), async () => {
 
   await connect();
   console.log("[server] http://localhost:" + app.get("port"))
 });
 
-
-app.get('/decklist', async (req, res) => {
-
-  res.render('decklist', {
-    activePage: 'deck'
-  });
-});
 
 

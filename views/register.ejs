@@ -6,23 +6,33 @@
     <form class="registration" action="/register" method="post">
       <h1>Registreer</h1>
       <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" name="email" value="<%= email %>" required />
       <label for="password">Kies een wachtwoord</label>
       <input type="password" id="password" name="password" required />
       <label for="password-confirm">Herhaal wachtwoord</label>
       <input type="password" id="password-confirm" name="password-confirm" required />
+      <p id="password-error" class="error-message" style="display: none;"></p>
       <button type="submit">Registratie bevestigen</button>
     </form>
 
-    <% if (userEmailExists == true  ) { %>
-      <p class="error-message">email bestaat al, gebruik een andere</p>
+    <% if (userEmailExists) { %>
+      <p class="error-message">Email bestaat al, gebruik een andere</p>
     <% } %>
     
+    <% if (passwordLengthError) { %>
+      <p class="error-message">Wachtwoord moet minimaal 4 tekens lang zijn</p>
+    <% } %>
+    
+    <% if (passwordMatchError) { %>
+      <p class="error-message">Wachtwoorden komen niet overeen</p>
+    <% } %>
+
     <section class="login-link">
       <p>
         Heb je al een account? <a href="/login">Meld je dan hier aan!</a>
       </p>
     </section>
-  </section> 
+  </section>
+
 </body>
 <%- include('./partials/footer') %>

@@ -25,69 +25,48 @@
     <nav id="nav-menu" class="nav-menu">
       <ul>
         <li><a href="/index"><i class="fa-solid fa-right-from-bracket"></i></a></li>
-        <li>
-          <div id="popup" class="popup-container">
-            <button class="close-button"> <i class="fa-solid fa-times"></i> </button>
-            <button id="sound-switch" class="popup-button switch-button">
-              <span class="switch-label">Geluid aan</span>
-              <div class="switch-slider">
-                <div class="switch-circle"></div>
-              </div>
-            </button>
-          </div>
+      </ul>
+      <ul>
+        <li><a> <i class="fa-solid fa-volume-up"></i></a>
+          <label class="switch">
+            <input type="checkbox" id="sound-switch">
+            <span class="slider round"></span>
+          </label>
         </li>
       </ul>
     </nav>
-
   </header>
 
-
   <script>
-    let soundSwitch = document.getElementById("sound-switch");
-    let audio = new Audio("./assets/sound/geluid.mp3");
-    let isPlaying = false;
+    document.addEventListener("DOMContentLoaded", function () {
+      let soundSwitch = document.getElementById("sound-switch");
+      let audio = new Audio("./assets/sound/geluid.mp3");
+      let isPlaying = false;
 
-    function playMusic() {
-      audio.play();
-      isPlaying = true;
-      soundSwitch.querySelector(".switch-label").textContent = "Geluid uit";
-    }
-
-    function stopMusic() {
-      audio.pause();
-      audio.currentTime = 0;
-      isPlaying = false;
-      soundSwitch.querySelector(".switch-label").textContent = "Geluid aan";
-    }
-
-    soundSwitch.addEventListener("click", function () {
-      if (isPlaying) {
-        stopMusic();
-      } else {
-        playMusic();
+      function playMusic() {
+        audio.play();
+        isPlaying = true;
+        // soundSwitch.nextElementSibling.textContent = "Geluid uit";
+        soundSwitch.checked = true;
       }
-      this.classList.toggle("on");
-    });
 
-    let iconButton = document.querySelector(".icon-button");
-    let popup = document.getElementById("popup");
+      function stopMusic() {
+        audio.pause();
+        audio.currentTime = 0;
+        isPlaying = false;
+        // soundSwitch.nextElementSibling.textContent = "Geluid aan";
+        soundSwitch.checked = false;
+      }
 
-    iconButton.addEventListener("click", function () {
-      popup.style.display = "block";
-    });
+      soundSwitch.checked = isPlaying;
 
-
-    let overlay = document.createElement("div");
-    overlay.className = "overlay";
-    document.body.appendChild(overlay);
-    overlay.addEventListener("click", function () {
-      popup.style.display = "none";
-    });
-
-    let closeButton = document.querySelector(".close-button");
-    closeButton.addEventListener("click", function () {
-      popup.style.display = "none";
-    });
-    //MOMENTEEL JAVASCRIPT IN EJS WORDT NOG VERZET NAAR JS MAAR MOMENTEEL WERKT HET NIET.
-
-  </script>
+      soundSwitch.addEventListener("click", function () {
+        if (isPlaying) {
+          stopMusic();
+        } else {
+          playMusic();
+        }
+        this.classList.toggle("on");
+      });
+    });     
+    </script>

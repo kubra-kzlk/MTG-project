@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { Card } from "./mgtcards";
 
 export interface Deck {
-    _id: ObjectId;
+    _id: string;
     userId: string;
     name: string;
     cards: {

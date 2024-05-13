@@ -1,39 +1,10 @@
 <%- include('./partials/header') %>
-  <main>
-    <section id="gallery1" class="image-gallery">
-      <% for(card of cards) { %>
-        <article class="image">
-          <h2 class="card-amount-info">2/4</h2>
-          <a href="/cardinfodetail">
-            <img src="<%= card.imageUrl%>" alt="<%= card.name%>" />
-          </a>
-        </article>
-        <% } %>
-    </section>
+<body>
+  
 
-    <section class="pagination">
-      <li class="<%= currentPage == 1 ? 'disabled' : '' %>">
-        <a href="/page/<%= currentPage - 1 %>">&laquo; Previous</a>
-      </li>
-      <%for (var i=1; i < totalPages; i++) {%>
-        <li class="<%= i == currentPage ? 'active' : '' %>">
-          <a href="/page/<%= i %>">
-            <%= i %>
-          </a>
-        </li>
-        <% } %>
-          <li class="<%= currentPage == totalPages ? 'disabled' : '' %>">
-            <a href="/page/<%= currentPage + 1 %>">Next &raquo;</a>
-          </li>
-          <button id="prevBtn" disabled>Vorige</button>
-          <span id="page1" class="page-number active">1</span>
-          <span id="page2" class="page-number">2</span>
-          <span id="page3" class="page-number">3</span>
-          <button id="nextBtn">Volgende</button>
-    </section>
+<h1><% deck.name %></h1>
+<a href="">HAHAHA</a>
 
-  </main>
-  <hr />
 
-  </body>
+</body>
   <%- include('./partials/footer') %>

@@ -11,20 +11,6 @@
   
 
 // Hamburger menu
-// document.addEventListener('DOMContentLoaded', function () {
-//   var hamburger = document.getElementById('hamburger');
-//   var navMenu = document.getElementById('nav-menu');
-
-//   hamburger.addEventListener('click', function () {
-//       // Check if the menu is open
-//       if (navMenu.style.width == '200px') {
-//           navMenu.style.width = '0';
-//       } else {
-//           navMenu.style.width = '0px';
-//       }
-//   });
-// });
-
 document.addEventListener('DOMContentLoaded', function () {
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('nav-menu');

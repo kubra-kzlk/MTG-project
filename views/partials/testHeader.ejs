@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="/js/styling-register.js" defer></script>
+
+</head>
+<body>
+
+<header>
+    <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
+    <!-- Main Navigation for Desktop -->
+    <nav id="navbar">
+    <ul>
+    <li class="active"><a href="/main">Home</a></li>
+    <li><a href="/decklist">Deck</a></li>
+    <li><a href="/overview">+Draw</a></li>
+    </ul>
+    </nav>
+    <!-- Hamburger Icon -->
+    <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
+    <!-- Navigation Menu for Mobile, initially hidden -->
+    <nav id="nav-menu" class="nav-menu">
+    <ul>
+    <li class="active"><a href="/main">Home</a></li>
+    <li><a href="/decklist">Deck</a></li>
+    <li><a href="/overview">+Draw</a></li>
+    <li><a href="/index"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+    <li>
+    <a><i class="fa-solid fa-volume-up"></i> Sound</a>
+    <label class="switch">
+    <input type="checkbox" id="sound-switch">
+    <span class="slider round"></span>
+    </label>
+    </li>
+    </ul>
+    </nav>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          let soundSwitch = document.getElementById("sound-switch");
+          let audio = new Audio("./assets/sound/geluid.mp3");
+          let isPlaying = false;
+    
+          function playMusic() {
+            audio.play();
+            isPlaying = true;
+            // soundSwitch.nextElementSibling.textContent = "Geluid uit";
+            soundSwitch.checked = true;
+          }
+    
+          function stopMusic() {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
+            // soundSwitch.nextElementSibling.textContent = "Geluid aan";
+            soundSwitch.checked = false;
+          }
+    
+          soundSwitch.checked = isPlaying;
+    
+          soundSwitch.addEventListener("click", function () {
+            if (isPlaying) {
+              stopMusic();
+            } else {
+              playMusic();
+            }
+            this.classList.toggle("on");
+          });
+        });     
+        </script>
+</body>
+</html>

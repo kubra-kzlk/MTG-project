@@ -16,22 +16,34 @@
     <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
     <nav id="navbar">
       <ul>
-        <li class="active"><a href="/main">Home</a></li>
-        <li><a href="/decklist">Deck</a></li>
-        <li><a href="/overview">+Draw</a></li>
+        <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
+        <li class="<%= activePage === 'deck' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
+        <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
       </ul>
     </nav>
     <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
+   
     <nav id="nav-menu" class="nav-menu">
       <ul>
-        <li><a href="/index"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+        <li><a href="/index">HOME</a></li>
       </ul>
       <ul>
-        <li><a> <i class="fa-solid fa-volume-up"></i></a>
-          <label class="switch">
+        <li><a href="/decklist">Deck</a></li>
+      </ul>
+      <ul>
+        <li><a href="/overview">+Draw</a></li>
+      </ul>
+      <ul>
+        <li><a href="/login"><i class="fa-solid fa-right-from-bracket"></i>  log uit </a></li>
+      </ul>
+      <ul>
+
+        <li>
+          <a> <i class="fa-solid fa-volume-up"></i>  <label class="switch">
             <input type="checkbox" id="sound-switch">
             <span class="slider round"></span>
-          </label>
+          </label></a>
+        
         </li>
       </ul>
     </nav>
@@ -69,4 +81,4 @@
         this.classList.toggle("on");
       });
     });     
-    </script>
+  </script>

@@ -115,9 +115,10 @@ nav a:hover {
   display: none;
   height: 100%;
   right: 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   /* Blur effect */
   overflow-x: hidden;
+  transition: left 0.3s ease;
   padding-top: 150px;
   z-index: 999;
 }
@@ -128,8 +129,6 @@ nav a:hover {
 }
 
 .nav-menu a {
-  text-decoration: none;
-  font-size: 25px;
   color: #ffffff;
   display: block;
   transition: 0.3s;
@@ -199,9 +198,7 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-.slider.round {
-  border-radius: 34px;
-}
+
 
 .slider.round:before {
   border-radius: 50%;
@@ -394,13 +391,11 @@ footer {
   border-radius: 20px;
 }
 
-.search-box button {
-  padding: 10px 10px;
-  border: none;
-  background-color: purple;
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
+.search-button {
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-left: 10px;
 }
 
 .search-box input::placeholder {
@@ -809,11 +804,13 @@ button[type="submit"] {
   border: none;
   border-radius: 20px;
   margin-top: 10px;
+  box-sizing: border-box;
   cursor: pointer;
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   transition: background-color 0.3s ease;
   width: calc(100% - 24px);
+  padding: 10px;
 }
 
 button[type="submit"]:hover {
@@ -973,19 +970,17 @@ button[type="submit"]:hover {
   .nav-menu.open {
     display: block;
   }
+
   .nav-menu.open ul {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   #navbar ul {
     display: none;
   }
 
-  .search-box input {
-    width: 100%;
-    margin-right: 0;
-  }
 
   footer {
     position: absolute;
@@ -1079,6 +1074,19 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 480px) {
+  header {
+    height: 70px;
+  }
+
+  #hamburger {
+    font-size: 2rem;
+    right: 20%;
+  }
+
+  #logo {
+    width: 50px;
+  }
+
   .buttons-cardinfo {
     margin-top: 2vh;
     flex-direction: column;
@@ -1160,7 +1168,7 @@ button[type="submit"]:hover {
 
 
 
-/**detailpage css**/
+/**detailpage**/
 .modal {
   height: 35vh;
   width: 40vw;

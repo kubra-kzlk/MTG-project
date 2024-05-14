@@ -68,15 +68,28 @@ addButton.addEventListener('click', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(deckData)
         });
-        await response.json();
-        decks.push(deckData);
+        const data = await response.json();
+        if (data.success) {
+          decks.push(deckData);
+          popupContainer.classList.add('hidden');
+          deckNameInput.classList.add('hidden');
+          saveButton.classList.add('hidden');
+          location.reload();
+        } else {
+          console.log("error onder de data.success")
+          console.error(data.message);
+        }
       } catch (error) {
         console.error(error);
       }
       popupContainer.classList.add('hidden');
       deckNameInput.classList.add('hidden');
       saveButton.classList.add('hidden');
-      location.reload();
+
+      console.log("bijna bij pagina reladen")
+      window.location.reload();
+
+      console.log("onder pagina herladen")
     } else {
       alert('Selecteer een afbeelding en voer een decknaam in.');
     }

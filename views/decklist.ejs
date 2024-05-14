@@ -14,7 +14,7 @@
       <% decks.forEach((deck) => { %>
         <div class="saved-deck-container">
           <div class="deck-image-container">
-            <a href="/deckdetail?id=<% deck.id %>"><img class="deck-image-created" src="<%= deck.imageUrl %>" alt="<%= deck.name %>"></a> 
+            <a href="/deckdetail?id=<%= deck._id %>"><img class="deck-image-created" src="<%= deck.imageUrl %>" alt="<%= deck.name %>"></a> 
           </div>
           <h2 class="deck-name" style="color: yellow;"><%= deck.name %></h2>
         </div>

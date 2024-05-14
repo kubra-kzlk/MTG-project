@@ -1,46 +1,4 @@
-<!--
-<div class="custom-deck-card">
-    <a href="/deckdetailpage">
-        <img src="./assets/images/mtgachterkant.jpg" alt="Urza, Lord Protector" />
-    </a>
-    <p class="deck-name">Mono Red Aggro</p>
-</div>
 
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="Arwen, Weaver of Hope" />
-    <p class="deck-name">Jund Midrange</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="The Gaffer" />
-    <p class="deck-name">Storm Combo</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="The Ur-Dragon" />
-    <p class="deck-name">Green Ramp</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="Questing Beast" />
-    <p class="deck-name">Merfolk Tribal</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="Marrow-Gnawer" />
-    <p class="deck-name">Golgari Reanimator</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="Greensleeves, Maro Sorcerer" />
-    <p class="deck-name">Izzet Tempo</p>
-</div>
-
-<div class="custom-deck-card">
-    <img src="./assets/images/mtgachterkant.jpg" alt="Mangara, the Diplomat" />
-    <p class="deck-name">Azorius Control</p>
-</div>
--->
 <%- include('./partials/header') %>
 <body>
 
@@ -53,18 +11,19 @@
         </div>
     </div>
     <div id="display-deck-container">
-        <% decks.forEach(deck => { %>
-          <div class="saved-deck-container">
+      <% decks.forEach((deck) => { %>
+        <div class="saved-deck-container">
+          <div class="deck-image-container">
+            <a href="/deckdetail?id=<%= deck._id %>"><img class="deck-image-created" src="<%= deck.imageUrl %>" alt="<%= deck.name %>"></a> 
           </div>
-          <% decks.forEach((deck) => { %>
-            <div class="deck" style="display: flex; justify-content: space-evenly; flex-direction: column; height: 150px; width: 150px;">
-              <h2 style="color: yellow;"><%= deck.name %></h2>
-              <img class="image" src="<%= deck.imageUrl %>" alt="<%= deck.name %>">
-            </div>
-          <% }); %>
-        <% }); %>
+          <h2 class="deck-name" style="color: yellow;"><%= deck.name %></h2>
+        </div>
+      <% }); %>
+  </div>
+       
       </div>
 
+ 
 
 
 

@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { Card } from "../public/models/mgtcards";
-import { connect, createDeck, decksCollection, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
+import { connect, createDeck, decksCollection, findCardByName, findDeckById, findUserByEmail, findUserByName, getAllCards, getPageCard, searchCards } from '../public/db/database'
 import { register } from "../public/controllers/registerController";
 import { login } from "../public/controllers/loginController";
 import { Deck, DeckCreate, DeckUpdate } from "../public/models/deck";
@@ -9,7 +9,7 @@ import { Deck, DeckCreate, DeckUpdate } from "../public/models/deck";
 const app = express();
 
 
-
+const cardperpage = 10
 
 app.set("view engine", "ejs");
 app.set("port", 3000);
@@ -27,20 +27,25 @@ app.post("/login", login);
 // index.ts
 
 app.post('/decklist', async (req: Request, res: Response) => {
+
   try {
     const deckData: DeckCreate = req.body;
-    const userId : string = ""; // assuming you have a req.user object with the user's ID
-    const newDeck = await createDeck(deckData, userId);
-    res.status(201).send({ success: true, message: 'Deck created successfully' });
+    const userId: string = "";
+    await createDeck(deckData, userId);
+    res.status(201).send({ success: true, message: 'Deck created' }); //de res status laten !! is voor javascript
+    console.log('creatie werkte ')
+    return;
   } catch (error) {
     console.error('Error creating deck:', error);
     res.status(500).send({ success: false, message: 'Error creating deck' });
   }
+
+
 });
 
 app.get('/decklist', async (req: Request, res: Response) => {
   try {
-    const userId:string = "";
+    const userId: string = "";
     const decks = await decksCollection.find({ userId }).toArray();
     res.render('decklist', { decks });
   } catch (error) {
@@ -57,8 +62,8 @@ app.get("/", async (req, res) => {
 })
 app.get('/login', (req, res) => {
   res.render('login', {
-    emailIsAlreadryInUse : false,
-    checkEmailandPassword : true,
+    emailIsAlreadryInUse: false,
+    checkEmailandPassword: true,
     email: ''
   })
 })
@@ -68,23 +73,43 @@ app.get("/register", (req: Request, res: Response) => {
     userEmailExists: false,
     passwordLengthError: false,
     passwordMatchError: false,
-    email : ''
+    email: ''
   })
 })
 
+app.get("/deckdetail", async (req, res) => {
+  const deckId = req.query._id as string;
+  const deck = await findDeckById(deckId);
+
+  if (deck) {
+    console.log("data is goed in deckdetail")
+    console.log(deck)
+    res.render("deckdetail", { deck: deck });
+  } else {
+    res.render("404");
+  }
+})
+
+
 app.get("/cardinfo", async (req, res) => {
   const cardName = req.query.name as string;
-  const card = await findUserByName(cardName);
+  const pagelocated = parseInt(req.query.p as string)
+  const searchedCards: string = typeof req.query.searchedCards === "string" ? req.query.searchedCards : "";
 
-  if (card == null) {
+  const card = await findCardByName(cardName);
+
+  if (card) {
     res.render("cardinfo", {
-      card: card
+      card: card,
+      p: pagelocated,
+      searchedCards: searchedCards
     })
   } else {
     res.render("404")
   }
 
 })
+
 
 
 app.get("/main", async (req, res) => {
@@ -99,13 +124,13 @@ app.get("/main", async (req, res) => {
   // checken als iets word gezocht ! 
   if (searchedCards !== "") {
     const filteredCards = await searchCards(searchedCards);
-    totalPages = Math.ceil(filteredCards.length / 9)
-    cards = filteredCards.slice((page - 1) * 9, page * 9);
+    totalPages = Math.ceil(filteredCards.length / cardperpage)
+    cards = filteredCards.slice((page - 1) * cardperpage, page * cardperpage);
   }
   else {
-    cards = await getPageCard(page)
+    cards = await getPageCard(page, cardperpage);
     const totalCards: number = (await getAllCards()).length;
-    totalPages = Math.ceil(totalCards / 9);
+    totalPages = Math.ceil(totalCards / cardperpage);
   }
 
   res.render("main", {
@@ -122,8 +147,8 @@ app.get('/next', async (req, res) => {
   const page = parseInt(req.query.p as string) || 1;
   const nextPage = page + 1;
   const totalCards = (await getAllCards()).length;
-  const cards = await getPageCard(nextPage);
-  const totalPages = Math.ceil(totalCards / 9);
+  const cards = await getPageCard(nextPage, cardperpage);
+  const totalPages = Math.ceil(totalCards / cardperpage);
   res.render('main', {
     cards,
     currentPage: nextPage,

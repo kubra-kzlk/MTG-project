@@ -1,56 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<%- include('./partials/header') %>
-
-   
-    <a href="/main" class="button-backto-deck-2"
-          ><i class="fa-solid fa-arrow-left"></i
-        ></a>
-    <main class="main-cardinfo">
-   
-
-    <div class="cardinfo-container">
-      <article class="cardinfo-image">
-        <img
-          src="./assets/images/mishra-claimed-by-gix-16597.jpg"
-          alt="Mishra claimed by Gix"
-        />
-      </article>
-      <div class="cardinfo-text">
-        <h1 class="title">Mishra claimed by Gix</h1>
-        <p class="content">
-          Elke keer dat je aanvalt, verliest elke tegenstander X leven en krijg
-          jij X leven, waarbij X het aantal aanvallende wezens is. Als Mishra,
-          Geclaimed door Gix en een wezen genaamd Phyrexian Dragon Engine
-          aanvallen, en je ze allebei bezit en bestuurt, exile ze dan, en smelt
-          ze dan samen tot Mishra, Verloren aan Phyrexia. Het komt getapt en
-          aanvallend in het slagveld met 9.
-        </p>
-
-        <br>
-
-        <p class="content">
-          Elke keer dat je aanvalt, verliest elke tegenstander X leven en krijg
-          jij X leven, waarbij X het aantal aanvallende wezens is. Als Mishra,
-          Geclaimed door Gix en een wezen genaamd Phyrexian Dragon Engine
-          aanvallen, en je ze allebei bezit en bestuurt, exile ze dan, en smelt
-          ze dan samen tot Mishra, Verloren aan Phyrexia. Het komt getapt en
-          aanvallend in het slagveld met 9.
-        </p>
-        <div class="buttons-cardinfo">
-
-        <section class="draw-select-options">
-          <select>
-            <option>Kies Stappel</option>
-            <option>Stappel 1</option>
-            <option>Stappel 2</option>
-            <option>Stappel 3</option>
-          </select>
-        </section>
-        <button class="confirmation">Keuze bevestiggen</button>
-      </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Details</title>
+  <style>
+    .cardinfo-main {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .card-image {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 16px;
+    }
+    
+    .card-info {
+      margin: 0;
+      line-height: 1.5;
+      border: 1px solid white;
+      padding: 16px;
+    }
+    
+    .card-name, .card-rarity, .card-type, .card-text, .card-power-toughness, .card-artist {
+      margin: 0;
+    }
+    
+    .card-name {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    
+    .card-rarity {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    
+    .card-type {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: #888;
+    }
+    
+    .card-text {
+      white-space: pre-wrap;
+      margin-bottom: 16px;
+    }
+    
+    .card-power-toughness {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    
+    .card-artist {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    
+    @media (min-width: 768px) {
+      .card-container {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      
+      .card-image {
+        margin-right: 32px;
+      }
+      
+      .card-info {
+        border: 1px solid white;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body class="cardinfo-main">
+  <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button">Back</a>
+  <div class="card-container">
+    <img class="card-image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+    <div class="card-info">
+      <h1 class="card-name"><%= card.name || '' %></h1>
+      <h2 class="card-rarity"><%= card.rarity || '' %></h2>
+      <h3 class="card-type"><%= card.type || '' %></h3>
+      <p class="card-text"><%= card.text || '' %></p>
+      <p class="card-power-toughness"><%= card.power || '' %> / <%= card.toughness || '' %></p>
+      <p class="card-artist"><%= card.artist || '' %></p>
     </div>
-  </main>
-  </body>
-
-<%- include('./partials/footer') %>
+  </div>
+</body>
+</html>

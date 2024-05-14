@@ -19,9 +19,12 @@ export async function getDecks(){
     return await decksCollection.find().toArray();
 }
 
+export async function findDeckById(id: string): Promise<Deck | null> {
+    return await decksCollection.findOne({ id });;
+  }
 export async function createDeck(deckData: DeckCreate, userId :string): Promise<Deck> {
     const newDeck: Deck = {
-        _id: new ObjectId(),
+        _id: new ObjectId().toString(),
         name: deckData.name,
         imageUrl: deckData.imageUrl,
         cards: {},
@@ -35,9 +38,12 @@ export async function createDeck(deckData: DeckCreate, userId :string): Promise<
 export async function getAllCards() {
     return await cardsCollection.find().toArray();
 }
-export async function getPageCard(params: number) {
-    return cardsCollection.find().skip(params).limit(10).toArray();
-}
+export async function getPageCard(page: number, cardsPerPage: number = 10) {
+    const skippedCards = (page - 1) * cardsPerPage;
+    return cardsCollection.find().skip(skippedCards).limit(cardsPerPage).toArray();
+  }
+
+  
 export async function loadCardsFromApi() {
     const cards: Card[] = await getAllCards();
     if (cards.length === 0) {
@@ -47,7 +53,7 @@ export async function loadCardsFromApi() {
         const cardsfilling: Card[] = arrayOfCards.cards.filter(card => card.imageUrl !== null)
             .map(card => _.pick(card, ['name', 'names', 'cmc', 'colors', 'type', 'rarity', 'text', 'artist', 'number', 'power', 'toughness', 'imageUrl'])) as Card[];
 
-        // Remove duplicates from the `cardsfilling` array using the `_.unionBy()` method from Lodash
+     
         const uniqueCards = _.unionBy(cardsfilling, 'name');
 
         await cardsCollection.insertMany(uniqueCards);
@@ -73,6 +79,10 @@ export async function findUserByEmail(email: string): Promise<User | null> {
 }
 export async function searchCards(query: string): Promise<Card[]> {
     return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
+}
+
+export async function findCardByName(name:string):Promise<Card | null>{
+    return await cardsCollection.findOne({name})
 }
 
 export async function findUserByName(name: string): Promise<User | null> {

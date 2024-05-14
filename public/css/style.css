@@ -1376,7 +1376,12 @@ button[type="submit"]:hover {
   background-image: linear-gradient(to right, #6e48aa, #9d50bb);
   transform: translateY(2px);
 }
-
+.deck-image-created {
+  width: 200px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+}
 .deck-image {
   width: 200px;
   height: auto;

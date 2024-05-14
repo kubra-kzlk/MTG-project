@@ -58,86 +58,40 @@ addButton.addEventListener('click', () => {
         name: deckNameInput.value,
         imageUrl: selectedImage.src
       };
+
+      console.log(deckData.name)
+      console.log(deckData.imageUrl)
+
       try {
         const response = await fetch('/decklist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(deckData)
         });
-        const result = await response.json();
-        if (result.success) {
+        const data = await response.json();
+        if (data.success) {
           decks.push(deckData);
-          renderDecks();
           popupContainer.classList.add('hidden');
           deckNameInput.classList.add('hidden');
           saveButton.classList.add('hidden');
+          location.reload();
         } else {
-          alert('Error creating deck');
+          console.log("error onder de data.success")
+          console.error(data.message);
         }
       } catch (error) {
         console.error(error);
-        alert('Error creating deck');
       }
+      popupContainer.classList.add('hidden');
+      deckNameInput.classList.add('hidden');
+      saveButton.classList.add('hidden');
+
+      console.log("bijna bij pagina reladen")
+      window.location.reload();
+
+      console.log("onder pagina herladen")
     } else {
       alert('Selecteer een afbeelding en voer een decknaam in.');
     }
   });
   
-  function renderDecks() {
-    displayDeckContainer.innerHTML = '';
-    decks.forEach(deck => {
-      const displayContainer = document.createElement('div');
-      const deckImageContainer = document.createElement('div');
-      const deckName = document.createElement('div');
-      const editNameButton = document.createElement('button');
-      const deleteButton = document.createElement('button');
-      displayContainer.classList.add('saved-deck-container');
-      deckName.classList.add('deck-name');
-      deckName.textContent = deck.name;
-  
-      editNameButton.textContent = 'Bewerk decknaam';
-      editNameButton.addEventListener('click', () => {
-        const newName = prompt('Voer een nieuwe naam in voor dit deck:', deck.name);
-        if (newName) {
-          deck.name = newName;
-          deckName.textContent = newName;
-        }
-      });
-  
-      deleteButton.textContent = 'Verwijder deck';
-      deleteButton.addEventListener('click', async () => {
-        try {
-          const response = await fetch('/decklist', {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: deck.name })
-          });
-          const result = await response.json();
-          if (result.success) {
-            const index = decks.findIndex(d => d.name === deck.name);
-            if (index!== -1) {
-              decks.splice(index, 1);
-              renderDecks();
-            }
-          } else {
-            alert('Error deleting deck');
-          }
-        } catch (error) {
-          console.error(error);
-          alert('Error deleting deck');
-        }
-      });
-  
-      const img = document.createElement('img');
-      img.src = deck.imageUrl;
-      img.alt = deck.name;
-      img.classList.add('deck-image');
-      deckImageContainer.appendChild(img);
-  
-      displayContainer.appendChild(deckImageContainer);
-      displayContainer.appendChild(deckName);
-      displayContainer.appendChild(editNameButton);
-      displayContainer.appendChild(deleteButton);
-      displayDeckContainer.appendChild(displayContainer);
-    });
-  }

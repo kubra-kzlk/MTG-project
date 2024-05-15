@@ -741,7 +741,7 @@ select,
 }
 
 .container img {
-  max-width: 65%;
+  max-width: 50%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -749,9 +749,9 @@ select,
 
 .registration {
   background-color: black;
-
   margin-bottom: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
 }
 
 .registration>* {
@@ -998,7 +998,7 @@ button[type="submit"]:hover {
     width: 100%;
     padding: 15px;
     font-size: 16px;
-    width: calc(100% - 134px);
+    /* width: calc(100% - 134px); */
   }
 
   .container {
@@ -1014,7 +1014,7 @@ button[type="submit"]:hover {
     padding: 10px;
     font-size: 14px;
     box-sizing: border-box;
-    margin-left: 10px;
+    /* margin-left: 10px; */
   }
 
   .landingpage_container {

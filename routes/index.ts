@@ -47,7 +47,7 @@ app.get('/decklist', async (req: Request, res: Response) => {
   try {
     const userId: string = "";
     const decks = await decksCollection.find({ userId }).toArray();
-    res.render('decklist', { decks });
+    res.render('decklist', { activePage: 'decklist', decks });
   } catch (error) {
     console.error('Error retrieving decks:', error);
     res.status(500).send({ success: false, message: 'Error retrieving decks' });

@@ -18,7 +18,7 @@
 
 <section class="pagination">
   <% if (currentPage > 1) { %>
-    <a href="/main?p=<%= currentPage - 1 %>&searchedCards=<%= searchedCards %>">Vorige</a>
+    <a href="/main?p=<%= currentPage - 1 %>&searchedCards=<%= searchedCards %>">&larr;</a>
   <% } %>
   <% if (currentPage > 3) { %>
     <a href="/main?p=1&searchedCards=<%= searchedCards %>">
@@ -44,7 +44,7 @@
     </a>
   <% } %>
   <% if (currentPage < totalPages) { %>
-    <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">volgende</a>
+    <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">&rarr;</a>
   <% } %>
 </section>
   </body>

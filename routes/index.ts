@@ -84,7 +84,7 @@ app.get("/deckdetail", async (req, res) => {
   if (deck) {
     console.log("data is goed in deckdetail")
     console.log(deck)
-    res.render("deckdetail", { deck: deck });
+    res.render("deckdetail", {activePage: 'deckdetail', deck: deck });
   } else {
     res.render("404");
   }
@@ -100,6 +100,7 @@ app.get("/cardinfo", async (req, res) => {
 
   if (card) {
     res.render("cardinfo", {
+      activePage: 'cardinfo',
       card: card,
       p: pagelocated,
       searchedCards: searchedCards

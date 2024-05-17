@@ -30,31 +30,27 @@ main {
 }
 
 header {
-  box-shadow: 0 10px 20px rgba(128, 0, 128, 0.8);
+  box-shadow: 0 10px 10px rgba(128, 0, 128, 0.8);
   background-color: black;
   position: sticky;
   width: 100%;
   z-index: 10;
-  display: flex;
-}
-
-#navbar {
-  display: flex;
-  position: fixed;
-  left: 40%;
-  top: -40px;
 }
 
 header nav ul {
   display: flex;
-  list-style: none;
-  padding: 0;
+  justify-content: center;
+  position: relative;
+  bottom: 2.5rem;
+}
+
+header nav ul li {
+  margin: 0 10px;
 }
 
 header nav ul li a {
-  text-decoration: none;
   color: #ffffff;
-  padding: 1em;
+  padding: 10px;
   border-radius: 20px;
 }
 
@@ -64,10 +60,8 @@ header nav ul li.active a {
 }
 
 nav a {
-  display: block;
   text-decoration: none;
   text-transform: uppercase;
-  color: #eee1c6;
   letter-spacing: 0.2rem;
   margin: 4rem 1.5rem 0 0;
   transition: letter-spacing 0.2s, color 0.2s;
@@ -79,32 +73,16 @@ nav a:hover {
   font-weight: bold;
 }
 
-.header-btn {
-  padding: 10px 20px;
-  background-color: purple;
-
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.header-btn:hover {
-  background-color: #a020f0;
-}
-
 /* Hamburger menu */
 .hamburger {
-  right: 5%;
-  position: inherit;
   background: none;
   border: 0px;
   color: #fff;
   font-size: 3rem;
   cursor: pointer;
-  z-index: 1000;
-  margin-left: auto;
-
+  position: absolute;
+  right: 20px;
+  top: 10%;
 }
 
 .nav-menu {
@@ -143,20 +121,19 @@ nav a:hover {
 /* einde hamburger menu */
 
 
-.mainpage-footer {
+/* .mainpage-footer {
   position: relative;
   bottom: 0;
-}
+} */
 
-footer {
+/* footer {
   font-size: 12px;
-  position: absolute;
+  position: sticky;
   width: 100%;
   color: white;
   text-align: center;
   padding: 10px 0;
-  bottom: 0;
-}
+} */
 
 .main_deckcheck {
   display: none;
@@ -284,18 +261,7 @@ footer {
   animation-delay: 0.5s;
 }
 
-.header-btn {
-  position: absolute;
-  right: 20px;
-  padding: 10px 20px;
 
-  color: #333;
-  border: none;
-  border-radius: 0.5em;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
 
 .header-btn:hover,
 .search-btn:hover {
@@ -317,20 +283,18 @@ footer {
 }
 
 .search-box input {
-  padding: 10px;
+  padding: 8px;
   margin-right: 10px;
   border: 1px solid white;
   background-color: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   width: 200px;
   outline: none;
   border-radius: 20px;
 }
 
 .search-button {
-  padding: 10px;
-  font-size: 14px;
   box-sizing: border-box;
   margin-left: 10px;
 }
@@ -667,9 +631,8 @@ select,
 }
 
 .container {
-  max-width: 35%;
+ max-width: 55%; 
   margin: 0 auto;
-  padding: 20px;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -678,17 +641,18 @@ select,
 }
 
 .container img {
-  max-width: 50%;
+  max-width: 60%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
+  border-top-style: solid;
+  border-top-width: 40PX;
 }
 
 .registration {
   background-color: black;
   margin-bottom: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 20px;
 }
 
 .registration>* {
@@ -746,6 +710,7 @@ button[type="submit"] {
   width: 100%;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  padding: 8px;
   width: calc(100% - 24px);
 }
 
@@ -756,7 +721,6 @@ button[type="submit"]:hover {
 .login {
   margin-bottom: 10px;
   background-color: black;
-  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -894,10 +858,7 @@ button[type="submit"]:hover {
     height: auto;
   }
 
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
+ 
 
 }
 
@@ -917,23 +878,9 @@ button[type="submit"]:hover {
     display: none;
   }
 
-
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
-
   .custom-deck-container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-  }
-
-
-  .container {
-    max-width: 80%;
-    padding: 10px;
-    margin: 0 auto;
-    box-sizing: border-box;
   }
 
 
@@ -994,14 +941,6 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 480px) {
-  #hamburger {
-    right: 20%;
-  }
-
-  #nav-menu{
-
-  }
-
 
   .buttons-cardinfo {
     margin-top: 2vh;

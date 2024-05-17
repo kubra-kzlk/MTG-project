@@ -54,12 +54,10 @@ app.get('/decklist', async (req: Request, res: Response) => {
   }
 });
 
-
-
-//app.get
 app.get("/", async (req, res) => {
   res.render("index")
 })
+
 app.get('/login', (req, res) => {
   res.render('login', {
     emailIsAlreadryInUse: false,
@@ -84,7 +82,7 @@ app.get("/deckdetail", async (req, res) => {
   if (deck) {
     console.log("data is goed in deckdetail")
     console.log(deck)
-    res.render("deckdetail", {activePage: 'deckdetail', deck: deck });
+    res.render("deckdetail", { activePage: 'deckdetail',  deck: deck });
   } else {
     res.render("404");
   }
@@ -111,16 +109,10 @@ app.get("/cardinfo", async (req, res) => {
 
 })
 
-
-
 app.get("/main", async (req, res) => {
-
   const searchedCards: string = typeof req.query.searchedCards === "string" ? req.query.searchedCards : "";
-
   let cards: Card[] = [];
-
   const page = parseInt(req.query.p as string) || 1;
-
   let totalPages: number = 0;
   // checken als iets word gezocht ! 
   if (searchedCards !== "") {

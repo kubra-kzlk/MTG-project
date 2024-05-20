@@ -59,7 +59,20 @@ export async function loadCardsFromApi() {
         await cardsCollection.insertMany(uniqueCards);
     }
 }
-
+// export function getRarityClass(rarity: string): string {
+//     switch (rarity) {
+//         case 'Common':
+//             return 'card-common';
+//         case 'Uncommon':
+//             return 'card-uncommon';
+//         case 'Rare':
+//             return 'card-rare';
+//         case 'Mythic Rare':
+//             return 'card-mythic-rare';
+//         default:
+//             return '';
+//     }
+// }
 
 export async function createUser(newUser: NewUser): Promise<User> {
     const existingUser = await findUserByEmail(newUser.email);

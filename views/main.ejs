@@ -8,7 +8,7 @@
 
 <div class="image-gallery">
   <% for( card of cards ) { %>
-    <article class="">
+    <article class=" card <%= getRarityClass(card.rarity) %>">
       <a href="/cardinfo?name=<%= card.name %>">
         <img class="image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
       </a>
@@ -49,9 +49,5 @@
 </section>
   </body>
 
-  <footer class="mainpage-footer">
-    <p>
-      &copy; MTG  2024  
-    </p>
-  </footer>
+
  </html>

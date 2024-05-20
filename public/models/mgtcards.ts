@@ -11,6 +11,7 @@ export interface Card {
     power: string;
     toughness: string;
     imageUrl: string;
+    rarityColor: string;
   }
   
 

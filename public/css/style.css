@@ -83,6 +83,7 @@ nav a:hover {
   position: absolute;
   right: 20px;
   top: 10%;
+  display: none;
 }
 
 .nav-menu {
@@ -91,7 +92,6 @@ nav a:hover {
   height: 100%;
   right: 0;
   backdrop-filter: blur(30px);
-  /* Blur effect */
   overflow-x: hidden;
   transition: left 0.3s ease;
   padding-top: 150px;
@@ -120,20 +120,29 @@ nav a:hover {
 }
 /* einde hamburger menu */
 
+/*randkleuren*/
+.card {
+  border-width: 3px;
+  border-style: solid;
+}
 
-/* .mainpage-footer {
-  position: relative;
-  bottom: 0;
-} */
+.common-border {
+  border-color: white;
+}
 
-/* footer {
-  font-size: 12px;
-  position: sticky;
-  width: 100%;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-} */
+.uncommon-border {
+  border-color: blue;
+}
+
+.rare-border {
+  border-color: yellow;
+}
+
+.mythic-border {
+  border-color: red;
+}
+
+
 
 .main_deckcheck {
   display: none;
@@ -659,10 +668,12 @@ select,
   margin-bottom: 20px;
 }
 
-.error-message {
+/* .error-message {
   color: red;
   font-weight: bold;
-}
+  display: none;
+  margin-top: 20px;
+} */
 
 .login-link {
   color: white;
@@ -697,6 +708,7 @@ input[type="password"] {
   border: none;
   background-color: #282c34;
   color: #fff;
+
 }
 
 button[type="submit"] {
@@ -863,6 +875,12 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+}
+header nav {
+    display: none;
+}
 
   .nav-menu.open {
     display: block;
@@ -979,6 +997,12 @@ button[type="submit"]:hover {
     width: 90%;
     height: auto;
   }
+  input[type="email"], input[type="password"] {
+    width: 230px;
+  }
+  /* button[type="submit"] {
+    width: 230px;
+  } */
 }
 
 /* Voor schermen van 768px en groter */
@@ -1008,6 +1032,7 @@ button[type="submit"]:hover {
     width: 40%;
     margin-top: 20px;
   }
+  
 }
 
 /* Voor schermen van 480px en groter */

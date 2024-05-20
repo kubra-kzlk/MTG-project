@@ -1,25 +1,20 @@
 <%- include('./partials/head') %>
-  <body>
-    <section class="container">
-      <img src="./assets/images/LogoMuskNite.png" alt="Magic the Gathering" />
-     
-      <form class="login" action="/login" method="post">
+<body>
+  <section class="container">
+    <img src="./assets/images/LogoMuskNite.png" alt="Magic the Gathering" /> 
+    <form class="login" action="/login" method="post" id="login-form">
       <h1>Login</h1>
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" value="<%= email %>" required />
-        <label for="password">Wachtwoord</label>
-        <input type="password" id="password" name="password" required />
-        <a href="/mainpage"><button type="submit">Login</button></a>
-      </form>
-
-      <% if (checkEmailandPassword) { %>
-        <p class="error-message">Email of wachtwoord is niet correct, probeer opnieuw</p>
-      <% } %>  
-
-    
-        <section class="login-link">
-         <p>Nog geen lid? <a href="/register">Registreer hier!</a></p></section>
-        </section>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" value="<%= email %>" required />
+      <span id="email-error-message" class="error-message"></span>
+      <label for="password">Wachtwoord</label>
+      <input type="password" id="password" name="password" required />
+      <span id="password-error-message" class="error-message"></span>
+      <button type="submit">Login</button>
+    </form>     
+    <section class="login-link">
+      <p>Nog geen lid? <a href="/register">Registreer hier!</a></p>
     </section>
-  </body>
+  </section>
+</body>
 <%- include('./partials/footer') %>

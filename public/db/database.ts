@@ -21,6 +21,52 @@ export async function findDeckById(id: ObjectId): Promise<Deck | null> {
     return await decksCollection.findOne({ _id: id });
 }
 
+export async function shuffleDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const cardEntries = Object.entries(deck.cards);
+        const shuffledEntries = _.shuffle(cardEntries);
+        deck.cards = Object.fromEntries(shuffledEntries);
+        await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
+    }
+}
+
+export async function drawCardFromDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const availableCards = Object.entries(deck.cards).filter(([_, value]) => value.quantity > 0);
+        if (availableCards.length === 0) return null;
+
+        const [cardId, cardData] = availableCards[Math.floor(Math.random() * availableCards.length)];
+        if (deck.cards[cardId].quantity <= 0) {
+            return { error: 'De decks zijn leeg, alle kaarten werden uitgehaald.' };
+        }
+
+        deck.cards[cardId].quantity -= 1;
+
+        const remainingCards = Object.values(deck.cards).reduce((acc, value) => acc + value.quantity, 0);
+        await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
+
+        return { card: cardData.card, remainingCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl };
+    }
+    return null;
+}
+
+export async function resetDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const originalDeck = await decksCollection.findOne({ _id: deckId });
+        if(originalDeck){
+            deck.cards = originalDeck.cards;
+            await decksCollection.updateOne({ _id: deckId }, { $set: { cards: originalDeck?.cards } });
+            return { remainingCards: deck.totalCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl, cards: deck.cards };
+        }
+        return null;
+      
+    }
+    return null;
+}
+
 export async function createDeck(deckData: { name: string; imageUrl: string }, userId: ObjectId): Promise<Deck> {
     const newDeck: Deck = {
         _id: new ObjectId(),

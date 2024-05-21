@@ -1,10 +1,44 @@
 <%- include('./partials/header') %>
 <body>
-  
-
-<h1><%= deck._id %></h1>
-<a href="">HAHAHA</a>
 
 
+  <div>
+    <h2>Cards in Deck</h2>
+    <% if (cards.length === 0) { %>
+      <p style="font-size: larger; color: white; text-align: center;">Geen kaarten, voeg kaarten aan deze deck.</p>
+    <% } else { %>
+      <ul>
+        <% cards.forEach(({ card, quantity }) => { %>
+          <li>
+            <img class=" card" src="<%= card.imageUrl %>" alt="<%= card.name %>">
+            <p><%= card.name %> - <%= quantity %></p>
+          </li>
+        <% }); %>
+      </ul>
+      <section class="pagination">
+        <% if (currentPage > 1) { %>
+          <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage - 1 %>">&larr;</a>
+        <% } %>
+        <% if (currentPage > 3) { %>
+          <a href="/deckdetail?id=<%= deck._id %>&p=1"><%= 1 %></a>
+          <span>...</span>
+        <% } %>
+        <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
+          <% if (i > 0 && i <= totalPages) { %>
+            <a class="<%= i === currentPage ? 'active' : '' %>" href="/deckdetail?id=<%= deck._id %>&p=<%= i %>"><%= i %></a>
+          <% } %>
+        <% } %>
+        <% if (currentPage < totalPages - 2) { %>
+          <span>...</span>
+        <% } %>
+        <% if (currentPage < totalPages - 1) { %>
+          <a href="/deckdetail?id=<%= deck._id %>&p=<%= totalPages %>"><%= totalPages %></a>
+        <% } %>
+        <% if (currentPage < totalPages) { %>
+          <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage + 1 %>">&rarr;</a>
+        <% } %>
+      </section>
+    <% } %>
+  </div>
 </body>
-  <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

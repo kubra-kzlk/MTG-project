@@ -997,12 +997,20 @@ header nav {
     width: 90%;
     height: auto;
   }
-  input[type="email"], input[type="password"] {
-    width: 230px;
+  
+  .login > button{
+    width: 250px;
   }
-  /* button[type="submit"] {
-    width: 230px;
-  } */
+  .login > input{
+    width: 250px;
+  }
+  .registration > button{
+    width: 250px;
+  }
+  .registration > input{
+    width: 250px;
+  }
+
 }
 
 /* Voor schermen van 768px en groter */

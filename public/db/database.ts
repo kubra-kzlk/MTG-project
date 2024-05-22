@@ -1,38 +1,111 @@
-import { Collection, Db, MongoClient, ObjectId } from "mongodb";
-import { Card, CardsResponse } from "../models/mgtcards";
-import { NewUser, User } from "../models/user";
+import { Collection, MongoClient, ObjectId } from "mongodb";
+import { Card, CardsResponse } from "../interfaces/mgtcards";
+import { User } from "../interfaces/user";
 import * as bcrypt from 'bcrypt';
-import _ from 'lodash'; // dit is een js library die ik heb gevonden die ons fetching en zetten van de data makkelijker maak naar de database
-import { Deck, DeckCreate } from "../models/deck";
+import _ from 'lodash'; // dit is een js library die ik heb gevonden die ons fetching en zetten van de data makkelijker maak naar de database, voor de cards in orde te brengen
+import { Deck } from "../interfaces/deck";
 
-const uri = "mongodb+srv://wpl:password_wpl@projectwpl.l2arpvq.mongodb.net/?retryWrites=true&w=majority&appName=projectwpl";
-const client = new MongoClient(uri)
+export const MONGO_URI= process.env.MONGO_URI ?? "mongodb+srv://wpl:password_wpl@projectwpl.l2arpvq.mongodb.net/?retryWrites=true&w=majority&appName=projectwpl";
+const client = new MongoClient(MONGO_URI)
+const saltRounds: number = 10;
 
-
-export const usersCollection: Collection<User> = client.db("projectwpl").collection<User>("users");
+export const usersCollection: Collection<User> = client.db("projectwpl").collection<User>("wpl_users");
 export const cardsCollection: Collection<Card> = client.db("projectwpl").collection<Card>("cards");
 export const decksCollection: Collection<Deck> = client.db("projectwpl").collection<Deck>("decks");
 
-
-
-export async function getDecks(){
-    return await decksCollection.find().toArray();
+export async function getDecks(userId: ObjectId) {
+    return await decksCollection.find({ userId }).toArray();
 }
 
-export async function findDeckById(id: string): Promise<Deck | null> {
-    return await decksCollection.findOne({ id });;
-  }
-export async function createDeck(deckData: DeckCreate, userId :string): Promise<Deck> {
+export async function findDeckById(id: ObjectId): Promise<Deck | null> {
+    return await decksCollection.findOne({ _id: id });
+}
+
+export async function shuffleDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const cardEntries = Object.entries(deck.cards);
+        const shuffledEntries = _.shuffle(cardEntries);
+        deck.cards = Object.fromEntries(shuffledEntries);
+        await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
+    }
+}
+
+export async function drawCardFromDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const availableCards = Object.entries(deck.cards).filter(([_, value]) => value.quantity > 0);
+        if (availableCards.length === 0) return null;
+
+        const [cardId, cardData] = availableCards[Math.floor(Math.random() * availableCards.length)];
+        if (deck.cards[cardId].quantity <= 0) {
+            return { error: 'De decks zijn leeg, alle kaarten werden uitgehaald.' };
+        }
+
+        deck.cards[cardId].quantity -= 1;
+
+        const remainingCards = Object.values(deck.cards).reduce((acc, value) => acc + value.quantity, 0);
+        await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
+
+        return { card: cardData.card, remainingCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl };
+    }
+    return null;
+}
+
+export async function resetDeck(deckId: ObjectId) {
+    const deck = await decksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const originalDeck = await decksCollection.findOne({ _id: deckId });
+        if(originalDeck){
+            deck.cards = originalDeck.cards;
+            await decksCollection.updateOne({ _id: deckId }, { $set: { cards: originalDeck?.cards } });
+            return { remainingCards: deck.totalCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl, cards: deck.cards };
+        }
+        return null;
+      
+    }
+    return null;
+}
+
+export async function createDeck(deckData: { name: string; imageUrl: string }, userId: ObjectId): Promise<Deck> {
     const newDeck: Deck = {
-        _id: new ObjectId().toString(),
+        _id: new ObjectId(),
         name: deckData.name,
         imageUrl: deckData.imageUrl,
         cards: {},
-        userId: ""
+        totalCards: 0,
+        userId: userId
     };
     await decksCollection.insertOne(newDeck);
     return newDeck;
-  }
+}
+
+export async function updateDeck(deckId: ObjectId, deckUpdate: { name?: string; imageUrl?: string }): Promise<void> {
+    await decksCollection.updateOne({ _id: deckId }, { $set: deckUpdate });
+}
+
+export async function deleteDeck(deckId: ObjectId): Promise<void> {
+    await decksCollection.deleteOne({ _id: deckId });
+}
+
+export async function addCardToDeck(deckId: ObjectId, cardId: string, card: Card, quantity: number): Promise<void> {
+    const deck = await findDeckById(deckId);
+    if (!deck) throw new Error('Deck not found');
+
+    if (deck.totalCards + quantity > 60) throw new Error('Deck cannot have more than 60 cards');
+
+    const cardInDeck = deck.cards[cardId];
+    if (cardInDeck) {
+        if (cardInDeck.quantity + quantity > 4) throw new Error('Cannot have more than 4 of the same card in a deck');
+        cardInDeck.quantity += quantity;
+    } else {
+        deck.cards[cardId] = { card, quantity };
+    }
+
+    deck.totalCards += quantity;
+
+    await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards, totalCards: deck.totalCards } });
+}
 
 //behandeling van de kaarten: 
 export async function getAllCards() {
@@ -41,9 +114,70 @@ export async function getAllCards() {
 export async function getPageCard(page: number, cardsPerPage: number = 10) {
     const skippedCards = (page - 1) * cardsPerPage;
     return cardsCollection.find().skip(skippedCards).limit(cardsPerPage).toArray();
-  }
+}
 
-  
+
+
+//login : 
+export async function login(email: string, password: string) {
+    if (email === "" || password === "") {
+        throw new Error("Email and password zijn nodig");
+    }
+    let user : User | null = await usersCollection.findOne<User>({email: email});
+    if (user) {
+        if (await bcrypt.compare(password, user.password!)) {
+            return user;
+        } else {
+            throw new Error("Password is faut");
+        }
+    } else {
+        throw new Error("User is niet gevonden");
+    }
+}
+
+
+//register :
+
+export async function register(email: string, password: string) {
+    if (email === "" || password === "") {
+        throw new Error("Email and password required");
+    }
+    
+    const existingUser = await findUserByEmail(email);
+    if (existingUser) {
+        throw new Error("User already exists");
+    }
+    
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    
+    const newUser: User = {
+        email: email,
+        password: hashedPassword,
+    };
+    
+    const result = await usersCollection.insertOne(newUser);
+    return result.insertedId;
+}
+
+
+
+export async function findUserByEmail(email: string): Promise<User | null> {
+    return await usersCollection.findOne({ email });
+}
+
+export async function searchCards(query: string): Promise<Card[]> {
+    return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
+}
+export async function findCardByName(name:string):Promise<Card | null>{
+    return await cardsCollection.findOne({name})
+}
+
+
+
+
+
+
+
 export async function loadCardsFromApi() {
     const cards: Card[] = await getAllCards();
     if (cards.length === 0) {
@@ -52,55 +186,14 @@ export async function loadCardsFromApi() {
         let arrayOfCards = await response.json() as CardsResponse;
         const cardsfilling: Card[] = arrayOfCards.cards.filter(card => card.imageUrl !== null)
             .map(card => _.pick(card, ['name', 'names', 'cmc', 'colors', 'type', 'rarity', 'text', 'artist', 'number', 'power', 'toughness', 'imageUrl'])) as Card[];
-
-     
         const uniqueCards = _.unionBy(cardsfilling, 'name');
 
         await cardsCollection.insertMany(uniqueCards);
     }
 }
-// export function getRarityClass(rarity: string): string {
-//     switch (rarity) {
-//         case 'Common':
-//             return 'card-common';
-//         case 'Uncommon':
-//             return 'card-uncommon';
-//         case 'Rare':
-//             return 'card-rare';
-//         case 'Mythic Rare':
-//             return 'card-mythic-rare';
-//         default:
-//             return '';
-//     }
-// }
 
-export async function createUser(newUser: NewUser): Promise<User> {
-    const existingUser = await findUserByEmail(newUser.email);
-    if (existingUser) {
-      throw new Error('User already exists');
-    }
-  
-    const hashedPassword = await bcrypt.hash(newUser.password, 10);
-    newUser.password = hashedPassword;
-    const result =await client.db("projectwpl").collection("users").insertOne(newUser)
-    const createdUser = {...newUser, _id: result.insertedId.toString() };
-    console.log("User created!");
-    return createdUser;
-  }
-export async function findUserByEmail(email: string): Promise<User | null> {
-    return await usersCollection.findOne({ email });
-}
-export async function searchCards(query: string): Promise<Card[]> {
-    return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
-}
 
-export async function findCardByName(name:string):Promise<Card | null>{
-    return await cardsCollection.findOne({name})
-}
 
-export async function findUserByName(name: string): Promise<User | null> {
-    return await usersCollection.findOne({ name });
-}
 
 
 

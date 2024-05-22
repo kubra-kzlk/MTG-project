@@ -6,7 +6,7 @@ import { secureMiddleware } from "../public/middleware/secureMiddleware";
 
 export function mainRouter(){
     const router = express.Router();
-    const cardperpage = 10
+    const cardperpage = 12
 
     router.get("/main", secureMiddleware,async (req, res) => {
         const searchedCards: string = typeof req.query.searchedCards === "string" ? req.query.searchedCards : "";

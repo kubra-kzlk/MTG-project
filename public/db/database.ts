@@ -128,25 +128,37 @@ export async function login(email: string, password: string) {
         if (await bcrypt.compare(password, user.password!)) {
             return user;
         } else {
-            throw new Error("Password is faut");
+            throw new Error("Password of email adress is faut");
         }
     } else {
-        throw new Error("User is niet gevonden");
+        //dit is eigenlijk voor de user is niet gevonden : we houden het zo zodat we aan hackers niet duidelijk maken dat het wachtwoord fout was !!
+        throw new Error("Password of email adress is faut");
     }
 }
 
 
 //register :
 
-export async function register(email: string, password: string) {
+export async function register(email: string, password: string, repassword:string) {
     if (email === "" || password === "") {
-        throw new Error("Email and password required");
+        throw new Error("Email and password zijn nodig");
     }
-    
+
+    if(repassword !== password){
+        throw new Error("de wachtwoorden zijn niet gelijk")
+    }
+
+    if(password.length > 4){
+        throw new Error("de wachtwoord is te klein")
+    }
+
     const existingUser = await findUserByEmail(email);
     if (existingUser) {
-        throw new Error("User already exists");
+        throw new Error("deze E-mail bestaat al");
     }
+
+
+
     
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     

@@ -8,6 +8,7 @@ export function loginRouter(){
 
     router.get('/login',(req, res) => {
         res.render('login', {
+          error_message: ""
         })
       });
 
@@ -18,8 +19,8 @@ export function loginRouter(){
             delete user.password; 
             req.session.user = user;
             res.redirect("/main");
-        } catch (error) {
-          res.redirect("/login");
+        } catch (error: any) {
+          res.render("login", {error_message: error});
         }
     
     });

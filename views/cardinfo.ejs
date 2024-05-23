@@ -74,10 +74,10 @@
       margin-bottom: 16px;
     }
   
-    .back-button {
+    .back-button-cardinfo {
       position: absolute;
       top: 16px;
-      left: 16px;
+      right: 16px;
       color: white;
       text-decoration: none;
       font-size: 1rem;
@@ -117,10 +117,41 @@
       background-color: grey;
       cursor: not-allowed;
     }
+    @media (min-width: 320px) {
+
+    }
+    @media (max-width: 700px) {
+      .card-image {
+      width: 40%;
+      height: 200px;  
+    }
+    .card-name{
+      font-size: 1.3rem;
+    }
+
+    .card-name, .card-rarity, .card-type, .card-text, .card-power-toughness{
+      margin: 10px;
+    }
+    .card-info {
+      border: none;
+      border-top: white 4px solid;
+    }
+    .back-button-cardinfo{
+      border: solid white 2px;
+      padding: 10px;
+      background-color: purple;
+      color: white;
+      border-radius: 1em;
+      z-index: 2;
+      margin-top: 2em;
+      top: 50px;
+      right: 16px;
+    }
+    }
   </style>
 </head>
 <body class="cardinfo-main">
-  <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button">Back</a>
+  <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button-cardinfo">Back</a>
   <div class="card-container">
     <img class="card-image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
     <div class="card-info">
@@ -128,21 +159,20 @@
       <h2 class="card-rarity"><%= card.rarity || '' %></h2>
       <h3 class="card-type"><%= card.type || '' %></h3>
       <p class="card-text"><%= card.text || '' %></p>
-      <p class="card-power-toughness"><%= card.power || '' %> / <%= card.toughness || '' %></p>
-      <p class="card-artist"><%= card.artist || '' %></p>
+      <p class="card-power-toughness"><%= card.power + " power"|| '' %> / <%= card.toughness + " mana cost"|| '' %></p>
 
       <div class="add-card-container">
         <form id="add-card-form" action="/cardinfo/add-to-deck" method="post">
           <input type="hidden" name="cardName" value="<%= card.name %>">
-          <label for="deck-select">Add to Deck:</label>
+          <label for="deck-select">kies deck:</label>
           <select name="deckId" id="deck-select" class="deck-select">
             <% decks.forEach(deck => { %>
               <option value="<%= deck._id %>" data-card-count="<%= deck.cardCount %>">
-                <%= deck.name %> (<%= deck.cardCount %> in deck)
+                <%= deck.name %>
               </option>
             <% }); %>
           </select>
-          <button type="submit" id="add-card-btn" class="add-card-btn">Add Card</button>
+          <button type="submit" id="add-card-btn" class="add-card-btn">toevoegen</button>
         </form>
         <p id="card-count" class="card-count"></p>
       </div>
@@ -157,7 +187,7 @@
     function updateCardCount() {
       const selectedOption = deckSelect.options[deckSelect.selectedIndex];
       const cardCount = selectedOption.getAttribute('data-card-count');
-      cardCountDisplay.textContent = `This card is already in the selected deck ${cardCount} times.`;
+      cardCountDisplay.textContent = `deze kaart zit in de deck : ${cardCount} keer.`;
       if (parseInt(cardCount) >= 4) {
         addCardButton.disabled = true;
         addCardButton.classList.add('disabled');

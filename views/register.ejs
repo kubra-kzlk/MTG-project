@@ -1,4 +1,160 @@
 <%- include('./partials/head') %>
+
+<style>
+  
+  
+  .container {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-top-style: solid;
+  border-top-width: 40px;
+}
+
+form.registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.registration h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form.registration label {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+form.registration input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+form.registration button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: purple;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form.registration button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: large;
+}
+
+.login-link {
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 700px) {
+  form.registration h1 {
+    font-size: 22px;
+  }
+
+  form.registration label {
+    font-size: 16px;
+  }
+
+  form.registration input {
+    font-size: 14px;
+  }
+
+  form.registration button {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .container img {
+    max-width: 25%;
+  }
+
+  form.registration h1 {
+    font-size: 26px;
+  }
+
+  form.registration label {
+    font-size: 20px;
+  }
+
+  form.registration input {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  form.registration button {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container img {
+    max-width: 35%;
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+
+  form.registration h1 {
+    font-size: 28px;
+  }
+
+  form.registration label {
+    font-size: 22px;
+  }
+
+  form.registration input {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+  }
+
+  form.registration button {
+    width: 70%;
+    padding: 14px;
+    font-size: 20px;
+  }
+}
+</style>
   <body>
     <section class="container">
       <img src="/assets/images/LogoMuskNite.png" alt="Magic the Gathering" />
@@ -21,8 +177,8 @@
         <button type="submit">Registratie bevestigen</button>
       </form>
   
-      <% if (typeof error !== 'undefined') { %>
-        <div class="error-message"><%= error %></div>
+      <% if (error_message !== "") { %>
+        <div class="error-message"><%= error_message %>  </div>
     <% } %>
     
       <!--link naar login pagina-->      

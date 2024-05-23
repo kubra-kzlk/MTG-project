@@ -1,17 +1,50 @@
 <%- include('./partials/header') %>
+
+<style>
+  .text-info-decklist {
+  display: none; /* Hide by default */
+  transition: all 0.5s ease; /* Smooth transition for toggling visibility */
+  background-color: gray;
+  color: white;
+  width: 70vw;
+  margin: 0.5em auto;
+  padding: 1em;
+}
+
+.text-info-decklist.active {
+  display: block; /* Show when active */
+}
+
+#info-toggle-btn{
+  position: absolute;
+  right: 2%;
+  top: 15%;
+  padding: 0.5em;
+  font-size: large;
+}
+</style>
 <body>
 
     <div class="custom-deck-container">
-        <button id="add-deck-btn">Maak een nieuw deck aan</button>
+        <button class="add-deck-btn" id="add-deck-btn">&#43;</button>
         <div id="popup-container" class="hidden">
             <div id="deck-image-container"></div>
             <input type="text" id="deck-name-input" placeholder="Voer een decknaam in" class="deckname-input">
             <button id="save-deck-btn" class="save-button">Mijn keuze opslaan</button>
         </div>
     </div>
+    <div>
+      <div style="text-align: center;" class="text-info-decklist">
+        <p class="info-totaldeck">Druk op de knop om een deck te creëren, vervolgens selecteer een naam en een afbeelding voor de deck.</p>
+        <p class="info-totaldeck">Daarna kan je kaarten toevoegen als je op de afbeelding van de deck klikt.</p>
+      </div>
+      <button id="info-toggle-btn">&quest;</button>
+    </div>
+  
     <div id="display-deck-container">
       <% decks.forEach((deck) => { %>
         <div class="saved-deck-container">
+          <p class="info-totaldeck"><%= deck.totalCards %> / 60</p>
           <div class="deck-image-container">
             <a href="/deckdetail?id=<%= deck._id %>"><img class="deck-image-created" src="<%= deck.imageUrl %>" alt="<%= deck.name %>"></a> 
           </div>
@@ -37,4 +70,11 @@
 
 </body>
 <script src="/js/decklist.js"></script>
+<script>
+  document.getElementById('info-toggle-btn').addEventListener('click', function() {
+    var infoText = document.querySelector('.text-info-decklist');
+    infoText.classList.toggle('active');
+  });
+</script>
+
 <%- include('./partials/footer') %>

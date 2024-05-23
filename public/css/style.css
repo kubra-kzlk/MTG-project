@@ -835,7 +835,6 @@ button[type="submit"]:hover {
 }
 
 
-@media (max-width: 1024px) {}
 
 @keyframes fadeIn {
   from {
@@ -1052,6 +1051,8 @@ header nav {
   .cardinfo-text {
     width: 70%;
   }
+
+  
 }
 
 
@@ -1159,6 +1160,7 @@ header nav {
 }
 
 @media only screen and (max-width: 760px) {
+  
   .image-deck {
     height: 250px;
     width: 150px;
@@ -1246,15 +1248,26 @@ header nav {
 #popup-container:not(.hidden) {
   display: block;
 }
-
+#display-deck-container{
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+}
 #add-deck-btn {
-  width: 200px;
-  height: 50px;
-  background-image: linear-gradient(to right, #9d50bb, #6e48aa);
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  z-index: 3;
+  width: fit-content;
+  height: fit-content;
+  padding: 2em 2em;
+  background-color: purple;
   border: none;
   color: white;
-  padding: 10px 20px;
-  font-size: 16px;
+  font-size: large;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 25px;
@@ -1286,7 +1299,11 @@ header nav {
 .hidden {
   display: none;
 }
-
+.info-totaldeck{
+  color: white;
+  font-size: medium;
+  font-weight: 500;
+}
 .deckname-input {
   width: 150px;
   height: 30px;
@@ -1328,4 +1345,12 @@ header nav {
 .popup-deck-image {
   width: 100px;
   height: auto;
+}
+
+
+@media (max-width: 700px) {
+
+  .add-deck-button{
+    background-color: yellow;
+  }
 }

@@ -1,21 +1,42 @@
 <%- include('./partials/header') %>
+
+<style>
+  .cards-in-deck{
+    width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  gap: 2em  ;
+  }
+
+  .cards-in-deck p{
+    text-align: center;
+  }
+</style>
 <body>
 
 
   <div>
     <h2>Cards in Deck</h2>
     <% if (cards.length === 0) { %>
-      <p style="font-size: larger; color: white; text-align: center;">Geen kaarten, voeg kaarten aan deze deck.</p>
+      <div style="font-size: larger; color: white; text-align: center">
+        <p>Geen kaarten, voeg kaarten aan deze </p>
+        <br>    
+        <a href="/main">deck</a>
+      </div>
+
     <% } else { %>
-      <ul>
+      <ul class="cards-in-deck">
         <% cards.forEach(({ card, quantity }) => { %>
           <li>
+            <p class="info-totaldeck"> <%= quantity %> / 4</p>     
             <img class=" card" src="<%= card.imageUrl %>" alt="<%= card.name %>">
-            <p><%= card.name %> - <%= quantity %></p>
           </li>
         <% }); %>
       </ul>
-      <section class="pagination">
+      <section class="pagination" style="position: absolute; bottom: 5%; left: 50%;">
         <% if (currentPage > 1) { %>
           <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage - 1 %>">&larr;</a>
         <% } %>

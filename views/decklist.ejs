@@ -22,9 +22,9 @@
   padding: 0.5em;
   font-size: large;
 }
+
 </style>
 <body>
-
     <div class="custom-deck-container">
         <button class="add-deck-btn" id="add-deck-btn">&#43;</button>
         <div id="popup-container" class="hidden">
@@ -34,8 +34,8 @@
         </div>
     </div>
     <div>
-      <div style="text-align: center;" class="text-info-decklist">
-        <p class="info-totaldeck">Druk op de knop om een deck te creëren, vervolgens selecteer een naam en een afbeelding voor de deck.</p>
+      <div style="text-align: center; background-color: black; border: purple 4px solid;" class="text-info-decklist">
+        <p class="info-totaldeck">Druk op + de knop om een deck te creëren, vervolgens selecteer een naam en een afbeelding voor de deck.</p>
         <p class="info-totaldeck">Daarna kan je kaarten toevoegen als je op de afbeelding van de deck klikt.</p>
       </div>
       <button id="info-toggle-btn">&quest;</button>
@@ -48,13 +48,16 @@
           <div class="deck-image-container">
             <a href="/deckdetail?id=<%= deck._id %>"><img class="deck-image-created" src="<%= deck.imageUrl %>" alt="<%= deck.name %>"></a> 
           </div>
-          <h2 class="deck-name" style="color: yellow;">
-            <%= deck.name %>
-            <button class="update-deck-btn" data-id="<%= deck._id %>" data-name="<%= deck.name %>" data-image="<%= deck.imageUrl %>">Update</button>
-            <form action="/deckdetail/delete" method="post" class="inline-form">
-              <input type="hidden" name="deckId" value="<%= deck._id %>">
-              <button type="submit" class="delete-deck-btn">Delete</button>
-            </form>
+          <h2 class="deck-name">
+            <p style="padding: 0.4em; border-bottom: white solid 1px; font-size: large;"><%= deck.name %></p>
+            <div style="display: flex; justify-content: center; margin: 0.6em ; margin-top: 1em; gap: 1rem;">
+              <button class="update-deck-btn" data-id="<%= deck._id %>" data-name="<%= deck.name %>" data-image="<%= deck.imageUrl %>">Update</button>
+              <form action="/deckdetail/delete" method="post" class="delete-deck-btn-decklist">
+                <input type="hidden" name="deckId" value="<%= deck._id %>">
+                <button  type="submit">Delete</button>
+              </form>
+            </div>
+           
           </h2>
         </div>
       <% }); %>

@@ -72,6 +72,9 @@ nav a:hover {
   letter-spacing: 0.25rem;
   font-weight: bold;
 }
+.logoutLink{
+
+}
 
 /* Hamburger menu */
 .hamburger {
@@ -80,18 +83,21 @@ nav a:hover {
   color: #fff;
   font-size: 3rem;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   right: 20px;
-  top: 10%;
+  top: 1%;
   display: none;
+  z-index: 1000;
 }
 
 .nav-menu {
   position: fixed;
   display: none;
   height: 100%;
+  top: 0;
   right: 0;
-  backdrop-filter: blur(30px);
+  /* backdrop-filter: blur(30px); */
+  background-color: black;
   overflow-x: hidden;
   transition: left 0.3s ease;
   padding-top: 150px;
@@ -724,10 +730,6 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
   padding: 8px;
   width: calc(100% - 24px);
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
 }
 
 .login {

@@ -3,40 +3,32 @@
 
 <%- include('./head') %>
 
-<body>
-  <header>
-    <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
-    <nav id="navbar">
-      <ul>
-        <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
-        <li class="<%= activePage === 'decklist' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
-        <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
-        <form action="/logout" method="post">
-          <button type="submit">LOGOUT</button>
-        </form>
-      </ul>      
-    </nav>
-    <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
+  <body>
+    <header>
+      <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
+      <nav id="navbar">
+        <ul>
+          <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
+          <li class="<%= activePage === 'decklist' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
+          <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
+          <li class="logoutLink"><a href="/login"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
+         
+        </ul>
+      </nav>
+      <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
 
-    <nav id="nav-menu" class="nav-menu">
-      <ul>
-        <li><a href="/main">HOME</a></li>
-      </ul>
-      <ul>
-        <li><a href="/decklist">Deck</a></li>
-      </ul>
-      <ul>
-        <li><a href="/overview">+Draw</a></li>
-      </ul>
-      <ul>
-        <form action="/logout" method="post">
-          <button type="submit">LOGOUT</button>
-        </form>
-      </ul>
-    </nav>
-
-
-    
-  </header>
-
-  
+      <nav id="nav-menu" class="nav-menu">
+        <ul>
+          <li><a href="/main">HOME</a></li>
+        </ul>
+        <ul>
+          <li><a href="/decklist">Deck</a></li>
+        </ul>
+        <ul>
+          <li><a href="/overview">Draw +</a></li>
+        </ul>
+        <ul>
+          <li><a href="/login">LOGOUT</a></li>
+        </ul>
+      </nav>
+    </header>

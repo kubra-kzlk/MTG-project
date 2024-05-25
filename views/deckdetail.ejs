@@ -1,42 +1,77 @@
 <%- include('./partials/header') %>
 
 <style>
-  .cards-in-deck{
+  .cards-in-deck {
     width: 95vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: auto;
-  gap: 2em  ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    gap: 2em;
   }
 
-  .cards-in-deck p{
+  .cards-in-deck p {
     text-align: center;
   }
+
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .card-buttons form {
+    margin: 0 5px;
+  }
+
+  .disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
 </style>
+
 <body>
-
-
   <div>
     <h2>Cards in Deck</h2>
     <% if (cards.length === 0) { %>
       <div style="font-size: larger; color: white; text-align: center">
         <p>Geen kaarten, voeg kaarten aan deze </p>
-        <br>    
+        <br>
         <a href="/main">deck</a>
       </div>
-
     <% } else { %>
       <ul class="cards-in-deck">
         <% cards.forEach(({ card, quantity }) => { %>
           <li>
-            <p class="info-totaldeck"> <%= quantity %> / 4</p>     
-            <img class=" card" src="<%= card.imageUrl %>" alt="<%= card.name %>">
+            <p class="info-totaldeck"><%= quantity %> / 4</p>
+            <img class="card" src="<%= card.imageUrl %>" alt="<%= card.name %>">
+            <div class="card-buttons">
+              <form action="/deckdetail/update-card" method="post">
+                <input type="hidden" name="deckId" value="<%= deck._id %>">
+                <input type="hidden" name="cardId" value="<%= card.name %>">
+                <input type="hidden" name="change" value="1">
+                <button type="submit" <%= quantity >= 4 ? 'disabled class="disabled"' : '' %> >+</button>
+              </form>
+              <% if (quantity > 1) { %>
+                <form action="/deckdetail/update-card" method="post">
+                  <input type="hidden" name="deckId" value="<%= deck._id %>">
+                  <input type="hidden" name="cardId" value="<%= card.name %>">
+                  <input type="hidden" name="change" value="-1">
+                  <button type="submit">-</button>
+                </form>
+              <% } else { %>
+                <form action="/deckdetail/delete-card" method="post">
+                  <input type="hidden" name="deckId" value="<%= deck._id %>">
+                  <input type="hidden" name="cardId" value="<%= card.name %>">
+                  <button type="submit">Delete</button>
+                </form>
+              <% } %>
+            </div>
           </li>
         <% }); %>
       </ul>
-      <section class="pagination" style="position: absolute; bottom: 5%; left: 50%;">
+      <section class="pagination" style=" margin-top: 1em; bottom: 5%; left: 50%;">
         <% if (currentPage > 1) { %>
           <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage - 1 %>">&larr;</a>
         <% } %>
@@ -62,4 +97,5 @@
     <% } %>
   </div>
 </body>
+
 <%- include('./partials/footer') %>

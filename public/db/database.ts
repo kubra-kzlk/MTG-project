@@ -12,9 +12,61 @@ const saltRounds: number = 10;
 export const usersCollection: Collection<User> = client.db("projectwpl").collection<User>("wpl_users");
 export const cardsCollection: Collection<Card> = client.db("projectwpl").collection<Card>("cards");
 export const decksCollection: Collection<Deck> = client.db("projectwpl").collection<Deck>("decks");
+export const copyDecksCollection: Collection<Deck> = client.db("projectwpl").collection<Deck>("Copydecks");
+
 
 export async function getDecks(userId: ObjectId) {
     return await decksCollection.find({ userId }).toArray();
+}
+
+export async function copyDeckForUser(deckId: ObjectId, userId: ObjectId) {
+    const deck = await findDeckById(deckId);
+    if (!deck) throw new Error('Deck not found');
+
+    // Create a new copy of the deck for the user
+    const copiedDeck: Deck = {
+        ...deck,
+        _id: new ObjectId(),
+        userId: userId, // Set the user ID to associate the copied deck with the user
+        cards: _.cloneDeep(deck.cards) // Deep copy to avoid mutating the original deck
+    };
+
+    await copyDecksCollection.insertOne(copiedDeck);
+    return copiedDeck;
+}
+
+export async function drawCardFromCopiedDeck(deckId: ObjectId) {
+    const deck = await copyDecksCollection.findOne({ _id: deckId });
+    if (deck) {
+        const availableCards = Object.entries(deck.cards).filter(([_, value]) => value.quantity > 0);
+        if (availableCards.length === 0) return null;
+
+        const [cardId, cardData] = availableCards[Math.floor(Math.random() * availableCards.length)];
+        if (deck.cards[cardId].quantity <= 0) {
+            return { error: 'The deck is empty, all cards have been drawn.' };
+        }
+
+        deck.cards[cardId].quantity -= 1;
+
+        const remainingCards = Object.values(deck.cards).reduce((acc, value) => acc + value.quantity, 0);
+        await copyDecksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
+
+        return { card: cardData.card, remainingCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl };
+    }
+    return null;
+}
+
+export async function resetCopiedDeck(deckId: ObjectId) {
+    const copiedDeck = await copyDecksCollection.findOne({ _id: deckId });
+    if (copiedDeck) {
+        const originalDeck = await decksCollection.findOne({ _id: copiedDeck._id });
+        if (originalDeck) {
+            copiedDeck.cards = _.cloneDeep(originalDeck.cards);
+            await copyDecksCollection.updateOne({ _id: deckId }, { $set: { cards: copiedDeck.cards, totalCards: copiedDeck.totalCards } });
+            return { remainingCards: copiedDeck.totalCards, totalCards: copiedDeck.totalCards, deckImageUrl: copiedDeck.imageUrl, cards: copiedDeck.cards };
+        }
+    }
+    return null;
 }
 
 export async function findDeckById(id: ObjectId): Promise<Deck | null> {
@@ -29,42 +81,6 @@ export async function shuffleDeck(deckId: ObjectId) {
         deck.cards = Object.fromEntries(shuffledEntries);
         await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
     }
-}
-
-export async function drawCardFromDeck(deckId: ObjectId) {
-    const deck = await decksCollection.findOne({ _id: deckId });
-    if (deck) {
-        const availableCards = Object.entries(deck.cards).filter(([_, value]) => value.quantity > 0);
-        if (availableCards.length === 0) return null;
-
-        const [cardId, cardData] = availableCards[Math.floor(Math.random() * availableCards.length)];
-        if (deck.cards[cardId].quantity <= 0) {
-            return { error: 'De decks zijn leeg, alle kaarten werden uitgehaald.' };
-        }
-
-        deck.cards[cardId].quantity -= 1;
-
-        const remainingCards = Object.values(deck.cards).reduce((acc, value) => acc + value.quantity, 0);
-        await decksCollection.updateOne({ _id: deckId }, { $set: { cards: deck.cards } });
-
-        return { card: cardData.card, remainingCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl };
-    }
-    return null;
-}
-
-export async function resetDeck(deckId: ObjectId) {
-    const deck = await decksCollection.findOne({ _id: deckId });
-    if (deck) {
-        const originalDeck = await decksCollection.findOne({ _id: deckId });
-        if(originalDeck){
-            deck.cards = originalDeck.cards;
-            await decksCollection.updateOne({ _id: deckId }, { $set: { cards: originalDeck?.cards } });
-            return { remainingCards: deck.totalCards, totalCards: deck.totalCards, deckImageUrl: deck.imageUrl, cards: deck.cards };
-        }
-        return null;
-      
-    }
-    return null;
 }
 
 export async function createDeck(deckData: { name: string; imageUrl: string }, userId: ObjectId): Promise<Deck> {

@@ -1,12 +1,13 @@
 import express from "express";
 import { User } from "../public/interfaces/user";
 import { login } from "../public/db/database";
+import { checkifUserIsLogged } from "../public/middleware/secureMiddleware";
 
 
 export function loginRouter(){
     const router = express.Router();
 
-    router.get('/login',(req, res) => {
+    router.get('/login', checkifUserIsLogged,async(req, res) => {
         res.render('login', {
           error_message: ""
         })

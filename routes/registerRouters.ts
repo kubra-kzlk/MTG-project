@@ -1,11 +1,12 @@
 import express from "express";
 import { findUserByEmail, register } from "../public/db/database";
+import { checkifUserIsLogged } from "../public/middleware/secureMiddleware";
 
 
 export function registerRouter(){
     const router = express.Router();
 
-      router.get('/register', async (req, res) => {
+      router.get('/register', checkifUserIsLogged,async (req, res) => {
         res.render('register', {error_message: ""});
       });
 

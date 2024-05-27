@@ -57,7 +57,11 @@
 </style>
 
 <body>
-  <div class="decklist-body">
+  <section class="user-knopjes" style="height: 5vh;  display: flex; justify-content: space-between; margin-top: 2vh; margin: 2em;">
+    <button>Terug</button>
+    <button>kaart-toevoegen</button>
+  </section>
+  <main class="decklist-body">
     <h2>Cards in Deck</h2>
     <% if (cards.length === 0) { %>
       <div style="font-size: larger; color: white; text-align: center">
@@ -127,7 +131,7 @@
         <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage + 1 %>">&rarr;</a>
       <% } %>
     </section>
-  </div>
+  </main>
 </body>
 
 <%- include('./partials/footer') %>

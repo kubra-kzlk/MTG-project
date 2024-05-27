@@ -8,3 +8,10 @@ export function secureMiddleware(req: Request, res: Response, next: NextFunction
         res.redirect("/login");
     }
 };
+
+export async function checkifUserIsLogged(req: Request, res: Response, next: NextFunction) {
+    if(req.session.user){
+        return res.redirect("/index")
+    }
+    next();
+}

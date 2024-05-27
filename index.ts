@@ -4,7 +4,7 @@ import session from "./public/db/session";
 import { connect, findCardByName } from './public/db/database'
 import { loginRouter } from "./routes/loginRouter";
 import { registerRouter } from "./routes/registerRouters";
-import { secureMiddleware } from "./public/middleware/secureMiddleware";
+import { checkifUserIsLogged, secureMiddleware } from "./public/middleware/secureMiddleware";
 import { deckRouter } from "./routes/deckRouter";
 import { drawRouter } from "./routes/drawRouter";
 import { mainRouter } from "./routes/mainRouter";
@@ -32,11 +32,14 @@ app.use(deckRouter());
 app.use(drawRouter());
 app.use(mainRouter()); 
 app.use(cardInfoRouter());
-app.get("/", async (req, res) => {
-  res.render("index")
+
+app.get("/",  secureMiddleware,async (req, res) => {
+  res.render("login",{error_message:""})
 })
 
-
+app.get("/index", async(req,res)=>{
+  res.render("index")
+})
 app.get("/cardinfo", secureMiddleware,async (req, res) => {
   const cardName = req.query.name as string;
   const pagelocated = parseInt(req.query.p as string)

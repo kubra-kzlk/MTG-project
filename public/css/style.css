@@ -1285,9 +1285,9 @@ header nav {
   z-index: 3;
   width: fit-content;
   height: fit-content;
-  padding: 2em 2em;
+  padding: 1.8em ;
   background-color: purple;
-  border: none;
+  border: solid white 2px;
   color: white;
   font-size: large;
   cursor: pointer;

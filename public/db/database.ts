@@ -23,12 +23,11 @@ export async function copyDeckForUser(deckId: ObjectId, userId: ObjectId) {
     const deck = await findDeckById(deckId);
     if (!deck) throw new Error('Deck not found');
 
-    // Create a new copy of the deck for the user
     const copiedDeck: Deck = {
         ...deck,
         _id: new ObjectId(),
-        userId: userId, // Set the user ID to associate the copied deck with the user
-        cards: _.cloneDeep(deck.cards) // Deep copy to avoid mutating the original deck
+        userId: userId,
+        cards: _.cloneDeep(deck.cards)
     };
 
     await copyDecksCollection.insertOne(copiedDeck);
@@ -56,18 +55,6 @@ export async function drawCardFromCopiedDeck(deckId: ObjectId) {
     return null;
 }
 
-export async function resetCopiedDeck(deckId: ObjectId) {
-    const copiedDeck = await copyDecksCollection.findOne({ _id: deckId });
-    if (copiedDeck) {
-        const originalDeck = await decksCollection.findOne({ _id: copiedDeck._id });
-        if (originalDeck) {
-            copiedDeck.cards = _.cloneDeep(originalDeck.cards);
-            await copyDecksCollection.updateOne({ _id: deckId }, { $set: { cards: copiedDeck.cards, totalCards: copiedDeck.totalCards } });
-            return { remainingCards: copiedDeck.totalCards, totalCards: copiedDeck.totalCards, deckImageUrl: copiedDeck.imageUrl, cards: copiedDeck.cards };
-        }
-    }
-    return null;
-}
 
 export async function findDeckById(id: ObjectId): Promise<Deck | null> {
     return await decksCollection.findOne({ _id: id });

@@ -1,7 +1,7 @@
 import express from "express";
 import { secureMiddleware } from "../public/middleware/secureMiddleware";
 import { ObjectId } from "mongodb";
-import { copyDeckForUser, drawCardFromCopiedDeck, getDecks, resetCopiedDeck, shuffleDeck } from "../public/db/database";
+import { copyDeckForUser, copyDecksCollection, drawCardFromCopiedDeck, findDeckById, getDecks, shuffleDeck } from "../public/db/database";
 
 
 export function drawRouter(){
@@ -37,12 +37,32 @@ export function drawRouter(){
     const copiedDeck = await copyDeckForUser(new ObjectId(deckId), userId);
     res.json(copiedDeck);
 });
-
 router.post('/reset', secureMiddleware, async (req, res) => {
     const { deckId } = req.body;
-    const deck = await resetCopiedDeck(new ObjectId(deckId));
-    res.json(deck);
-});
+    const userId = new ObjectId(req.session.user?._id);
+
+    try {
+      const originalDeck = await findDeckById(new ObjectId(deckId));
+      if (!originalDeck) {
+        return res.json({ error: 'Deck not found' });
+      }
+
+      const copiedDeck = await copyDeckForUser(new ObjectId(deckId), userId);
+
+      await copyDecksCollection.updateOne(
+        { _id: new ObjectId(deckId) },
+        { $set: { cards: copiedDeck.cards, totalCards: copiedDeck.totalCards } }
+      );
+
+      res.json({
+        remainingCards: copiedDeck.totalCards,
+        totalCards: copiedDeck.totalCards
+      });
+    } catch (error) {
+      res.json({ error: 'Failed to reset the deck. Please try again.' });
+    }
+  });
+  
   return router;
 
 }

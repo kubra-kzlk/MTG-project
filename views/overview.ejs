@@ -111,19 +111,20 @@
   <div id="error-message" class="error-message"></div>
 </main>
 <script>
-    const deckSelect = document.getElementById('deck-select');
-    const remainingCardsInfo = document.getElementById('remaining-cards-info');
-    const deckImage = document.getElementById('deck-image');
-    const drawnCardImage = document.getElementById('drawn-card-image');
-    const drawnCardsList = document.getElementById('drawn-cards-list');
-    const shuffleBtn = document.getElementById('shuffle-btn');
-    const drawCardBtn = document.getElementById('draw-card-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const errorMessage = document.getElementById('error-message');
-    let selectedDeck = null;
-    let drawnCards = [];
+    document.addEventListener('DOMContentLoaded', () => {
+      const deckSelect = document.getElementById('deck-select');
+      const remainingCardsInfo = document.getElementById('remaining-cards-info');
+      const deckImage = document.getElementById('deck-image');
+      const drawnCardImage = document.getElementById('drawn-card-image');
+      const drawnCardsList = document.getElementById('drawn-cards-list');
+      const shuffleBtn = document.getElementById('shuffle-btn');
+      const drawCardBtn = document.getElementById('draw-card-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const errorMessage = document.getElementById('error-message');
+      let selectedDeck = null;
+      let drawnCards = [];
     
-    deckSelect.addEventListener('change', async () => {
+      deckSelect.addEventListener('change', async () => {
         const selectedOption = deckSelect.options[deckSelect.selectedIndex];
         const deckId = selectedOption.value;
         const deckImageSrc = selectedOption.getAttribute('data-image');
@@ -131,109 +132,107 @@
         const remainingCards = selectedOption.getAttribute('data-remaining');
     
         if (deckId) {
-            const response = await fetch('/copy-deck', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ deckId })
-            });
-            const copiedDeck = await response.json();
+          const response = await fetch('/copy-deck', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ deckId })
+          });
+          const copiedDeck = await response.json();
     
-            selectedDeck = copiedDeck._id;
-            deckImage.src = deckImageSrc;
-            remainingCardsInfo.textContent = `${remainingCards} / ${totalCards}`;
-            shuffleBtn.disabled = false;
-            shuffleBtn.classList.remove('disabled');
-            resetBtn.disabled = false;
-            resetBtn.classList.remove('disabled');
-            drawCardBtn.disabled = remainingCards === "0";
-            drawCardBtn.classList.toggle('disabled', remainingCards === "0");
+          selectedDeck = copiedDeck._id;
+          deckImage.src = deckImageSrc;
+          remainingCardsInfo.textContent = `${remainingCards} / ${totalCards}`;
+          shuffleBtn.disabled = false;
+          shuffleBtn.classList.remove('disabled');
+          drawCardBtn.disabled = remainingCards === "0";
+          drawCardBtn.classList.toggle('disabled', remainingCards === "0");
+          resetBtn.disabled = false;
+          resetBtn.classList.remove('disabled');
         } else {
-            selectedDeck = null;
-            deckImage.src = './assets/images/mtgkaartachterkant.jpg';
-            remainingCardsInfo.textContent = "0 / 60";
-            shuffleBtn.disabled = true;
-            shuffleBtn.classList.add('disabled');
-            resetBtn.disabled = true;
-            resetBtn.classList.add('disabled');
+          selectedDeck = null;
+          deckImage.src = './assets/images/mtgkaartachterkant.jpg';
+          remainingCardsInfo.textContent = "0 / 60";
+          shuffleBtn.disabled = true;
+          shuffleBtn.classList.add('disabled');
+          drawCardBtn.disabled = true;
+          drawCardBtn.classList.add('disabled');
+          resetBtn.disabled = true;
+          resetBtn.classList.add('disabled');
+        }
+      });
+    
+      shuffleBtn.addEventListener('click', async () => {
+        if (selectedDeck) {
+          deckImage.classList.add('shuffle-animation');
+          setTimeout(() => deckImage.classList.remove('shuffle-animation'), 1000);
+    
+          const response = await fetch('/shuffle', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ deckId: selectedDeck })
+          });
+          if (response.ok) {
+            // Handle successful shuffle
+          }
+        }
+      });
+    
+      drawCardBtn.addEventListener('click', async () => {
+        if (selectedDeck) {
+          const response = await fetch('/draw', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ deckId: selectedDeck })
+          });
+          const data = await response.json();
+          if (data.error) {
+            errorMessage.innerText = data.error;
             drawCardBtn.disabled = true;
             drawCardBtn.classList.add('disabled');
+          } else {
+            drawnCards.push(data.card);
+            updateDeckInfo(data);
+            updateDrawnCards();
+          }
         }
-    });
+      });
     
-    shuffleBtn.addEventListener('click', async () => {
+      resetBtn.addEventListener('click', async () => {
         if (selectedDeck) {
-            deckImage.classList.add('shuffle-animation');
-            setTimeout(() => deckImage.classList.remove('shuffle-animation'), 1000);
-    
-            const response = await fetch('/shuffle', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ deckId: selectedDeck })
-            });
-            if (response.ok) {
-                // Handle successful shuffle
-            }
+          const response = await fetch('/reset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ deckId: selectedDeck })
+          });
+          const result = await response.json();
+          if (!result.error) {
+            drawnCards = [];
+            updateDeckInfo(result);
+            updateDrawnCards();
+            drawCardBtn.disabled = false;
+            drawCardBtn.classList.remove('disabled');
+            errorMessage.innerText = '';
+          } else {
+            errorMessage.innerText = result.error;
+          }
         }
-    });
+      });
     
-    drawCardBtn.addEventListener('click', async () => {
-        if (selectedDeck) {
-            const response = await fetch('/draw', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ deckId: selectedDeck })
-            });
-            const data = await response.json();
-            if (data.error) {
-                errorMessage.innerText = data.error;
-                drawCardBtn.disabled = true;
-                drawCardBtn.classList.add('disabled');
-            } else {
-                drawnCards.push(data.card);
-                updateDeckInfo(data);
-                updateDrawnCards();
-            }
-        }
-    });
-    
-    resetBtn.addEventListener('click', async () => {
-        console.log("clicked on the reset buton")
-        if (selectedDeck) {
-            const response = await fetch('/reset', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ deckId: selectedDeck })
-            });
-            if (response.ok) {
-                console.log("inisde the  on the reset buton")
-                const data = await response.json();
-                drawnCards = [];
-                updateDeckInfo(data);
-                updateDrawnCards();
-                errorMessage.innerText = '';
-                drawCardBtn.disabled = false;
-                drawCardBtn.classList.remove('disabled');
-                deckSelect.disabled = false;
-            }
-        }
-
-        console.log("klaar met de reset button")
-    });
-    
-    function updateDeckInfo(data) {
+      function updateDeckInfo(data) {
         remainingCardsInfo.textContent = `${data.remainingCards} / ${data.totalCards}`;
-    }
+      }
     
-    function updateDrawnCards() {
+      function updateDrawnCards() {
         drawnCardImage.src = drawnCards.length > 0 ? drawnCards[drawnCards.length - 1].imageUrl : '';
         drawnCardsList.innerHTML = '';
         drawnCards.forEach(card => {
-            const li = document.createElement('li');
-            const img = document.createElement('img');
-            img.src = card.imageUrl;
-            img.alt = card.name;
-            li.appendChild(img);
-            drawnCardsList.appendChild(li);
+          const li = document.createElement('li');
+          const img = document.createElement('img');
+          img.src = card.imageUrl;
+          img.alt = card.name;
+          li.appendChild(img);
+          drawnCardsList.appendChild(li);
         });
-    }
+      }
+    });
     </script>

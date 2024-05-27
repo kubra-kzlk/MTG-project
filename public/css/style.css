@@ -423,27 +423,31 @@ nav a:hover {
   border-radius: 3px;
   background-color: #fff;
 }
-
-.pagination {
+.pagination{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
+align-items: center;
+justify-content: center;
+position: relative;
+margin-top: 4em;
+bottom: 0.5em; 
+left: 50%;
+gap: 0.5em  ;
+transform: translateX(-50%);
 }
 
 .pagination a {
-  text-decoration: none;
-  color: purple;
-  margin: 0 5px;
-  padding: 8px 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
+text-decoration: none;
+color: purple;
+padding: 10px ;
+border: 1px solid #ccc;
+border-radius: 4px;
+cursor: pointer;
+font-size: medium;
 }
 
 .pagination a.active {
-  background-color: purple;
-  color: white;
+background-color: purple;
+color: white;
 }
 
 #backToTopBtn {

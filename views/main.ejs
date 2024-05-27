@@ -1,54 +1,49 @@
 <%- include('./partials/header') %>
-<div class="search-box">
-<form action="/main" method="get">
-  <input type="text" id="search" name="searchedCards" placeholder="Zoek een kaart...">
-  <button class="search-button" type="submit">Zoek</button>
-</form>
-</div>
 
+  <body>
+    <div class="search-box">
+      <form action="/main" method="get">
+        <input type="text" id="search" name="searchedCards" placeholder="Zoek een kaart...">
+        <button class="search-button" type="submit">Zoek</button>
+      </form>
+    </div>
+    <main style="height: 100%;">
+      <div class="image-gallery">
+        <% for( card of cards ) { %>
+          <article class=" card <%= getRarityClass(card.rarity) %>">
+            <a href="/cardinfo?name=<%= card.name %>">
+              <img class="image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+            </a>
+          </article>
+          <% } %>
+      </div>
 
-<div class="image-gallery">
-  <% for( card of cards ) { %>
-    <article class=" card <%= getRarityClass(card.rarity) %>">
-      <a href="/cardinfo?name=<%= card.name %>">
-        <img class="image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
-      </a>
-    </article>
-  <% } %>
-</div>
+      <section class="pagination">
+        <% if (currentPage> 1) { %>
+          <a href="/main?p=<%= currentPage - 1 %>&searchedCards=<%= searchedCards %>">&larr;</a>
+          <% } %>
 
-<section class="pagination">
-  <% if (currentPage > 1) { %>
-    <a href="/main?p=<%= currentPage - 1 %>&searchedCards=<%= searchedCards %>">&larr;</a>
-  <% } %>
-  <% if (currentPage > 3) { %>
-    <a href="/main?p=1&searchedCards=<%= searchedCards %>">
-      <%= 1 %>
-    </a>
-  <% } %>
-  <% if (currentPage > 3) { %>
-    <span>...</span>
-  <% } %>
-  <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
-    <% if (i > 0 && i <= totalPages) { %>
-      <a class="<%= i === currentPage? 'active' : '' %>" href="/main?p=<%= i %>&searchedCards=<%= searchedCards %>">
-        <%= i %>
-      </a>
-    <% } %>
-  <% } %>
-  <% if (currentPage < totalPages - 2) { %>
-    <span>...</span>
-  <% } %>
-  <% if (currentPage < totalPages - 1) { %>
-    <a href="/main?p=<%= totalPages %>&searchedCards=<%= searchedCards %>">
-      <%= totalPages %>
-    </a>
-  <% } %>
-  <% if (currentPage < totalPages) { %>
-    <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">&rarr;</a>
-  <% } %>
-</section>
+            <% if (currentPage> 3) { %>
+              <span style="color: white;" >...</span>
+              <% } %>
+                <% for (let i=currentPage - 2; i <=currentPage + 2; i++) { %>
+                  <% if (i> 0 && i <= totalPages) { %>
+                      <a class="<%= i === currentPage? 'active' : '' %>"
+                        href="/main?p=<%= i %>&searchedCards=<%= searchedCards %>">
+                        <%= i %>
+                      </a>
+                      <% } %>
+                        <% } %>
+                          <% if (currentPage < totalPages - 2) { %>
+                            <span style="color: white;">...</span>
+                            <% } %>
+
+                              <% if (currentPage < totalPages) { %>
+                                <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">&rarr;</a>
+                                <% } %>
+      </section>
+    </main>
   </body>
 
 
- </html>
+  </html>

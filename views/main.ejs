@@ -24,7 +24,7 @@
           <% } %>
 
             <% if (currentPage> 3) { %>
-              <span style="color: white;" >...</span>
+              <span style="color: white;">...</span>
               <% } %>
                 <% for (let i=currentPage - 2; i <=currentPage + 2; i++) { %>
                   <% if (i> 0 && i <= totalPages) { %>
@@ -42,6 +42,7 @@
                                 <a href="/main?p=<%= currentPage + 1 %>&searchedCards=<%= searchedCards %>">&rarr;</a>
                                 <% } %>
       </section>
+      <button id="goUpBtn" class="go-up-btn" onclick="scrollToTop()">  &#x2191; </button>
     </main>
   </body>
 

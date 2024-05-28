@@ -73,9 +73,8 @@ nav a:hover {
   letter-spacing: 0.25rem;
   font-weight: bold;
 }
-.logoutLink{
 
-}
+.logoutLink {}
 
 /* Hamburger menu */
 .hamburger {
@@ -126,6 +125,7 @@ nav a:hover {
   display: block;
 
 }
+
 /* einde hamburger menu */
 
 /*randkleuren*/
@@ -423,48 +423,47 @@ nav a:hover {
   border-radius: 3px;
   background-color: #fff;
 }
-.pagination{
+
+.pagination {
   display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-margin-top: 4em;
-bottom: 0.5em; 
-left: 50%;
-gap: 0.5em  ;
-transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 4em;
+  bottom: 0.5em;
+  left: 50%;
+  gap: 0.5em;
+  transform: translateX(-50%);
 }
 
 .pagination a {
-text-decoration: none;
-color: purple;
-padding: 10px ;
-border: 1px solid #ccc;
-border-radius: 4px;
-cursor: pointer;
-font-size: medium;
+  text-decoration: none;
+  color: purple;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: medium;
 }
 
 .pagination a.active {
-background-color: purple;
-color: white;
+  background-color: purple;
+  color: white;
 }
 
-#backToTopBtn {
-  display: block;
+.go-up-btn {
+  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: purple;
-  color: black;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
+  color: white;
+  border: none;
   border-radius: 50%;
-  z-index: 99;
-  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .image-gallery.visible {
@@ -640,7 +639,7 @@ select,
 }
 
 .container {
- max-width: 55%; 
+  max-width: 55%;
   margin: 0 auto;
   background-color: black;
   display: flex;
@@ -725,18 +724,20 @@ button[type="submit"] {
   padding: 8px;
   width: calc(100% - 24px);
 }
-.delete-deck-btn-decklist button[type="submit"]{
-  margin: 0 ;
+
+.delete-deck-btn-decklist button[type="submit"] {
+  margin: 0;
   width: 0;
   width: 100%;
-  border-radius: 0 ;
+  border-radius: 0;
   background-color: darkred;
   color: white;
 }
 
-.delete-deck-btn-decklist :hover{
+.delete-deck-btn-decklist :hover {
   border: solid white 2px;
 }
+
 .login {
   margin-bottom: 10px;
   background-color: black;
@@ -876,17 +877,18 @@ button[type="submit"] {
     height: auto;
   }
 
- 
+
 
 }
 
 @media only screen and (max-width: 768px) {
   .hamburger {
     display: block;
-}
-header nav {
+  }
+
+  header nav {
     display: none;
-}
+  }
 
   .nav-menu.open {
     display: block;
@@ -960,8 +962,9 @@ header nav {
     justify-content: space-evenly;
   }
 
-
-
+  .go-up-btn {
+    display: none; /* Initially hidden */
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1003,17 +1006,20 @@ header nav {
     width: 90%;
     height: auto;
   }
-  
-  .login > button{
+
+  .login>button {
     width: 250px;
   }
-  .login > input{
+
+  .login>input {
     width: 250px;
   }
-  .registration > button{
+
+  .registration>button {
     width: 250px;
   }
-  .registration > input{
+
+  .registration>input {
     width: 250px;
   }
 
@@ -1046,7 +1052,7 @@ header nav {
     width: 40%;
     margin-top: 20px;
   }
-  
+
 }
 
 /* Voor schermen van 480px en groter */
@@ -1059,7 +1065,7 @@ header nav {
     width: 70%;
   }
 
-  
+
 }
 
 
@@ -1167,7 +1173,7 @@ header nav {
 }
 
 @media only screen and (max-width: 760px) {
-  
+
   .image-deck {
     height: 250px;
     width: 150px;
@@ -1255,26 +1261,30 @@ header nav {
 #popup-container:not(.hidden) {
   display: block;
 }
-#display-deck-container{
+
+#display-deck-container {
   width: 95vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: auto;
 }
-.deck-image-container:hover{
+
+.deck-image-container:hover {
   transform: scale(1.03);
   border: solid white 3px;
 }
-.update-deck-btn{
+
+.update-deck-btn {
   background-color: purple;
   color: white;
   font-weight: 500;
   border: none;
   cursor: pointer;
 }
-.update-deck-btn:hover{
+
+.update-deck-btn:hover {
   border: solid white 3px;
 }
 
@@ -1285,7 +1295,7 @@ header nav {
   z-index: 3;
   width: fit-content;
   height: fit-content;
-  padding: 1.8em ;
+  padding: 1.8em;
   background-color: purple;
   border: solid white 2px;
   color: white;
@@ -1299,12 +1309,14 @@ header nav {
   background-image: linear-gradient(to right, #6e48aa, #9d50bb);
   transform: translateY(2px);
 }
+
 .deck-image-created {
   width: 200px;
   height: auto;
   margin: 5px;
   cursor: pointer;
 }
+
 .deck-image {
   width: 200px;
   height: auto;
@@ -1321,12 +1333,14 @@ header nav {
 .hidden {
   display: none;
 }
-.info-totaldeck{
+
+.info-totaldeck {
   color: white;
   font-size: medium;
   font-weight: 500;
   margin-bottom: 0.5em;
 }
+
 .deckname-input {
   width: 150px;
   height: 30px;
@@ -1373,7 +1387,7 @@ header nav {
 
 @media (max-width: 700px) {
 
-  .add-deck-button{
+  .add-deck-button {
     background-color: yellow;
   }
 }

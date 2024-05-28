@@ -33,11 +33,11 @@ app.use(drawRouter());
 app.use(mainRouter()); 
 app.use(cardInfoRouter());
 
-app.get("/",  secureMiddleware,async (req, res) => {
-  res.render("login",{error_message:""})
+app.get("/",  checkifUserIsLogged,async (req, res) => {
+  res.render("index")
 })
 
-app.get("/index", async(req,res)=>{
+app.get("/index", checkifUserIsLogged,async(req,res)=>{
   res.render("index")
 })
 app.get("/cardinfo", secureMiddleware,async (req, res) => {

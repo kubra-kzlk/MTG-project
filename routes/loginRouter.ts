@@ -19,7 +19,7 @@ export function loginRouter(){
             let user:User = await login(email,password);
             delete user.password; 
             req.session.user = user;
-            res.redirect("/index");
+            res.redirect("/main");
         } catch (error: any) {
           res.render("login", {error_message: error});
         }

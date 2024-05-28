@@ -67,3 +67,17 @@ document.addEventListener('DOMContentLoaded', function () {
     navMenu.classList.toggle('open'); // Toggle the 'open' class on the menu
   });
 });
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleGoUpButton() {
+  const goUpBtn = document.getElementById('goUpBtn');
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    goUpBtn.style.display = 'block';
+  } else {
+    goUpBtn.style.display = 'none';
+  }
+}
+window.addEventListener('scroll', toggleGoUpButton);

@@ -15,21 +15,24 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      flex-direction: column;
     }
-  
+
     .card-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding-top: 50px;
     }
-  
+
     .card-image {
       width: 100%;
       max-width: 300px;
       margin-bottom: 16px;
+      padding-top: 20%;
     }
-  
+
     .card-info {
       margin: 0;
       line-height: 1.5;
@@ -37,52 +40,73 @@
       padding: 16px;
       position: relative;
     }
-  
-    .card-name, .card-rarity, .card-type, .card-text, .card-power-toughness, .card-artist {
+
+    .card-name,
+    .card-rarity,
+    .card-type,
+    .card-text,
+    .card-power-toughness,
+    .card-artist {
       margin: 0;
     }
-  
+
     .card-name {
       font-size: 2rem;
       margin-bottom: 8px;
     }
-  
+
     .card-rarity {
       font-size: 1.2rem;
       margin-bottom: 16px;
     }
-  
+
     .card-type {
       font-size: 1rem;
       margin-bottom: 16px;
       color: #888;
     }
-  
+
     .card-text {
       white-space: pre-wrap;
       margin-bottom: 16px;
     }
-  
+
     .card-power-toughness {
       font-size: 1.2rem;
       margin-bottom: 16px;
     }
-  
+
     .card-artist {
       font-size: 0.9rem;
       color: #888;
       margin-bottom: 16px;
     }
-  
+    .back-button-container {
+    width: 100%;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: black;
+    margin-left: 10VW;
+    padding-top: 2em;
+}
     .back-button-cardinfo {
-      position: absolute;
-      top: 16px;
-      right: 16px;
       color: white;
       text-decoration: none;
       font-size: 1rem;
+      border: solid white 2px;
+      padding: 10px;
+      background-color: purple;
+      border-radius: 1em;
+      z-index: 2;
+      cursor: pointer;
     }
-  
+
+    .back-button-cardinfo:hover {
+      background-color: darkviolet;
+    }
+
     .add-card-container {
       margin-top: 16px;
       display: flex;
@@ -90,12 +114,12 @@
       align-items: center;
       flex-direction: column;
     }
-  
+
     .deck-select {
       margin-right: 8px;
       padding: 8px;
     }
-  
+
     .add-card-btn {
       padding: 8px 16px;
       background-color: #f39c12;
@@ -103,71 +127,84 @@
       color: white;
       cursor: pointer;
     }
-  
+
     .add-card-btn:hover {
       background-color: #e67e22;
     }
-  
+
     .card-count {
       margin-top: 8px;
       font-size: 1rem;
     }
-  
+
     .disabled {
       background-color: grey;
       cursor: not-allowed;
     }
+
+
     @media (max-width: 700px) {
       .card-image {
-      width: 40%;
-      height: 200px;  
-    }
-    .card-name{
-      font-size: 1.3rem;
+        width: 40%;
+        height: 200px;
+      }
+
+      .card-name {
+        font-size: 1.3rem;
+      }
+
+      .card-name,
+      .card-rarity,
+      .card-type,
+      .card-text,
+      .card-power-toughness {
+        margin: 10px;
+      }
+
+      .card-info {
+        border: none;
+        border-top: white 4px solid;
+      }
+
     }
 
-    .card-name, .card-rarity, .card-type, .card-text, .card-power-toughness{
-      margin: 10px;
-    }
-    .card-info {
-      border: none;
-      border-top: white 4px solid;
-    }
-    .back-button-cardinfo{
-      border: solid white 2px;
-      padding: 10px;
-      background-color: purple;
-      color: white;
-      border-radius: 1em;
-      z-index: 2;
-      margin-top: 2em;
-      top: 50px;
-      right: 16px;
-    }
-    }
   </style>
 </head>
+
 <body class="cardinfo-main">
-  <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button-cardinfo">Back</a>
+  <div class="back-button-container">
+
+    <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button-cardinfo">Back</a>
+  </div>
   <div class="card-container">
     <img class="card-image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
     <div class="card-info">
-      <h1 class="card-name"><%= card.name || '' %></h1>
-      <h2 class="card-rarity"><%= card.rarity || '' %></h2>
-      <h3 class="card-type"><%= card.type || '' %></h3>
-      <p class="card-text"><%= card.text || '' %></p>
-      <p class="card-power-toughness"><%= card.power + " power"|| '' %> / <%= card.toughness + " mana cost"|| '' %></p>
+      <h1 class="card-name">
+        <%= card.name || '' %>
+      </h1>
+      <h2 class="card-rarity">
+        <%= card.rarity || '' %>
+      </h2>
+      <h3 class="card-type">
+        <%= card.type || '' %>
+      </h3>
+      <p class="card-text">
+        <%= card.text || '' %>
+      </p>
+      <p class="card-power-toughness">
+        <%= card.power + " power" || '' %> / <%= card.toughness + " mana cost" || '' %>
+      </p>
 
       <div class="add-card-container">
         <form id="add-card-form" action="/cardinfo/add-to-deck" method="post">
           <input type="hidden" name="cardName" value="<%= card.name %>">
           <label for="deck-select">kies deck:</label>
           <select name="deckId" id="deck-select" class="deck-select">
-            <% decks.forEach(deck => { %>
+            <% decks.forEach(deck=> { %>
               <option value="<%= deck._id %>" data-card-count="<%= deck.cardCount %>">
                 <%= deck.name %>
               </option>
-            <% }); %>
+              <% }); %>
           </select>
           <button type="submit" id="add-card-btn" class="add-card-btn">toevoegen</button>
         </form>
@@ -198,4 +235,5 @@
     window.addEventListener('load', updateCardCount);
   </script>
 </body>
+
 </html>

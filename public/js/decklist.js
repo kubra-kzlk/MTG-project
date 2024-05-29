@@ -6,19 +6,23 @@ const container = document.getElementById('deck-image-container');
 const updatePopupContainer = document.getElementById('update-popup-container');
 const updateDeckNameInput = document.getElementById('update-deck-name-input');
 const updateSaveButton = document.getElementById('update-save-deck-btn');
+const updateContainer = document.getElementById('update-deck-image-container');
 const closeUpdatePopupButton = document.getElementById('close-update-popup');
-const closePopupButton = document.querySelector('.close-the-popup');  // Toegevoegd
+const closePopupButton = document.querySelector('.close-the-popup');
 let selectedDeckId = null;
 let selectedDeckImage = null;
 
 const imageUrls = {
-    achterkantdraak: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg",
-    achterkantmixthemas: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg",
-    achterkantmixthemas2: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg",
-    achterkantorigineel: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg",
-    achterkantvrouw: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg",
-    achterkantvuurman: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg",
+  achterkantdraak: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg", 
+  achterkantmixthemas: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg", 
+  achterkantmixthemas2: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg", 
+  achterkantorigineel: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg", 
+  achterkantvrouw: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg", 
+  achterkantvuurman: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg", 
 };
+closePopupButton.addEventListener('click', () => {  // Toegevoegd 
+  popupContainer.classList.add('hidden'); 
+}); 
 
 addButton.addEventListener('click', () => {
     popupContainer.classList.remove('hidden');
@@ -34,10 +38,6 @@ addButton.addEventListener('click', () => {
       });
       container.appendChild(img);
     });
-});
-
-closePopupButton.addEventListener('click', () => {  // Toegevoegd
-    popupContainer.classList.add('hidden');
 });
 
 function selectImage(selectedUrl) {

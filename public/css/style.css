@@ -17,9 +17,18 @@ main {
   position: relative;
 }
 
+.indexTitle {
+  text-align: center;
+  padding: 1%;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 /* index/start pag bg color */
 .landing_body {
-  background-color: wheat;
+  background-color: black;
 }
 
 #logo {
@@ -50,6 +59,7 @@ header nav ul li {
 }
 
 header nav ul li a {
+  border-radius: 1em;
   color: #ffffff;
   padding: 10px;
   border-radius: 20px;
@@ -57,6 +67,7 @@ header nav ul li a {
 
 header nav ul li.active a {
   background-color: purple;
+  border: solid white 2px;
   color: white;
 }
 
@@ -69,11 +80,10 @@ nav a {
 }
 
 nav a:hover {
-  color: purple;
-  letter-spacing: 0.25rem;
-  font-weight: bold;
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+  border: solid white 2px;
 }
-
 .logoutLink {}
 
 /* Hamburger menu */
@@ -170,7 +180,7 @@ nav a:hover {
 
 .block_landing {
   width: calc(33.33% - 4vw);
-  height: 22vh;
+  height: 40vh;
   border-radius: 10px;
   position: relative;
   transition: box-shadow 0.3s ease;
@@ -182,12 +192,14 @@ nav a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #000;
+  background-color: black;
+  color: white;
   text-align: center;
   padding: 10px;
   border-radius: 0 0 10px 10px;
   margin: 0;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .block_landing img {
@@ -313,12 +325,17 @@ nav a:hover {
   font-size: 14px;
   width: 200px;
   outline: none;
-  border-radius: 20px;
+  border-radius: 1em;
 }
 
 .search-button {
   box-sizing: border-box;
   margin-left: 10px;
+}
+
+.search-button:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
 }
 
 .search-box input::placeholder {
@@ -523,7 +540,7 @@ nav a:hover {
 select,
 #addToDeck {
   padding: 10px;
-
+  border: solid white 2px;
   background-color: purple;
   color: white;
 }
@@ -579,6 +596,23 @@ select,
   padding: 20px 40px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.user-knopjes {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: purple;
+  border-radius: 1em;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.user-knopjes:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
 }
 
 /*DECK DETAIL*/
@@ -739,15 +773,21 @@ button[type="submit"] {
   background-color: purple;
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 1em;
   margin-top: 10px;
   box-sizing: border-box;
   cursor: pointer;
   width: 100%;
+  border: solid white 2px;
   font-size: 14px;
   transition: background-color 0.3s ease;
   padding: 8px;
-  width: calc(100% - 24px);
+  padding: 10px;
+}
+
+button:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
 }
 
 .delete-deck-btn-decklist button[type="submit"] {
@@ -755,7 +795,9 @@ button[type="submit"] {
   width: 0;
   width: 100%;
   border-radius: 0;
+  border-radius: 1em;
   background-color: darkred;
+
   color: white;
 }
 
@@ -988,7 +1030,8 @@ button[type="submit"] {
   }
 
   .go-up-btn {
-    display: none; /* Initially hidden */
+    display: none;
+    /* Initially hidden */
   }
 }
 
@@ -1149,11 +1192,12 @@ button[type="submit"] {
 
 .draw-interaction-btn button {
   font-size: large;
-  padding: 15px 20px;
+  padding: 10px;
   background-color: purple;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 1em;
+  border: solid white 2px;
   cursor: pointer;
   width: fit-content;
   margin-top: 2vh;
@@ -1303,10 +1347,22 @@ button[type="submit"] {
 
 .update-deck-btn {
   background-color: purple;
+  border: solid white 2px;
   color: white;
   font-weight: 500;
   border: none;
+  border-radius: 1em;
   cursor: pointer;
+}
+
+.close-button {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: purple;
+  border-radius: 1em;
 }
 
 .update-deck-btn:hover {
@@ -1327,6 +1383,7 @@ button[type="submit"] {
   font-size: large;
   cursor: pointer;
   transition: all 0.3s ease;
+
   border-radius: 25px;
 }
 

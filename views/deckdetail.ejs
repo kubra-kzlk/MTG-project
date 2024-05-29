@@ -57,9 +57,9 @@
 </style>
 
 <body>
-  <section class="user-knopjes" style="height: 5vh;  display: flex; justify-content: space-between; margin-top: 2vh; margin: 2em;">
-    <button>Terug</button>
-    <button>kaart-toevoegen</button>
+  <section  style="height: 5vh;  display: flex; justify-content: space-between; margin-top: 2vh; margin: 2em;">
+    <a href="/decklist" class="user-knopjes">Terug</a>
+    <a href="/main" class="user-knopjes" >Kaart toevoegen</a>
   </section>
   <main class="decklist-body">
     <h2>Cards in Deck</h2>
@@ -67,7 +67,7 @@
       <div style="font-size: larger; color: white; text-align: center">
         <p>Geen kaarten, voeg kaarten aan deze </p>
         <br>
-        <a href="/main">deck</a>
+        <a href="/main" class="user-knopjes">deck</a>
       </div>
     <% } else { %>
       <ul class="cards-in-deck">
@@ -90,7 +90,7 @@
                   <input type="hidden" name="deckId" value="<%= deck._id %>">
                   <input type="hidden" name="cardId" value="<%= card.name %>">
                   <input type="hidden" name="change" value="-1">
-                  <button  type="submit"><i class='fas fa-angle-double-down'></i></button>
+                  <button  type="submit">- 1</button>
                 </form>
                 <% } %>
             
@@ -99,7 +99,7 @@
                   <input type="hidden" name="deckId" value="<%= deck._id %>">
                   <input type="hidden" name="cardId" value="<%= card.name %>">
                   <input type="hidden" name="change" value="1">
-                  <button type="submit" <%= quantity >= 4 ? 'disabled class="disabled"' : '' %> ><i class='fas fa-angle-double-up'></i></button>
+                  <button type="submit" <%= quantity >= 4 ? 'disabled class="disabled"' : '' %> >+ 1</button>
                 </form>
               <% } %>
             </div>

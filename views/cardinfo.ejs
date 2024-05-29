@@ -81,16 +81,18 @@
       color: #888;
       margin-bottom: 16px;
     }
+
     .back-button-container {
-    width: 100%;
-    text-align: left;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: black;
-    margin-left: 10VW;
-    padding-top: 2em;
-}
+      width: 100%;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background-color: black;
+      margin-left: 10VW;
+      padding-top: 2em;
+    }
+
     .back-button-cardinfo {
       color: white;
       text-decoration: none;
@@ -104,7 +106,8 @@
     }
 
     .back-button-cardinfo:hover {
-      background-color: darkviolet;
+      background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+      transform: translateY(2px);
     }
 
     .add-card-container {
@@ -121,15 +124,18 @@
     }
 
     .add-card-btn {
-      padding: 8px 16px;
-      background-color: #f39c12;
-      border: none;
+      padding: 10px;
+      border: solid white 2px;
       color: white;
       cursor: pointer;
+      background-color: purple;
+      border-radius: 1em;
+      font-size: 14px;
     }
 
     .add-card-btn:hover {
-      background-color: #e67e22;
+      background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+      transform: translateY(2px);
     }
 
     .card-count {
@@ -167,7 +173,6 @@
       }
 
     }
-
   </style>
 </head>
 
@@ -206,7 +211,7 @@
               </option>
               <% }); %>
           </select>
-          <button type="submit" id="add-card-btn" class="add-card-btn">toevoegen</button>
+          <button type="submit" id="add-card-btn" class="add-card-btn">Toevoegen</button>
         </form>
         <p id="card-count" class="card-count"></p>
       </div>

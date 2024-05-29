@@ -1,29 +1,4 @@
 <%- include('./partials/header') %>
-
-<style>
-  .text-info-decklist {
-  display: none; /* Hide by default */
-  transition: all 0.5s ease; /* Smooth transition for toggling visibility */
-  background-color: gray;
-  color: white;
-  width: 70vw;
-  margin: 0.5em auto;
-  padding: 1em;
-}
-
-.text-info-decklist.active {
-  display: block; /* Show when active */
-}
-
-#info-toggle-btn{
-  position: absolute;
-  right: 2%;
-  top: 15%;
-  padding: 0.5em;
-  font-size: large;
-}
-
-</style>
 <body>
   <div class="custom-deck-container">
     <button class="add-deck-btn" id="add-deck-btn">&#43;</button>

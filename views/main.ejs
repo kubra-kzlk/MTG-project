@@ -1,13 +1,25 @@
 <%- include('./partials/header') %>
 
   <body>
+    <section>
+      <div style="text-align: center; background-color: black; border: purple 4px solid; " class="text-info-decklist">
+        <p class="info-totaldeck">in deze pagina zie je de kaarten met hun randen die aanduiden hun type rarity als volgend:</p>
+        <p class="info-totaldeck">Common:Wit, Uncommen:blauw, Rare: geel, Mythic: rood </p>
+      </div>
+    </section>
+   
     <div class="search-box">
       <form action="/main" method="get">
         <input type="text" id="search" name="searchedCards" placeholder="Zoek een kaart...">
         <button class="search-button" type="submit">Zoek</button>
       </form>
+      <button class="btn-main-info" style="margin-top: 4vh;"  id="info-toggle-btn">&quest;</button>
     </div>
+
+
+
     <main style="height: 100%;">
+  
       <div class="image-gallery">
         <% for( card of cards ) { %>
           <article class=" card <%= getRarityClass(card.rarity) %>">
@@ -46,5 +58,10 @@
   </body>
 
   <button id="goUpBtn" class="go-up-btn" onclick="scrollToTop()">  &#x2191; </button>
-
+<script>
+    document.getElementById('info-toggle-btn').addEventListener('click', function() {
+    var infoText = document.querySelector('.text-info-decklist');
+    infoText.classList.toggle('active');
+  });
+</script>
   </html>

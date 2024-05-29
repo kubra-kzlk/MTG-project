@@ -298,6 +298,149 @@ nav a:hover {
 }
 
 
+.cardinfo-main {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 16px;
+  padding-top: 20%;
+}
+
+.card-info {
+  margin: 0;
+  line-height: 1.5;
+  border: 1px solid white;
+  padding: 16px;
+  position: relative;
+}
+
+.card-name,
+.card-rarity,
+.card-type,
+.card-text,
+.card-power-toughness,
+.card-artist {
+  margin: 0;
+}
+
+.card-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.card-rarity {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.card-type {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #888;
+}
+
+.card-text {
+  white-space: pre-wrap;
+  margin-bottom: 16px;
+}
+
+.card-power-toughness {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.card-artist {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.back-button-container {
+  width: 100%;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: black;
+  margin-left: 10VW;
+  padding-top: 2em;
+}
+
+.back-button-cardinfo {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: purple;
+  border-radius: 1em;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.back-button-cardinfo:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+}
+
+.add-card-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.deck-select {
+  margin-right: 8px;
+  padding: 8px;
+}
+
+.add-card-btn {
+  padding: 10px;
+  border: solid white 2px;
+  color: white;
+  cursor: pointer;
+  background-color: purple;
+  border-radius: 1em;
+  font-size: 14px;
+}
+
+.add-card-btn:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+}
+
+.card-count {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+
 .search-box {
   display: flex;
   justify-content: center;
@@ -1090,6 +1233,7 @@ button:hover {
   .registration>input {
     width: 250px;
   }
+  
 
 }
 
@@ -1242,7 +1386,27 @@ button:hover {
 }
 
 @media only screen and (max-width: 760px) {
+  .card-image {
+    width: 40%;
+    height: 200px;
+  }
 
+  .card-name {
+    font-size: 1.3rem;
+  }
+
+  .card-name,
+  .card-rarity,
+  .card-type,
+  .card-text,
+  .card-power-toughness {
+    margin: 10px;
+  }
+
+  .card-info {
+    border: none;
+    border-top: white 4px solid;
+  }
   .image-deck {
     height: 250px;
     width: 150px;
@@ -1556,4 +1720,385 @@ button:hover {
   border: 3px solid gold;
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.cards-in-deck {
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  gap: 4em;
+}
+
+.cards-in-deck p {
+  text-align: center;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.card-buttons form {
+  margin: 0 5px;
+}
+
+.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+.minus-btn-deckdetail button{
+  width: 60px;
+  height: auto;
+  border: solid white 2px;
+}
+.plus-btn-deckdetail button{
+  width: 60px;
+  height: auto;
+  border: solid white 2px;
+  margin-left: 1.4em;
+}
+.delete-btn-deckdetail button{
+  width: 60px;
+  height: auto;
+  background-color: #52003a;
+
+  border: solid red 2px;
+}
+.fa{
+  font-size: larger;
+}
+
+
+.container {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5em;
+}
+
+.container img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-top-style: solid;
+  border-top-width: 40px;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.login h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form.login label {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+form.login input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+form.login button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: purple;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form.login button:hover {
+  background-color: #0056b3;
+  border: solid white 2px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+.login-link {
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 700px) {
+  form.registration h1 {
+    font-size: 22px;
+  }
+
+  form.registration label {
+    font-size: 16px;
+  }
+
+  form.registration input {
+    font-size: 14px;
+  }
+
+  form.registration button {
+    font-size: 14px;
+  }
+  form.login h1 {
+    font-size: 22px;
+  }
+
+  form.login label {
+    font-size: 16px;
+  }
+
+  form.login input {
+    font-size: 14px;
+  }
+
+  form.login button {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .container img {
+    max-width: 25%;
+  }
+
+  form.registration h1 {
+    font-size: 26px;
+  }
+
+  form.registration label {
+    font-size: 20px;
+  }
+
+  form.registration input {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  form.registration button {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+  .container img {
+    max-width: 30%;
+  }
+  form.login h1 {
+    font-size: 26px;
+  }
+
+  form.login label {
+    font-size: 20px;
+  }
+
+  form.login input {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  form.login button {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1025px) {
+  
+.container img {
+  max-width: 35%;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+  form.login h1 {
+    font-size: 28px;
+  }
+
+  form.login label {
+    font-size: 22px;
+  }
+
+  form.login input {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+  }
+
+  form.login button {
+    width: 70%;
+    padding: 14px;
+    font-size: 20px;
+  }
+
+  
+}
+
+
+form.registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.registration h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form.registration label {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+form.registration input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+form.registration button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: purple;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form.registration button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: large;
+}
+
+.login-link {
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.draw-cards-summary {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-top: 2vh;
+}
+
+.draw-cards-summary li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.draw-cards-summary li img {
+  height: 100px;
+  width: auto;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.image-deck img.shuffle-animation {
+  animation: shuffleAnimation 1s ease-in-out;
+}
+
+@keyframes shuffleAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.1) translateX(-10px);
+  }
+
+  50% {
+    transform: scale(1.1) translateX(10px);
+  }
+
+  75% {
+    transform: scale(1.1) translateX(-10px);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.draw-cards-summary {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-top: 2vh;
+}
+
+.draw-cards-summary li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.draw-cards-summary li img {
+  height: 100px;
+  width: auto;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
 }

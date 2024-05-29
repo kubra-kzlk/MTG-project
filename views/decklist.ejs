@@ -25,14 +25,16 @@
 
 </style>
 <body>
-    <div class="custom-deck-container">
-        <button class="add-deck-btn" id="add-deck-btn">&#43;</button>
-        <div id="popup-container" class="hidden">
-            <div id="deck-image-container"></div>
-            <input type="text" id="deck-name-input" placeholder="Voer een decknaam in" class="deckname-input">
-            <button id="save-deck-btn" class="save-button">Mijn keuze opslaan</button>
-        </div>
+  <div class="custom-deck-container">
+    <button class="add-deck-btn" id="add-deck-btn">&#43;</button>
+    <div id="popup-container" class="hidden popup-box">
+        <button class="close-the-popup">&times;</button>
+        <div id="deck-image-container" class="image-grid"></div>
+        <input type="text" id="deck-name-input" placeholder="Voer een decknaam in" class="deckname-input hidden">
+        <button id="save-deck-btn" class="save-button hidden">Opslaan</button>
     </div>
+</div>
+
     <div>
       <div style="text-align: center; background-color: black; border: purple 4px solid;" class="text-info-decklist">
         <p class="info-totaldeck">Druk op + de knop om een deck te creëren, vervolgens selecteer een naam en een afbeelding voor de deck.</p>

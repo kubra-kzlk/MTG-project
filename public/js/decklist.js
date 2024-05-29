@@ -6,24 +6,18 @@ const container = document.getElementById('deck-image-container');
 const updatePopupContainer = document.getElementById('update-popup-container');
 const updateDeckNameInput = document.getElementById('update-deck-name-input');
 const updateSaveButton = document.getElementById('update-save-deck-btn');
-const updateContainer = document.getElementById('update-deck-image-container');
 const closeUpdatePopupButton = document.getElementById('close-update-popup');
+const closePopupButton = document.querySelector('.close-the-popup');  // Toegevoegd
 let selectedDeckId = null;
 let selectedDeckImage = null;
 
 const imageUrls = {
-    achterkanboom: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkanboom.jpg",
-    achterkantdoodskop: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdoodskop.jpg",
     achterkantdraak: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantdraak.jpg",
     achterkantmixthemas: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas.jpg",
     achterkantmixthemas2: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmixthemas2.jpg",
-    achterkantmountain: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantmountain.jpg",
     achterkantorigineel: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantorigineel.jpg",
-    achterkantpaarsevrouw: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantpaarsevrouw.jpg",
     achterkantvrouw: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg",
     achterkantvuurman: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg",
-    achterkantzon: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantzon.jpg",
-    waterachterkant: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/waterachterkant.jpg"
 };
 
 addButton.addEventListener('click', () => {
@@ -40,6 +34,10 @@ addButton.addEventListener('click', () => {
       });
       container.appendChild(img);
     });
+});
+
+closePopupButton.addEventListener('click', () => {  // Toegevoegd
+    popupContainer.classList.add('hidden');
 });
 
 function selectImage(selectedUrl) {

@@ -1461,7 +1461,7 @@ button[type="submit"] {
   border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 

@@ -1391,3 +1391,87 @@ button[type="submit"] {
     background-color: yellow;
   }
 }
+
+.popup-box {
+  background: radial-gradient(circle farthest-side, #fffbf0, #d3d3d3);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.close-the-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.close-the-popup:hover {
+  color: #333;
+}
+
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.popup-deck-image {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+.popup-deck-image:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+.deckname-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 22px);
+}
+
+.save-button {
+  background: linear-gradient(45deg, #8a2be2, #ffd700);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.save-button:hover {
+  background: linear-gradient(45deg, #ffd700, #8a2be2);
+  transform: scale(1.05);
+}
+
+.selected {
+  border: 3px solid gold;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}

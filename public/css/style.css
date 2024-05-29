@@ -290,7 +290,8 @@ nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1%;
+  padding: 1em;
+
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -298,7 +299,11 @@ nav a:hover {
   display: flex;
   align-items: center;
 }
-
+.btn-main-info{
+  color: white;
+  background-color: purple;
+  border: solid white 2px;
+}
 .search-box input {
   padding: 8px;
   margin-right: 10px;
@@ -611,7 +616,27 @@ select,
   height: 29vh;
   width: 15vw;
 }
+.text-info-decklist {
+  display: none; 
+  transition: all 0.5s ease; 
+  background-color: gray;
+  color: white;
+  width: 70vw;
+  margin: 0.5em auto;
+  padding: 1em;
+}
 
+.text-info-decklist.active {
+  display: block; 
+}
+
+#info-toggle-btn{
+  position: absolute;
+  right: 2%;
+  top: 15%;
+  padding: 0.5em;
+  font-size: large;
+}
 .button-backto-deck {
   color: white;
   font-size: large;

@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt';
 import _ from 'lodash'; // dit is een js library die ik heb gevonden die ons fetching en zetten van de data makkelijker maak naar de database, voor de cards in orde te brengen
 import { Deck } from "../interfaces/deck";
 
-export const MONGO_URI= process.env.MONGO_URI ?? "mongodb+srv://wpl:password_wpl@projectwpl.l2arpvq.mongodb.net/?retryWrites=true&w=majority&appName=projectwpl";
+export const MONGO_URI = process.env.MONGO_URI ?? "mongodb+srv://wpl:password_wpl@projectwpl.l2arpvq.mongodb.net/?retryWrites=true&w=majority&appName=projectwpl";
 const client = new MongoClient(MONGO_URI)
 const saltRounds: number = 10;
 
@@ -21,7 +21,7 @@ export async function getDecks(userId: ObjectId) {
 
 export async function copyDeckForUser(deckId: ObjectId, userId: ObjectId) {
     const deck = await findDeckById(deckId);
-    if (!deck) throw new Error('Deck not found');
+    if (!deck) throw new Error('Deck niet gevonden');
 
     const copiedDeck: Deck = {
         ...deck,
@@ -42,7 +42,7 @@ export async function drawCardFromCopiedDeck(deckId: ObjectId) {
 
         const [cardId, cardData] = availableCards[Math.floor(Math.random() * availableCards.length)];
         if (deck.cards[cardId].quantity <= 0) {
-            return { error: 'The deck is empty, all cards have been drawn.' };
+            return { error: 'Het deck is leeg, alle kaarten zijn getrokken.' };
         }
 
         deck.cards[cardId].quantity -= 1;
@@ -93,13 +93,13 @@ export async function deleteDeck(deckId: ObjectId): Promise<void> {
 
 export async function addCardToDeck(deckId: ObjectId, cardId: string, card: Card, quantity: number): Promise<void> {
     const deck = await findDeckById(deckId);
-    if (!deck) throw new Error('Deck not found');
+    if (!deck) throw new Error('Deck niet gevonden.');
 
-    if (deck.totalCards + quantity > 60) throw new Error('Deck cannot have more than 60 cards');
+    if (deck.totalCards + quantity > 60) throw new Error('Een deck mag niet meer dan 60 kaarten bevatten.');
 
     const cardInDeck = deck.cards[cardId];
     if (cardInDeck) {
-        if (cardInDeck.quantity + quantity > 4) throw new Error('Cannot have more than 4 of the same card in a deck');
+        if (cardInDeck.quantity + quantity > 4) throw new Error('Een deck mag niet meer dan 4 dezelfde kaarten bevatten.');
         cardInDeck.quantity += quantity;
     } else {
         deck.cards[cardId] = { card, quantity };
@@ -124,57 +124,52 @@ export async function getPageCard(page: number, cardsPerPage: number = 10) {
 //login : 
 export async function login(email: string, password: string) {
     if (email === "" || password === "") {
-        throw new Error("Email and password zijn nodig");
+        throw new Error("E-mail en wachtwoord zijn vereist.");
     }
-    let user : User | null = await usersCollection.findOne<User>({email: email});
+    let user: User | null = await usersCollection.findOne<User>({ email: email });
     if (user) {
         if (await bcrypt.compare(password, user.password!)) {
             return user;
         } else {
-            throw new Error("Password of email adress is faut");
+            throw new Error("Wachtwoord en/of e-mailadres is onjuist.");
         }
     } else {
         //dit is eigenlijk voor de user is niet gevonden : we houden het zo zodat we aan hackers niet duidelijk maken dat het wachtwoord fout was !!
-        throw new Error("Password of email adress is faut");
+        throw new Error("Wachtwoord en/of e-mailadres is onjuist.");
     }
 }
 
 
 //register :
 
-export async function register(email: string, password: string, repassword:string) {
+export async function register(email: string, password: string, repassword: string) {
     if (email === "" || password === "") {
-        throw new Error("Email and password zijn nodig");
+        throw new Error("E-mail en wachtwoord zijn vereist.");
     }
 
-    if(repassword !== password){
-        throw new Error("de wachtwoorden zijn niet gelijk")
+    if (repassword !== password) {
+        throw new Error("De wachtwoorden komen niet overeen.")
     }
 
-    if(password.length > 4){
-        throw new Error("de wachtwoord is te klein")
+    if (password.length < 4) {
+        throw new Error("Het wachtwoord is te kort. Gebruik minimaal 4 karakters.")
     }
 
     const existingUser = await findUserByEmail(email);
     if (existingUser) {
-        throw new Error("deze E-mail bestaat al");
+        throw new Error("Dit e-mailadres is al in gebruik.");
     }
 
-
-
-    
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    
+
     const newUser: User = {
         email: email,
         password: hashedPassword,
     };
-    
+
     const result = await usersCollection.insertOne(newUser);
     return result.insertedId;
 }
-
-
 
 export async function findUserByEmail(email: string): Promise<User | null> {
     return await usersCollection.findOne({ email });
@@ -183,15 +178,9 @@ export async function findUserByEmail(email: string): Promise<User | null> {
 export async function searchCards(query: string): Promise<Card[]> {
     return cardsCollection.find({ name: { $regex: query, $options: 'i' } }).toArray();
 }
-export async function findCardByName(name:string):Promise<Card | null>{
-    return await cardsCollection.findOne({name})
+export async function findCardByName(name: string): Promise<Card | null> {
+    return await cardsCollection.findOne({ name })
 }
-
-
-
-
-
-
 
 export async function loadCardsFromApi() {
     const cards: Card[] = await getAllCards();
@@ -206,11 +195,6 @@ export async function loadCardsFromApi() {
         await cardsCollection.insertMany(uniqueCards);
     }
 }
-
-
-
-
-
 
 
 //behandeling van de datbase connect - exit
@@ -229,7 +213,7 @@ export async function connect() {
         await loadCardsFromApi();
         console.log("Connected to database");
         process.on('SIGINT', exit);
-    } catch (error) { console.log('er is een error bij het inloggen: ' + error) }
+    } catch (error) { console.log('Er is een fout opgetreden bij het inloggen.' + error) }
 
 }
 

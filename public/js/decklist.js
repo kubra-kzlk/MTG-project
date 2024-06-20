@@ -20,7 +20,8 @@ const imageUrls = {
   achterkantvrouw: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvrouw.jpg", 
   achterkantvuurman: "https://raw.githubusercontent.com/Btiisseem/projectwpl/main/public/assets/images/achterkantvuurman.jpg", 
 };
-closePopupButton.addEventListener('click', () => {  // Toegevoegd 
+
+closePopupButton.addEventListener('click', () => {  
   popupContainer.classList.add('hidden'); 
 }); 
 
@@ -126,34 +127,47 @@ function selectUpdateImage(selectedUrl) {
 }
 
 updateSaveButton.addEventListener('click', async () => {
-    if (selectedDeckImage && updateDeckNameInput.value) {
+  if (selectedDeckImage && updateDeckNameInput.value) {
       const deckData = {
-        deckId: selectedDeckId,
-        name: updateDeckNameInput.value,
-        imageUrl: selectedDeckImage
+          deckId: selectedDeckId,
+          name: updateDeckNameInput.value,
+          imageUrl: selectedDeckImage
       };
 
       try {
-        const response = await fetch('/deckdetail/update', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(deckData)
-        });
-        if (response.ok) {
-          updatePopupContainer.classList.add('hidden');
-          location.reload();
-        } else {
-          const data = await response.json();
-          console.error(data.message);
-        }
+          const response = await fetch('/deckdetail/update', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(deckData)
+          });
+          if (response.ok) {
+              const confirmUpdate = confirm('Bevestig: "' + updateDeckNameInput.value + '" ?');
+              if (confirmUpdate) {
+                  updatePopupContainer.classList.add('hidden');
+                  location.reload();
+              }
+          } else {
+              const data = await response.json();
+              console.error(data.message);
+          }
       } catch (error) {
-        console.error(error);
+          console.error(error);
       }
-    } else {
+  } else {
       alert('Selecteer een afbeelding en voer een decknaam in.');
-    }
+  }
 });
+
 
 closeUpdatePopupButton.addEventListener('click', () => {
     updatePopupContainer.classList.add('hidden');
+});
+
+document.querySelectorAll('.delete-deck-btn-decklist').forEach(form => {
+  form.addEventListener('submit', function(event) {
+    const confirmation = confirm('Bent u zeker dat u deze deck wilt verwijderen?');
+    if (!confirmation) {
+      event.preventDefault(); 
+    }
+  });
 });

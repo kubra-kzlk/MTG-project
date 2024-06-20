@@ -1,81 +1,59 @@
 <%- include('./partials/header') %>
 
 <body>
-  <section  style="height: 5vh;  display: flex; justify-content: space-between; margin-top: 2vh; margin: 2em;">
+  <section style="display: flex; justify-content: space-between; margin-top: 2vh; margin: 2em;">
     <a href="/decklist" class="user-knopjes">Terug</a>
-    <a href="/main" class="user-knopjes" >Kaart toevoegen</a>
+    <a href="/main" class="user-knopjes">Kaart toevoegen</a>
   </section>
   <main class="decklist-body">
     <h2>Cards in Deck</h2>
     <% if (cards.length === 0) { %>
       <div style="font-size: larger; color: white; text-align: center">
-        <p>Geen kaarten, voeg kaarten aan deze </p>
+        <p>Geen kaarten, voeg kaarten toe aan deze deck </p>
         <br>
-        <a href="/main" class="user-knopjes">deck</a>
+      
       </div>
     <% } else { %>
       <ul class="cards-in-deck">
         <% cards.forEach(({ card, quantity }) => { %>
           <li>
             <p class="info-totaldeck"><%= quantity %> / 4</p>
-          
             <img class="card" src="<%= card.imageUrl %>" alt="<%= card.name %>">
             <div class="card-buttons">
-
-              
               <% if (quantity == 1) { %>
-                <form class="delete-btn-deckdetail" action="/deckdetail/delete-card" method="post">
+                <form class="delete-btn-deckdetail" action="/deckdetail/delete-card" method="post" onsubmit="return confirmAction('Verwijder deze kaart?')">
                   <input type="hidden" name="deckId" value="<%= deck._id %>">
                   <input type="hidden" name="cardId" value="<%= card.name %>">
                   <button type="submit"><i class="fa fa-trash-o"></i></button>
                 </form>
-              <% } else{%>
-                <form class="minus-btn-deckdetail" action="/deckdetail/update-card" method="post">
+              <% } else { %>
+                <form class="minus-btn-deckdetail" action="/deckdetail/update-card" method="post" onsubmit="return confirmAction('Verminder deze kaart met 1?')">
                   <input type="hidden" name="deckId" value="<%= deck._id %>">
                   <input type="hidden" name="cardId" value="<%= card.name %>">
                   <input type="hidden" name="change" value="-1">
-                  <button  type="submit">- 1</button>
+                  <button type="submit">- 1</button>
                 </form>
-                <% } %>
-            
+              <% } %>
               <% if (quantity < 4) { %>
-                <form class="plus-btn-deckdetail" action="/deckdetail/update-card" method="post">
+                <form class="plus-btn-deckdetail" action="/deckdetail/update-card" method="post" onsubmit="return confirmAction('Voeg deze kaart toe met 1?')">
                   <input type="hidden" name="deckId" value="<%= deck._id %>">
                   <input type="hidden" name="cardId" value="<%= card.name %>">
                   <input type="hidden" name="change" value="1">
-                  <button type="submit" <%= quantity >= 4 ? 'disabled class="disabled"' : '' %> >+ 1</button>
+                  <button type="submit">+ 1</button>
                 </form>
               <% } %>
             </div>
           </li>
         <% }); %>
       </ul>
-      
     <% } %>
-    <section class="pagination">
-      <% if (currentPage > 1) { %>
-        <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage - 1 %>">&larr;</a>
-      <% } %>
-      <% if (currentPage > 3) { %>
-        <a href="/deckdetail?id=<%= deck._id %>&p=1"><%= 1 %></a>
-        <span>...</span>
-      <% } %>
-      <% for (let i = currentPage - 2; i <= currentPage + 2; i++) { %>
-        <% if (i > 0 && i <= totalPages) { %>
-          <a class="<%= i === currentPage ? 'active' : '' %>" href="/deckdetail?id=<%= deck._id %>&p=<%= i %>"><%= i %></a>
-        <% } %>
-      <% } %>
-      <% if (currentPage < totalPages - 2) { %>
-        <span>...</span>
-      <% } %>
-      <% if (currentPage < totalPages - 1) { %>
-        <a href="/deckdetail?id=<%= deck._id %>&p=<%= totalPages %>"><%= totalPages %></a>
-      <% } %>
-      <% if (currentPage < totalPages) { %>
-        <a href="/deckdetail?id=<%= deck._id %>&p=<%= currentPage + 1 %>">&rarr;</a>
-      <% } %>
-    </section>
+
   </main>
+<script>
+function confirmAction(message) {
+    return confirm(message);
+}
+</script>
 </body>
 
 <%- include('./partials/footer') %>

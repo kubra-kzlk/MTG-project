@@ -16,7 +16,6 @@ main {
   min-height: 90vh;
   position: relative;
 }
-
 .indexTitle {
   text-align: center;
   padding: 1%;
@@ -26,15 +25,28 @@ main {
   text-transform: uppercase;
 }
 
-/* index/start pag bg color */
 .landing_body {
   background-color: black;
 }
+.header-container {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 0 20px; 
+  max-width: 100%;
+}
+
+.header-left, .header-right {
+  flex: 0 0 auto; 
+}
+
+.header-nav {
+  flex: 1 1 auto; 
+  text-align: center; 
+}
 
 #logo {
-  display: flex;
-  position: relative;
-  left: 15px;
+  display: block;
   width: 80px;
 }
 
@@ -42,16 +54,17 @@ header {
   box-shadow: 0 10px 10px rgba(128, 0, 128, 0.8);
   background-color: black;
   position: sticky;
+  top: 0;
   width: 100%;
   z-index: 10;
-  top: 0;
 }
 
 header nav ul {
   display: flex;
   justify-content: center;
-  position: relative;
-  bottom: 2.5rem;
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
 }
 
 header nav ul li {
@@ -59,24 +72,18 @@ header nav ul li {
 }
 
 header nav ul li a {
-  border-radius: 1em;
   color: #ffffff;
   padding: 10px;
   border-radius: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: letter-spacing 0.2s, color 0.2s;
 }
 
 header nav ul li.active a {
   background-color: purple;
   border: solid white 2px;
-  color: white;
-}
-
-nav a {
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin: 4rem 1.5rem 0 0;
-  transition: letter-spacing 0.2s, color 0.2s;
 }
 
 nav a:hover {
@@ -84,7 +91,26 @@ nav a:hover {
   transform: translateY(2px);
   border: solid white 2px;
 }
-.logoutLink {}
+.logout-form {
+  display: flex;
+  align-items: center;
+  margin-right: 50px; 
+}
+
+
+#logoutButton {
+  padding: 5px 10px;
+  background-color: purple;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#logoutButton:hover {
+  background-color: magenta;
+}
+
 
 /* Hamburger menu */
 .hamburger {
@@ -100,13 +126,15 @@ nav a:hover {
   z-index: 1000;
 }
 
+.logout-formMobile {
+  text-align: center;
+}
 .nav-menu {
   position: fixed;
   display: none;
   height: 100%;
   top: 0;
   right: 0;
-  /* backdrop-filter: blur(30px); */
   background-color: black;
   overflow-x: hidden;
   transition: left 0.3s ease;
@@ -127,13 +155,8 @@ nav a:hover {
   width: 100%;
 }
 
-.nav-menu a:hover {
-  color: #f1f1f1;
-}
-
 .nav-menu.open {
   display: block;
-
 }
 
 /* einde hamburger menu */
@@ -159,8 +182,6 @@ nav a:hover {
 .mythic-border {
   border-color: red;
 }
-
-
 
 .main_deckcheck {
   display: none;
@@ -265,32 +286,6 @@ nav a:hover {
   border: 6px solid rgba(255, 0, 0, 1);
   box-shadow: 0 0 10px 4px rgba(255, 0, 0, 0.5);
 }
-
-.block_landing:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.block_landing:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.block_landing:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.block_landing:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.block_landing:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-.block_landing:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
-
 
 .header-btn:hover,
 .search-btn:hover {
@@ -440,13 +435,11 @@ nav a:hover {
   cursor: not-allowed;
 }
 
-
 .search-box {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
-
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -454,7 +447,7 @@ nav a:hover {
   display: flex;
   align-items: center;
 }
-.btn-main-info{
+.btn-main-info, .info-toggle-btn{
   color: white;
   background-color: purple;
   border: solid white 2px;
@@ -514,79 +507,6 @@ nav a:hover {
 
 .image:hover {
   transform: scale(1.05);
-}
-
-.image img[src="./assets/images/saruman-of-many-colors-store-championship-foil-85280.jpg"],
-[src="./assets/images/brimaz-king-of-oreskos-born-of-the-gods-88867.jpg"],
-[src="./assets/images/animar-soul-of-elements-50772 (1).jpg"],
-[src="./assets/images/selvala-heart-of-the-wilds-76483.jpg"],
-[src="./assets/images/razaketh-the-foulblooded-70322.jpg"],
-[src="./assets/images/morophon-the-boundless-26736.jpg"],
-[src="./assets/images/kiki-jiki-mirror-breaker-modern-masters-2015-71805.jpg"],
-[src="./assets/images/the_ur_dragon.jpg"],
-[src="./assets/images/lord-of-the-nazgul-39803.jpg"] {
-  border: 2px solid red;
-}
-
-.image img[src="./assets/images/zellix-sanity-flayer-extended-art-18246.jpg"],
-[src="./assets/images/baeloth-barrityl-entertainer-extended-art-73305.jpg"],
-[src="./assets/images/the-gaffer-32110.jpg"],
-[src="./assets/images/arwen_weaver_of_hope.jpg"],
-[src="./assets/images/Test 8.jpg"],
-[src="./assets/images/Test 5.jpg"] {
-  border: 2px solid white;
-}
-
-.image img[src="./assets/images/mikaeus-the-unhallowed-42930.jpg"],
-[src="./assets/images/greensleeves_maro_sorcerer_dominaria_united_commander.jpg"],
-[src="./assets/images/urza-lord-protector-76778.jpg"],
-[src="./assets/images/Test 6.jpg"],
-[src="./assets/images/test 4.jpg"],
-[src="./assets/images/Test 3.jpg"] {
-  border: 2px solid blue;
-}
-
-.image img[src="./assets/images/syr-konrad-the-grim-87113.jpg"],
-[src="./assets/images/mishra-claimed-by-gix-16597.jpg"],
-[src="./assets/images/sakashima-the-impostor-64139.jpg"],
-[src="./assets/images/mangara-the-diplomat-30594.jpg"],
-[src="./assets/images/marrow_gnawer_foil.jpg"],
-[src="./assets/images/questing-beast-throne-of-eldraine-11267.jpg"],
-[src="./assets/images/Test 10.jpg"],
-[src="./assets/images/Test 2.jpg"],
-[src="./assets/images/Test.jpg"] {
-  border: 2px solid yellow;
-}
-
-#legend {
-  margin: 10px auto;
-  padding: 5px;
-  width: 30%;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: black;
-}
-
-#legend h2 {
-  text-align: center;
-  color: white;
-  margin-top: 0;
-  margin-bottom: 5px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-#legend ul {
-  list-style: none;
-  padding: 0;
-}
-
-#legend li {
-  margin-bottom: 3px;
-  padding: 3px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: #fff;
 }
 
 .pagination {
@@ -725,11 +645,8 @@ select,
 .detail-info-container {
   margin: 20px;
   padding: 2px 6px;
-  /* Kleinere padding */
   margin: 3px 0;
-  /* Kleinere marges */
   border-radius: 2px;
-  /* Kleinere border-radius */
 }
 
 .add-button {
@@ -740,7 +657,6 @@ select,
   border-radius: 5px;
   cursor: pointer;
 }
-
 .user-knopjes {
   color: white;
   text-decoration: none;
@@ -757,6 +673,7 @@ select,
   background-image: linear-gradient(to right, #6e48aa, #9d50bb);
   transform: translateY(2px);
 }
+
 
 /*DECK DETAIL*/
 .deck-detail-content {
@@ -869,13 +786,6 @@ select,
   margin-bottom: 20px;
 }
 
-/* .error-message {
-  color: red;
-  font-weight: bold;
-  display: none;
-  margin-top: 20px;
-} */
-
 .login-link {
   color: white;
   text-align: center;
@@ -928,10 +838,7 @@ button[type="submit"] {
   padding: 10px;
 }
 
-button:hover {
-  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
-  transform: translateY(2px);
-}
+
 
 .delete-deck-btn-decklist button[type="submit"] {
   margin: 0;
@@ -940,7 +847,6 @@ button:hover {
   border-radius: 0;
   border-radius: 1em;
   background-color: darkred;
-
   color: white;
 }
 
@@ -1052,8 +958,6 @@ button:hover {
   margin: 5px;
 }
 
-
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1087,8 +991,6 @@ button:hover {
     height: auto;
   }
 
-
-
 }
 
 @media only screen and (max-width: 768px) {
@@ -1099,7 +1001,9 @@ button:hover {
   header nav {
     display: none;
   }
-
+ .logout-formDestkop{
+  display: none;
+}
   .nav-menu.open {
     display: block;
   }
@@ -1118,7 +1022,6 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
   }
-
 
   .landingpage_container {
     row-gap: 40px;
@@ -1174,7 +1077,6 @@ button:hover {
 
   .go-up-btn {
     display: none;
-    /* Initially hidden */
   }
 }
 
@@ -1234,7 +1136,6 @@ button:hover {
     width: 250px;
   }
   
-
 }
 
 /* Voor schermen van 768px en groter */
@@ -1280,8 +1181,6 @@ button:hover {
 
 }
 
-
-
 /**detailpage**/
 .modal {
   height: 35vh;
@@ -1302,9 +1201,6 @@ button:hover {
   height: 250px;
 }
 
-
-
-/***index css**/
 .draw-cards-decks {
   display: flex;
   align-items: center;
@@ -1447,37 +1343,57 @@ button:hover {
   }
 }
 
-/* Hier is wat css bijgekomen later zal ik ze ordelijker plaatsen.
-  (Ik wil ze momenteel niet mengen met andere code. */
-
-
-
-
-
 .no-access-popup {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
-  border: 2px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  max-width: 400px;
+  width: calc(100% - 40px);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  transition: all 0.3s ease-in-out;
 }
 
 .no-access-popup-content {
   position: relative;
+  text-align: center;
 }
 
 .no-access-popup-close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: #e74c3c;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
   cursor: pointer;
 }
 
-/*____________________________________________________*/
+.no-access-popup h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.no-access-popup p {
+  font-size: 16px;
+  color: #666;
+}
+
+
 #popup-container {
   position: fixed;
   top: 50%;
@@ -1666,7 +1582,6 @@ button:hover {
   color: #333;
 }
 
-
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1722,8 +1637,6 @@ button:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-
-
 .cards-in-deck {
   width: 95vw;
   display: flex;
@@ -1757,12 +1670,14 @@ button:hover {
   height: auto;
   border: solid white 2px;
 }
+
 .plus-btn-deckdetail button{
   width: 60px;
   height: auto;
   border: solid white 2px;
   margin-left: 1.4em;
 }
+
 .delete-btn-deckdetail button{
   width: 60px;
   height: auto;
@@ -1770,10 +1685,10 @@ button:hover {
 
   border: solid red 2px;
 }
+
 .fa{
   font-size: larger;
 }
-
 
 .container {
   padding: 10px;
@@ -2102,3 +2017,223 @@ form.registration button:hover {
   font-weight: bold;
   text-align: center;
 }
+
+.cardinfo-main {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 16px;
+  padding-top: 20%;
+}
+
+.card-info {
+  margin: 0;
+  line-height: 1.5;
+  border: 1px solid white;
+  padding: 16px;
+  position: relative;
+}
+
+.card-name,
+.card-rarity,
+.card-type,
+.card-text,
+.card-power-toughness,
+.card-artist {
+  margin: 0;
+}
+
+.card-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.card-rarity {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.card-type {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #888;
+}
+
+.card-text {
+  white-space: pre-wrap;
+  margin-bottom: 16px;
+}
+
+.card-power-toughness {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.card-artist {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.back-button-container {
+  width: 100%;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: black;
+  margin-left: 10VW;
+  padding-top: 2em;
+}
+
+.back-button-cardinfo {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: solid white 2px;
+  padding: 10px;
+  background-color: purple;
+  border-radius: 1em;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.back-button-cardinfo:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+}
+
+.add-card-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.deck-select {
+  margin-right: 8px;
+  padding: 8px;
+}
+
+.add-card-btn {
+  padding: 10px;
+  border: solid white 2px;
+  color: white;
+  cursor: pointer;
+  background-color: purple;
+  border-radius: 1em;
+  font-size: 14px;
+}
+
+.add-card-btn:hover {
+  background-image: linear-gradient(to right, #6e48aa, #9d50bb);
+  transform: translateY(2px);
+}
+
+.card-count {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .card-image {
+    width: 40%;
+    height: 200px;
+  }
+
+  .card-name {
+    font-size: 1.3rem;
+  }
+
+  .card-name,
+  .card-rarity,
+  .card-type,
+  .card-text,
+  .card-power-toughness {
+    margin: 10px;
+  }
+
+  .card-info {
+    border: none;
+    border-top: white 4px solid;
+  }
+}
+
+.body404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #2c3e50;
+}
+
+.error404 {
+  text-align: center;
+}
+
+.h1404 {
+  font-size: 10rem;
+  margin: 0;
+  color: #3498db;
+  animation: float 3s ease-in-out infinite;
+}
+
+.p404 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.link404 {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: #3498db;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.link404:hover {
+  background: #2980b9;
+}
+
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+

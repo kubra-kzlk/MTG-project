@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <%- include('./head') %>
-
-  <body>
-    <header>
-      <a href="/main"> <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" /></a>
-      <nav id="navbar">
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <a href="/main">
+          <img id="logo" src="./assets/images/LogoMuskNite.png" alt="Logo" />
+        </a>
+      </div>
+      <nav id="navbar" class="header-nav">
         <ul>
           <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/main">Home</a></li>
           <li class="<%= activePage === 'decklist' ? 'active' : '' %>"><a href="/decklist">Deck</a></li>
           <li class="<%= activePage === 'draw' ? 'active' : '' %>"><a href="/overview">+Draw</a></li>
-          <form action="/logout" method="post">
-            <button type="submit">UITLOGGEN</button>
-          </form>
         </ul>
       </nav>
-      <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
-
-      <nav id="nav-menu" class="nav-menu">
-        <ul>
-          <li><a href="/main">HOME</a></li>
-        </ul>
-        <ul>
-          <li><a href="/decklist">Deck</a></li>
-        </ul>
-        <ul>
-          <li><a href="/overview">Draw +</a></li>
-        </ul>
-        <ul>
-          <li><a href="/login">UITLOGGEN</a></li>
-        </ul>
-      </nav>
-    </header>
+      <div class="header-right">
+        <form action="/logout" method="post" id="logoutForm" class="logout-formDestkop">
+          <button type="logout" id="logoutButton">UITLOGGEN</button>
+        </form>
+      </div>
+    </div>
+    <button id="hamburger" aria-label="Open navigation menu" class="hamburger">&#9776;</button>
+    <nav id="nav-menu" class="nav-menu">
+      <ul>
+        <li><a href="/main">HOME</a></li>
+      </ul>
+      <ul>
+        <li><a href="/decklist">Deck</a></li>
+      </ul>
+      <ul>
+        <li><a href="/overview">Draw +</a></li>
+      </ul>
+      <form action="/logout" method="post" id="logoutForm" class="logout-formMobile">
+        <button type="logout" id="logoutButton">UITLOGGEN</button>
+      </form>
+    </nav>
+  </header>
+</body>
+</html>

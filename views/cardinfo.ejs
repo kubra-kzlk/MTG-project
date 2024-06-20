@@ -1,185 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <title>Card Details</title>
-  <style>
-    .cardinfo-main {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    .card-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding-top: 50px;
-    }
-
-    .card-image {
-      width: 100%;
-      max-width: 300px;
-      margin-bottom: 16px;
-      padding-top: 20%;
-    }
-
-    .card-info {
-      margin: 0;
-      line-height: 1.5;
-      border: 1px solid white;
-      padding: 16px;
-      position: relative;
-    }
-
-    .card-name,
-    .card-rarity,
-    .card-type,
-    .card-text,
-    .card-power-toughness,
-    .card-artist {
-      margin: 0;
-    }
-
-    .card-name {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .card-rarity {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-
-    .card-type {
-      font-size: 1rem;
-      margin-bottom: 16px;
-      color: #888;
-    }
-
-    .card-text {
-      white-space: pre-wrap;
-      margin-bottom: 16px;
-    }
-
-    .card-power-toughness {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-
-    .card-artist {
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 16px;
-    }
-
-    .back-button-container {
-      width: 100%;
-      text-align: left;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      background-color: black;
-      margin-left: 10VW;
-      padding-top: 2em;
-    }
-
-    .back-button-cardinfo {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      border: solid white 2px;
-      padding: 10px;
-      background-color: purple;
-      border-radius: 1em;
-      z-index: 2;
-      cursor: pointer;
-    }
-
-    .back-button-cardinfo:hover {
-      background-image: linear-gradient(to right, #6e48aa, #9d50bb);
-      transform: translateY(2px);
-    }
-
-    .add-card-container {
-      margin-top: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .deck-select {
-      margin-right: 8px;
-      padding: 8px;
-    }
-
-    .add-card-btn {
-      padding: 10px;
-      border: solid white 2px;
-      color: white;
-      cursor: pointer;
-      background-color: purple;
-      border-radius: 1em;
-      font-size: 14px;
-    }
-
-    .add-card-btn:hover {
-      background-image: linear-gradient(to right, #6e48aa, #9d50bb);
-      transform: translateY(2px);
-    }
-
-    .card-count {
-      margin-top: 8px;
-      font-size: 1rem;
-    }
-
-    .disabled {
-      background-color: grey;
-      cursor: not-allowed;
-    }
-
-
-    @media (max-width: 700px) {
-      .card-image {
-        width: 40%;
-        height: 200px;
-      }
-
-      .card-name {
-        font-size: 1.3rem;
-      }
-
-      .card-name,
-      .card-rarity,
-      .card-type,
-      .card-text,
-      .card-power-toughness {
-        margin: 10px;
-      }
-
-      .card-info {
-        border: none;
-        border-top: white 4px solid;
-      }
-
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="cardinfo-main">
   <div class="back-button-container">
-
-    <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button-cardinfo">Back</a>
+    <a href="<%= `/main?p=${p}&searchedCards=${searchedCards}` %>" class="back-button-cardinfo">Terug</a>
   </div>
   <div class="card-container">
     <img class="card-image" src="<%= card.imageUrl %>" alt="<%= card.name %>" />
@@ -199,7 +30,6 @@
       <p class="card-power-toughness">
         <%= card.power + " power" || '' %> / <%= card.toughness + " mana cost" || '' %>
       </p>
-
       <div class="add-card-container">
         <form id="add-card-form" action="/cardinfo/add-to-deck" method="post">
           <input type="hidden" name="cardName" value="<%= card.name %>">
@@ -209,7 +39,7 @@
               <option value="<%= deck._id %>" data-card-count="<%= deck.cardCount %>">
                 <%= deck.name %>
               </option>
-              <% }); %>
+            <% }); %>
           </select>
           <button type="submit" id="add-card-btn" class="add-card-btn">Toevoegen</button>
         </form>
@@ -238,7 +68,18 @@
 
     deckSelect.addEventListener('change', updateCardCount);
     window.addEventListener('load', updateCardCount);
+
+ 
+    addCardButton.addEventListener('click', (event) => {
+      event.preventDefault(); 
+
+      const confirmed = confirm('Bent u zeker dat u deze kaart wilt toevoegen?');
+      if (confirmed) {
+    
+        document.getElementById('add-card-form').submit();
+      }
+    });
   </script>
 </body>
-
 </html>
+<%- include('./partials/footer') %>
